@@ -1,0 +1,42 @@
+
+- var $templateName = '';
+- var $templateClass = '';
+- var $storeNameUpper = 'TheBar';
+- var $storeNameLower = 'the-bar';
+
+block vars
+
+doctype
+html(xmlns='http://www.w3.org/1999/xhtml', xmlns:vtex='http://www.vtex.com.br/2009/vtex-common', xmlns:vtex.cmc='http://www.vtex.com.br/2009/vtex-commerce', lang='pt-br')
+    head
+        vtex:template(id=`${$storeNameUpper}Common-ResourceHints`)/
+        vtex:template(id=`${$storeNameUpper}Common-Head`)/
+        //- SEO
+        vtex:metaTags/
+        vtex:template(id=`${$storeNameUpper}Common-JsonLd`)/
+
+        //- Styles
+        block styles
+            vtex:template(id=`${$storeNameUpper}Common-Styles`)/
+        //- Theme Styles/Scripts
+        vtex:template(id=`${$storeNameUpper}Common-ThemeStyles`)/
+        vtex:template(id=`${$storeNameUpper}Common-ThemeScripts`)/
+
+        block themeScripts
+        block richSnippetsHead
+
+    body
+
+        vtex:template(id=`${$storeNameUpper}Common-Header`)/
+    
+
+        //- Main Content
+        main(role='main', class=`x-${$templateClass}__main`)
+            block content
+
+        //- Footer
+        block footer
+
+        //- Scripts
+        block scripts
+
