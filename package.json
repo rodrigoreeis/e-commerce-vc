@@ -4,12 +4,11 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -rf ./dist",
-    "start": "npm run clean && gulp"
+    "start": "gulp && gulp watch"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://bitbucket.org/corebiz_ag/vult-cosmeticos/src/master/"
   },
   "author": {
     "name": "Rodrigo Reis",
@@ -18,6 +17,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "babel-eslint": "^10.0.1",
     "browser-sync": "^2.23.6",
     "del": "^4.1.1",
     "gulp": "^4.0.0",
@@ -25,7 +25,8 @@
     "gulp-concat": "^2.6.1",
     "gulp-pug": "^4.0.1",
     "gulp-sass": "^3.2.1",
-    "gulp-uglify": "^3.0.0"
+    "gulp-uglify": "^3.0.0",
+    "sass-rem": "^2.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
