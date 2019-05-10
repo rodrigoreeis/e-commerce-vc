@@ -1,6 +1,6 @@
 
 - var $templateName = '';
-- var $storeName = '';
+- var $storeNameUpper = 'Vult';
 - var $templateClass = 'brand';
 block vars
 
@@ -13,21 +13,21 @@ html(xmlns='http://www.w3.org/1999/xhtml', xmlns:vtex='http://www.vtex.com.br/20
         //- Styles
         block styles
         //- Theme Styles/Scripts
+        vtex:template(id=`${$storeNameUpper}Common-Styles`)/
 
-        block themeScripts
         block richSnippetsHead
 
     body
-
         vtex:template(id=`VultCommon-Header`)/
 
         //- Main Content
-        main(role='main', class=`vt-brand__main`)
+        main(role='main', class=`vt-${$templateClass}__main`)
             block content
 
         //- Footer
         block footer
+        vtex:template(id=`VultCommon-footer`)/
 
         //- Scripts
         block scripts
-
+        vtex:template(id=`${$storeNameUpper}Common-Scripts`)/

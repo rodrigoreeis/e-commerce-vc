@@ -1,3 +1,8 @@
 body{
    @extend %flex-centered;
 }
+
+p {
+   @include rem(font-size, 18px);
+   @extend %flex-centered;
+}
