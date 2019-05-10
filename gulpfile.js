@@ -60,10 +60,17 @@ function scripts() {
     .pipe(gulp.dest(paths.scripts.dest));
 }
 
+<<<<<<< HEAD
 function watch() {
   gulp.watch(paths.styles.srcWatch, styles);
   gulp.watch(paths.scripts.srcWatch, scripts);
   gulp.watch(paths.htmls.src, htmls);
+=======
+function watch(){
+    gulp.watch(paths.styles.srcWatch, styles);
+    gulp.watch(paths.scripts.srcWatch, scripts);
+    gulp.watch("src/views/common/**/*.pug", htmls)
+>>>>>>> 1906b4e02a4ba76069cf5f3587da15a8f99cbf6f
 }
 
 
