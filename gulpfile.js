@@ -1,68 +1,69 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
-const babel = require('gulp-babel')
+const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 const del = require('del');
-const browserify = require('gulp-browserify')
-const babelify = require('babelify')
-const pug = require('gulp-pug')
+const browserify = require('gulp-browserify');
+// eslint-disable-next-line no-unused-vars
+const babelify = require('babelify');
+const pug = require('gulp-pug');
 
 const paths = {
-    styles: {
-        src: "src/assets/scss/common/*.scss",
-        dest: "./dist/assets/css",
-        srcWatch: "src/assets/scss/**/*.scss"
-    },
-    scripts: {
-        src: "src/assets/js/common/*.js",
-        dest: "./dist/assets/js",
-        srcWatch: "src/assets/**/*.js"
-    },
-    htmls: {
-        src: "src/views/common/**/*.pug",
-        dest: "./dist/views/html"
-    }
+  styles: {
+    src: 'src/assets/scss/common/*.scss',
+    dest: './dist/assets/css',
+    srcWatch: 'src/assets/scss/**/*.scss',
+  },
+  scripts: {
+    src: 'src/assets/js/common/*.js',
+    dest: './dist/assets/js',
+    srcWatch: 'src/assets/**/*.js',
+  },
+  htmls: {
+    src: 'src/views/common/**/*.pug',
+    dest: './dist/views/html',
+  },
 };
 
-function clean(){
-    return del(['dist'])
+function clean() {
+  return del(['dist']);
 }
-function htmls(){
-    return gulp.src([
-        paths.htmls.src,
-        "!src/views/common/_layouts/*.pug",
-        "!src/views/common/_partials/*.pug"
-    ])
+function htmls() {
+  return gulp.src([
+    paths.htmls.src,
+    '!src/views/common/_layouts/*.pug',
+    '!src/views/common/_partials/*.pug',
+  ])
     .pipe(pug({
-        pretty: true
+      pretty: true,
     }))
-    .pipe(gulp.dest(paths.htmls.dest))
+    .pipe(gulp.dest(paths.htmls.dest));
 }
-function styles(){
-    return gulp.src(paths.styles.src)
+function styles() {
+  return gulp.src(paths.styles.src)
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(autoprefixer({
-        browsers: ['last 10 versions'],
-        cascade: false
+      browsers: ['last 10 versions'],
+      cascade: false,
     }))
-    .pipe(gulp.dest(paths.styles.dest))
+    .pipe(gulp.dest(paths.styles.dest));
 }
 
-function scripts(){
-    return gulp.src(paths.scripts.src)
+function scripts() {
+  return gulp.src(paths.scripts.src)
     .pipe(babel())
     .pipe(browserify({
-        transform: ['babelify'],
-      }))
+      transform: ['babelify'],
+    }))
     .pipe(uglify())
-    .pipe(gulp.dest(paths.scripts.dest))
+    .pipe(gulp.dest(paths.scripts.dest));
 }
 
-function watch(){
-    gulp.watch(paths.scripts.srcWatch, styles);
-    gulp.watch(paths.scripts.srcWatch, scripts);
-    gulp.watch("src/views/common/**/*.pug", htmls)
+function watch() {
+  gulp.watch(paths.styles.srcWatch, styles);
+  gulp.watch(paths.scripts.srcWatch, scripts);
+  gulp.watch(paths.htmls.src, htmls);
 }
 
 

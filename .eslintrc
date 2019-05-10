@@ -13,12 +13,13 @@
           "commonjs": true,
           "embertest": true,
           "es6": true,
-          "node": true
+          "node": false
         },
         "extends": "google",
         "rules": {
           "max-len": "off",
           "require-jsdoc": "off",
-          "valid-jsdoc": "off"
+          "valid-jsdoc": "off",
+          "indent": ["error", 2]
         }
       }

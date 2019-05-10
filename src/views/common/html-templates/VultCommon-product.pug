@@ -1,0 +1,17 @@
+include ../_layouts/_common-base.pug
+
+//- Template variables
+block vars
+    - var $templateName = 'product';
+    - var $storeName = 'VultCommon';
+//- Page styles
+block append styles
+    link(rel='stylesheet', href=`/arquivos/${$storeName}-${$templateName}.css`, media='all')/
+
+//- Main Content
+block content
+    
+
+//- Page scripts
+block append scripts
+    script(type='text/javascript', src=`/arquivos/${$storeName}-${$templateName}.js`)

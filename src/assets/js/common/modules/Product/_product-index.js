@@ -1,8 +1,8 @@
-import product from "./_product-main";
+import product from './_product-main';
 
 export default {
-    init() {
-        product.init();
-    },
+  init() {
+    product.init();
+  },
 
 };
