@@ -1,41 +1,20 @@
-@mixin breakpoint($point, $value: 0) {
-    @if $point==mobile {
-        @media only screen and (min-width: 100px) and (max-width: 767px) {
-            @content;
-        }
+@mixin breakpoint($breakpoint) {
+    @if $breakpoint == spm {
+        @media (max-width: $breakpoint-super-small) { @content; }
     }
-    @else if $point==tablet {
-        @media only screen and (min-width: 768px) and (max-width: 1080px) {
-            @content;
-        }
+    @if $breakpoint == sm {
+      @media (max-width: $breakpoint-small) { @content; }
     }
-    @else if $point==desktop {
-        @media only screen and (min-width: 1081px) and (max-width: 5000px) {
-            @content;
-        }
+   
+    @else if $breakpoint == md {
+      @media (min-width: $breakpoint-medium) { @content; }
     }
-    @else if $point==bigdesktop {
-        @media only screen and (min-width: 1200px) and (max-width: 5000px) {
-            @content;
-        }
+   
+    @else if $breakpoint == lg {
+      @media (min-width: $breakpoint-large) { @content; }
     }
+   
     @else {
-        @media only screen and ($point: $value) {
-            @content;
-        }
+      @warn "The breakpoint mixin only supports 'sm', 'md' and 'lg'";
     }
-}
-
-@mixin between-breakpoints($min, $max) {
-    @media (min-width: $min) and (max-width: $max) {
-        @content;
-    }
-}
-
-/*
-*
-* @include breakpoint("mobile"){
-    CODE
-}
-*
-/*/
+  }

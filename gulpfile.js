@@ -60,7 +60,7 @@ function scripts(){
 }
 
 function watch(){
-    gulp.watch(paths.scripts.srcWatch, styles);
+    gulp.watch(paths.styles.srcWatch, styles);
     gulp.watch(paths.scripts.srcWatch, scripts);
     gulp.watch("src/views/common/**/*.pug", htmls)
 }
