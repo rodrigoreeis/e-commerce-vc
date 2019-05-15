@@ -8,6 +8,7 @@ const browserify = require('gulp-browserify');
 // eslint-disable-next-line no-unused-vars
 const babelify = require('babelify');
 const pug = require('gulp-pug');
+const imagemin = require('gulp-imagemin');
 
 const paths = {
   styles: {
@@ -24,11 +25,22 @@ const paths = {
     src: 'src/views/common/**/*.pug',
     dest: './dist/views/html',
   },
+  images: {
+    src: 'src/assets/img',
+    dest: 'dist/assets',
+  },
 };
 
 function clean() {
   return del(['dist']);
 }
+
+function images() {
+  return gulp.src(paths.images.src)
+    .pipe(imagemin())
+    .pipe(gulp.dest(paths.images.dest));
+}
+
 function htmls() {
   return gulp.src([
     paths.htmls.src,
@@ -64,12 +76,14 @@ function watch() {
   gulp.watch(paths.styles.srcWatch, styles);
   gulp.watch(paths.scripts.srcWatch, scripts);
   gulp.watch('src/views/common/**/*.pug', htmls);
+  gulp.watch(paths.images.src, images);
 }
 
 
-const build = gulp.series(clean, gulp.parallel(styles, scripts, htmls));
+const build = gulp.series(clean, gulp.parallel(styles, scripts, htmls, images));
 
 exports.clean = clean;
+exports.images = images;
 exports.styles = styles;
 exports.scripts = scripts;
 exports.htmls = htmls;
