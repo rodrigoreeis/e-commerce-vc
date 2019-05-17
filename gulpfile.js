@@ -72,6 +72,13 @@ function scripts() {
     .pipe(gulp.dest(paths.scripts.dest));
 }
 
+function pluginsJs() {
+  return gulp.src(
+    ['node_modules/vtex-lazyload/dist/*.js']
+  )
+    .pipe(gulp.dest(paths.scripts.dest));
+}
+
 function watch() {
   gulp.watch(paths.styles.srcWatch, styles);
   gulp.watch(paths.scripts.srcWatch, scripts);
@@ -80,8 +87,9 @@ function watch() {
 }
 
 
-const build = gulp.series(clean, gulp.parallel(styles, scripts, htmls, images));
+const build = gulp.series(clean, gulp.parallel(styles, scripts, htmls, images, pluginsJs));
 
+exports.pluginsJs = pluginsJs;
 exports.clean = clean;
 exports.images = images;
 exports.styles = styles;
