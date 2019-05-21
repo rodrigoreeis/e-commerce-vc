@@ -14,7 +14,7 @@ const Methods = {
         console.log('bar', error.message);
       });
   },
-};
+}; 
 export default {
   init: Methods.init,
 };

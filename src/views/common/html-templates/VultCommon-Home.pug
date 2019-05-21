@@ -1,0 +1,16 @@
+extends ../_layouts/VultCommon-base.pug
+
+//- Template variables
+block vars
+    - var $templateName = 'Home';
+    - var $storeName = 'VultCommon';
+//- Page styles
+block append styles
+    link(rel='stylesheet', href=`/arquivos/${$storeName}-${$templateName}.css`, media='all')/
+
+//- Main Content
+block content
+    
+block append scripts
+    script(type='text/javascript', src=`/arquivos/${$storeName}-${$templateName}.js`) 
+
