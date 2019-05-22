@@ -1,4 +1,4 @@
-// import geral from './modules/General/';
+import General from './modules/General/_global-init';
 
-// document.addEventListener('DOMContentLoaded', geral.init);
+document.addEventListener('DOMContentLoaded', General.init);
   

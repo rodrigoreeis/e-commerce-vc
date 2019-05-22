@@ -1,8 +1,8 @@
-import General from './_global-selector';
+import Modal from "./Modal/_modal-city";
 
 export default {
   init() {
-    General.init();
+    Modal.init();
   },
 
 };

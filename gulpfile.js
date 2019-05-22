@@ -5,7 +5,6 @@ const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 const del = require('del');
 const browserify = require('gulp-browserify');
-// eslint-disable-next-line no-unused-vars
 const babelify = require('babelify');
 const pug = require('gulp-pug');
 
