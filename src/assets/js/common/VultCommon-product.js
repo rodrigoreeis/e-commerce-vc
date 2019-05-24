@@ -1,3 +1,3 @@
-import geral from './modules/Product/_product-index';
+import Product from './modules/Product/_product-index';
 
-document.addEventListener('DOMContentLoaded', geral.init);
+document.addEventListener('DOMContentLoaded', Product.init);

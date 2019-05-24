@@ -1,0 +1,296 @@
+
+
+	/*if(typeof jQuery == 'undefined') {
+		var headTag = document.getElementsByTagName("head")[0];
+		var jqTag = document.createElement('script');
+			jqTag.type = 'text/javascript';
+			jqTag.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js';
+
+		headTag.appendChild(jqTag);
+	}*/
+
+	//jQuery.noConflict();
+
+	(function( $ ) {
+
+
+		var video;
+		jQuery('.YT-block').click(function(){
+			video = jQuery(this).attr('data-video');
+			video = '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/'+video+'?rel=0&autoplay=1" allowtransparency="true"></iframe>';
+			jQuery(this).hide().next().append(video);
+		});
+
+		/* Total do carrinho no topo*/
+		jQuery('#mini-cart').ADMAKEminiCart({
+			miniCartQtd : '#mini-cart-qty-admake',
+		});
+
+		jQuery('body').vtexReady();
+
+		//setTimeout(equalizer, 1500);
+
+		jQuery('img[usemap]').rwdImageMaps();
+
+		jQuery(window).resize(function(){
+			//equalizer();
+		});
+
+		jQuery('.cep-busca').find('a').attr('href', 'http://www.buscacep.correios.com.br/sistemas/buscacep/');
+
+		jQuery('body').on('click', ".modal-buy__close", function() {
+			jQuery.modal.close()
+		})
+
+
+		/*ABA CARACTERISTICAS*/
+		jQuery("#paiCaracteristicas").click(function () {
+		    jQuery(".Modo-de-usar, #video .Video, .Perguntas-Frequentes, .Caracteristicas-Tecnicas").hide();
+			jQuery(".Sobre-o-produto").show();
+		});
+
+		/*ABA MODO DE USAR*/
+		jQuery("#paiModoDeUsar").click(function () {
+		    jQuery(".Sobre-o-produto, #video .Video, .Perguntas-Frequentes, .Caracteristicas-Tecnicas").hide();
+			jQuery(".Modo-de-usar").show()
+		});
+
+		/*ABA VIDEO*/
+		jQuery("#paiVideo").click(function () {
+			jQuery(".Sobre-o-produto, .Modo-de-usar, .Perguntas-Frequentes, .Caracteristicas-Tecnicas").hide();
+			jQuery("#video .Video").show();
+		});
+
+		/*ABA PERGUNTAS FREQUENTES*/
+		jQuery("#paiPerguntasFrequentes").click(function () {
+		    jQuery(".Sobre-o-produto, .Modo-de-usar, #video .Video, .Caracteristicas-Tecnicas").hide();
+			jQuery(".Perguntas-Frequentes").show();
+		});
+
+		/*ABA CARACTERISTICAS TECNICAS*/
+		jQuery("#paiCaracteristicasTecnicas").click(function () {
+		    jQuery(".Sobre-o-produto, .Modo-de-usar, #video .Video, .Perguntas-Frequentes").hide();
+			jQuery(".Caracteristicas-Tecnicas").show();
+		});
+
+
+		if( !jQuery('body').hasClass('kitlook') ){
+			jQuery(".buy-in-page-button").on("click", function(a){
+				a.preventDefault(),
+
+				window.alert = function(){},
+
+				alert = function(){
+
+					vtexjs.checkout.getOrderForm()
+					.then(function(orderForm){
+
+						for(var k in orderForm.items){
+
+							if(vtxctx.skus ==  orderForm.items[k].id){
+
+								var item = orderForm.items[k];
+									item.index = k;
+							    	item.quantity = Number(jQuery('#tx_qtd_cr').val());
+
+							    return vtexjs.checkout.updateItems([item]);
+
+							}
+						}
+					})
+					.done(function(orderForm){
+						carrinhoUpdate();
+
+						jQuery("#modal-buy").modal();
+					});
+
+				}
+			})
+		}
+
+
+		/*
+		jQuery(document).on('click', '.add .btn', function(){
+			carrinhoUpdate();
+			jQuery("#modal-buy").modal();
+
+			return false;
+		});
+		*/
+
+		/* botÃƒÂ£o async */
+
+		// jQuery('.btn-add-buy-button-asynchronous, .buy-button').click(function(){
+		jQuery('.btn-add-buy-button-asynchronous').click(function(){
+
+			//if(!jQuery('body').hasClass('resultado-busca')){
+
+				setTimeout(carrinhoUpdate, 1500);
+
+				jQuery("#modal-buy").modal();
+
+				return false;
+			//}
+		});
+
+        var cl = false;
+
+         jQuery('.navbar-toggle').click(function(){
+            if(cl){
+                if( jQuery(".navbar-collapse").hasClass('in')){
+                     jQuery(".navbar-collapse").removeClass('in');
+                } else {
+                     jQuery(".navbar-collapse").addClass('in').delay(1000).css('height', 'auto');
+                }
+            } else {
+                cl = true;
+            }
+        });
+
+        jQuery(document).click(function (e) {
+            if (
+                jQuery(e.target).parents(".navbar-collapse").length === 0 &&
+                jQuery(e.target).parents(".navbar-header").length === 0 &&
+                !jQuery(e.target).hasClass('navbar-toggle')
+            ){
+                jQuery(".navbar-collapse").removeClass('in');
+            }
+        });
+
+
+		/* UPDATE NO CARRINHO */
+		jQuery(window).on('cartProductAdded.vtex', function(evt, orderForm){
+			carrinhoUpdate();
+		});
+
+		jQuery('.quantity-up, .quantity-down').on('click', function(event) {
+
+			var total, t = jQuery('#tx_qtd_cr');
+
+			if( jQuery(this).hasClass('quantity-up') ){
+				total = parseInt(t.val()) + 1;
+			} else {
+				total = parseInt(t.val()) - 1;
+				if (total == 0) {
+					total = 1;
+				}
+			}
+
+			t.val(total);
+
+			jQuery('.buy-in-page-quantity').val(total).trigger('change');
+
+			jQuery('.buy-in-page-button').prop('href', function(){
+				return this.href.replace(/qty=\d([0-9]{0,})/, "qty=" + total)
+			});
+
+
+			return false;
+		});
+
+		jQuery("body").on('click', '.header-carrinho', function(e){
+
+			if(jQuery(window).width() < 768) {
+				e.preventDefault();
+			}
+
+		});
+
+		jQuery(document).bind('DOMNodeInserted', function(e){
+
+			if( typeof e.target.id != 'undefined' || typeof e.target.class != 'undefined'){
+
+				if(e.target.id == 'TB_overlay'){
+					jQuery('#TB_overlay').html('<div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div>');
+				}
+
+				if( jQuery(e.target).hasClass('boxPopUp2') ){
+					jQuery('.boxPopUp2-overlay').html('<div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div>');
+					jQuery('.boxPopUp2.vtexsm-popupContent').prepend('<a class="boxPopUp2-close" href="javascript:void(0)" />')
+				}
+			} 
+		});
+
+		jQuery(document).on('click', '.boxPopUp2-close', function(){
+			jQuery('.boxPopUp2-overlay').trigger('click');
+			jQuery.modal.close();
+		});
+
+	})( jQuery );
+
+	function number_format(number, decimals, dec_point, thousands_sep) {
+
+		number = (number + '').replace(/[^0-9+\-Ee.]/g, '');
+	  	var n = !isFinite(+number) ? 0 : +number,
+		prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+		sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+		dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+		s = '',
+		toFixedFix = function(n, prec) {
+		  var k = Math.pow(10, prec);
+		  return '' + (Math.round(n * k) / k)
+			.toFixed(prec);
+		};
+	  // Fix for IE parseFloat(0.55).toFixed(0) = 0;
+	  s = (prec ? toFixedFix(n, prec) : '' + Math.round(n))
+		.split('.');
+	  if (s[0].length > 3) {
+		s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+	  }
+	  if ((s[1] || '')
+		.length < prec) {
+		s[1] = s[1] || '';
+		s[1] += new Array(prec - s[1].length + 1)
+		  .join('0');
+	  }
+	  return s.join(dec);
+	}
+
+	function carrinhoUpdate(){
+		var h = [];
+		var total = 0;
+		var itens = 0;
+
+		vtexjs.checkout.getOrderForm().done(function(orderForm){
+			jQuery('.mini-cart-itens').html('');
+
+			for(var k in orderForm.items){
+				var i = orderForm.items[k];
+
+				if(typeof i.id == 'undefined'){
+					continue;
+				}
+
+				total += i.price;
+				itens += i.quantity;
+
+				h.push('<div class="mini-cart-item item-'+ i.id +'">' +
+					'   <span class="imagem">' +
+					'       <a href="' + i.detailUrl + '" class="sku-imagem"><img src="' + i.imageUrl + '" alt="' + i.name + '"></a>' +
+					'   </span>' +
+					'   <span class="detalhes">' +
+					'       <p class="nome-produto">' + i.name + '</p>' +
+					'       <span class="qtd-valor">' +
+					'           <span class="qtd">' + i.quantity + 'x</span>' +
+					'           <span class="preco">' + i.formattedPrice + '</span>' +
+					'       </span>' +
+					'		<div class="item-remove"><a class="item-link-remove" data-id="'+ i.id +'" href="javascript:void(0);" title="remover"><i class="fa fa-remove item-remove-ico"></i></a></div>' +
+					'   </span>' +
+					'</div>');
+			}
+
+			jQuery('.mini-cart-itens').html( h.join('') );
+
+			if( total == 0 ) {
+				total = '0,00';
+			} else {
+				total = total.toString();
+				total = total.substring(0, total.length - 2) + ',' + total.substring(total.length - 2)
+			}
+
+			jQuery('#mini-cart-admake-total').html( 'R$ ' + total) ;
+			jQuery('#mini-cart-qty-admake, .mini-cart-qty-admake').html( itens );
+			$('.mini-cart-header').text(` ${itens} itens no carrinho `);
+
+		});
+	} 

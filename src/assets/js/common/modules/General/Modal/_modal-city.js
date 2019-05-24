@@ -7,7 +7,7 @@ const Methods = {
         if(!localStorage.cidade){
             Methods.modalPopUpCity();
         }
-        Methods.__geolocationState();
+        // Methods.__geolocationState();
     },
     modalPopUpCity() {
         $modalCity.formModalCity.addEventListener('submit', (ev) => {
