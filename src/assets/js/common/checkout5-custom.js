@@ -2,7 +2,7 @@ const Methods = {
     init(){
         Methods.cepValidation()
     },
-    cepValidation(){
+    cepValidation() {
         window.addEventListener("load", () => {
             const cepField = document.querySelector('#summary-postal-code');
             cepField.addEventListener('change', () => {
@@ -10,8 +10,8 @@ const Methods = {
                     const cepValue = cepField.value;
                     const country = 'BRA';
                     const address = {
-                        postalCode: cepValue,
-                        country: country
+                            postalCode: cepValue,
+                            country: country
                         }
                     vtexjs.checkout.getAddressInformation(address)
                         .then(function(result) {

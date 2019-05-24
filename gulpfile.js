@@ -8,7 +8,6 @@ const browserify = require('gulp-browserify');
 const babelify = require('babelify');
 const pug = require('gulp-pug');
 
-
 const paths = {
   styles: {
     src: 'src/assets/scss/common/*.scss',
@@ -53,7 +52,9 @@ function styles() {
 
 function scripts() {
   return gulp.src(paths.scripts.src)
-    .pipe(babel())
+    .pipe(babel({
+      presets: ["@babel/polyfill"]
+    }))
     .pipe(browserify({
       transform: ['babelify'],
     }))
