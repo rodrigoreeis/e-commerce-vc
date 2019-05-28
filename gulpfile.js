@@ -25,11 +25,11 @@ const paths = {
   }
 };
 
-function clean() {
+const clean = () => {
   return del(['dist']);
 }
 
-function htmls() {
+const htmls = () => {
   return gulp.src([
     paths.htmls.src,
     '!src/views/common/_layouts/*.pug',
@@ -40,7 +40,7 @@ function htmls() {
     }))
     .pipe(gulp.dest(paths.htmls.dest));
 }
-function styles() {
+const styles = () => {
   return gulp.src(paths.styles.src)
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(autoprefixer({
@@ -50,7 +50,7 @@ function styles() {
     .pipe(gulp.dest(paths.styles.dest));
 }
 
-function scripts() {
+const scripts = () => {
   return gulp.src(paths.scripts.src)
     .pipe(babel({
       presets: ["@babel/polyfill"]
@@ -62,14 +62,14 @@ function scripts() {
     .pipe(gulp.dest(paths.scripts.dest));
 }
 
-function pluginsJs() {
+const pluginsJs = () => {
   return gulp.src(
     ['node_modules/vtex-lazyload/dist/*.js']
   )
     .pipe(gulp.dest(paths.scripts.dest));
 }
 
-function watch() {
+const watch = () => {
   gulp.watch(paths.styles.srcWatch, styles);
   gulp.watch(paths.scripts.srcWatch, scripts);
   gulp.watch('src/views/common/**/*.pug', htmls);

@@ -28,7 +28,6 @@ const Methods = {
                 console.log("Estado selecionado!");
             })
     },
-
     __geolocationState(){
         $modalCity.geolocation.addEventListener('click', () => {
             const sucess = (position) => {

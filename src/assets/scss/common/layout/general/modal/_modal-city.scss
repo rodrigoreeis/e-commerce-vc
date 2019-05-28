@@ -1,0 +1,19 @@
+.rr-modal-overlay{
+	display: none !important;
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	z-index: 99999999;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.5);
+	@extend %flex-centered;
+	&.is--remove{
+		display: none !important;
+	}
+}
+
+
+.utmi_selector{
+	display: none;
+}
