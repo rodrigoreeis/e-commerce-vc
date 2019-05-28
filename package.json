@@ -28,6 +28,7 @@
     "gulp-pug": "^4.0.1",
     "gulp-sass": "^3.2.1",
     "gulp-uglify": "^3.0.0",
+    "promise-polyfill": "8.1.0",
     "sass-rem": "^2.0.1",
     "vtex-lazyload": "0.0.3",
     "whatwg-fetch": "^3.0.0"

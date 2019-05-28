@@ -1,3 +1,5 @@
+import "whatwg-fetch";
+
 const Methods = {
     init(){
         Methods.cepValidation()

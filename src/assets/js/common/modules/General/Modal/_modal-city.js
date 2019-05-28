@@ -13,9 +13,9 @@ const Methods = {
         $modalCity.formModalCity.addEventListener('submit', (ev) => {
             ev.preventDefault();
             console.log(ev);
-                localStorage.cidade = $modalCity.formModalCitySelect.value;
-                Methods._chekoutUpdateCity();
-                $modalCity.closeModal.classList.add('is--remove');
+            localStorage.cidade = $modalCity.formModalCitySelect.value;
+            Methods._chekoutUpdateCity();
+            $modalCity.closeModal.classList.add('is--remove');
         })
     },
     _chekoutUpdateCity(){
@@ -46,7 +46,7 @@ const Methods = {
                     });
             }
             const error = () => {
-                console.log('impossivel achar sua logicazao')
+                console.log('impossivel achar sua localizacao')
             }
             if(!navigator.geolocation) {
                 $modalCity.geolocation.style.display = "none";

@@ -13,7 +13,7 @@ const Methods = {
 				if(avaliableProduct == 0 || avaliableProduct == undefined) {
 					btnProduct.style.pointerEvents = 'none';
 					btnProduct.style.background = 'grey'
-					console.log('é zero');
+					console.log('é zeroeeee');
 				}
 			}).catch((error) => {
 				console.log('bar', error.message);
