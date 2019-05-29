@@ -2,7 +2,7 @@ const Methods = {
 	init() {
     	Methods.checkProductStock();
 	  },
-	  
+
   	checkProductStock() {
 		const _productId = skuJson_0.productId;
 		const btnProduct = document.querySelector('.buy-button');

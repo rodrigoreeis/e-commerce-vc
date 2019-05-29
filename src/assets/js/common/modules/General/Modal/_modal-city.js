@@ -1,36 +1,34 @@
 import GlobalSelector from "../_global-selector";
+import { getOrderForm, updateOrderForm} from "../_VTEXHelpers";
 
 const {$modalCity} = GlobalSelector;
 
 const Methods = {
     init() {
-        if(!localStorage.cidade){
+        if(!localStorage.cidade){ 
             Methods.modalPopUpCity();
         }
-        // Methods.__geolocationState();
     },
+ 
     modalPopUpCity() {
         $modalCity.formModalCity.addEventListener('submit', (ev) => {
             ev.preventDefault();
-            console.log(ev);
             localStorage.cidade = $modalCity.formModalCitySelect.value;
-            Methods._chekoutUpdateCity();
+            Methods.__chekoutUpdateCity();
             $modalCity.closeModal.classList.add('is--remove');
         })
     },
-    _chekoutUpdateCity(){
-        vtexjs.checkout.getOrderForm()
+
+    __chekoutUpdateCity(){
+        getOrderForm()
             .then((result) => {
                 const marketingData = {utmiCampaign:localStorage.cidade}
-                return vtexjs.checkout.sendAttachment('marketingData', marketingData);
-            }).done((response) => {
-                console.log(response);
-                console.log("Estado selecionado!");
+                return updateOrderForm('marketingData', marketingData);
+            }).done((result) => {
+                console.log(result, 'estado alterado')
             })
     },
-    // /**
-    //  *  @access private
-    //  */
+    //GEOLOCATION CODE API get your latitude and longitude end consume google api 
     // __geolocationState(){
     //     $modalCity.geolocation.addEventListener('click', () => {
     //         const sucess = (position) => {
@@ -59,6 +57,7 @@ const Methods = {
     //     })
     // },
 }
+
 export default {
     init: Methods.init,
 } 
