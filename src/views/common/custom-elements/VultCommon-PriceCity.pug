@@ -1,8 +1,10 @@
 div(class="rr-modal-overlay" style="display:none")
     div(class="rr-modal-city")
+        div(class="rr-modal-city__logo")
+            img(src="/arquivos/vultlogojeito.png", alt="Vult do seu Jeito")
         form(class="rr-modal-city__form js--form--city")
-            select(name="cidade" class="js--form--option" required)
-                option(selected="true" disabled="disabled") Selecione uma opção
+            span Selecione seu estado:
+            select(name="cidade" class="js--form--option" required )
                 option(value="AC") Acre
                 option(value="AL") Alagoas
                 option(value="AM") Amazonas
@@ -27,9 +29,11 @@ div(class="rr-modal-overlay" style="display:none")
                 option(value="RS") Rio Grande do Sul
                 option(value="SC") Santa CAtarina
                 option(value="SE") Sergipe
-                option(value="SP") São Paulo
+                option(value="SP" selected="true") São Paulo
                 option(value="TO") Tocantis
-        input(type="submit" value="Enviar")
+            input(type="submit" value="Enviar")
+            p(class="rr-modal-city__form--text") Atenção! Os preços dos produtos podem 
+                br/ Variar de acordo com a região escolhida
     //- div(class="rr-modal-city__geolocation")
       //- span(class="js--city--geolocation") Usar minha localização atual 
 

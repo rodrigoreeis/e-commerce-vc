@@ -36,7 +36,7 @@ const htmls = () => {
     '!src/views/common/_partials/*.pug',
   ])
     .pipe(pug({
-      pretty: true,
+      pretty: false,
     }))
     .pipe(gulp.dest(paths.htmls.dest));
 }

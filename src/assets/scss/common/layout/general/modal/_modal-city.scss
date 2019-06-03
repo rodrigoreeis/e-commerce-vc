@@ -6,10 +6,73 @@
 	z-index: 99999999;
 	top: 0;
 	left: 0;
-	background: rgba(0, 0, 0, 0.5);
 	@extend %flex-centered;
+	background: url("/arquivos/bg-tapume.png") no-repeat;
+	background-size: cover;
 	&.is--remove{
 		display: none !important;
+	}
+	.rr-modal-city{
+		@extend %flex-spaced;
+		width: 850px;
+		height: 250px;
+		background: $color-black;
+		flex-wrap: wrap;
+		div,
+		form{
+			flex: 1 1 300px;
+		}
+		&__form{
+			@extend %flex-centered;
+			flex-direction: column;
+			font-family: $font-sans;
+			color: $color-white;
+			span{
+				font-size: 13px;
+				margin-bottom: 15px;
+				font-weight: bold;
+				text-transform: uppercase;
+			}
+			select,
+			input,
+			p{
+				width: 290px;
+				height: 40px;
+				margin: 0;
+			}
+			select{
+				margin-bottom: 10px;
+				border: 2px solid $color-white;
+				background: $color-black;
+				font-size: 14px;
+				font-weight: bold;
+				position: relative;
+				option{
+					background: $color-white;
+					font-weight: bold;
+					font-size: 14px;
+					color: $color-black;
+					overflow-y: hidden;
+					&:hover{
+						background: $color-black;
+						color: $color-white;
+					}
+				}
+			}
+			input{
+				background: $color-white;
+				font-size: 14px;
+				font-weight: bold;
+				text-transform: uppercase;
+				color: $color-black;
+				border: 0;
+			}
+			&--text{
+				margin-top: 15px !important; //because bootstrap --'
+				font-size: 14px;
+				font-weight: 600;
+			}
+		}
 	}
 }
 .utmi_selector{
