@@ -1,5 +1,6 @@
+
 .rr-modal-overlay{
-	display: flex !important;
+	display: none;
 	position: fixed;
 	width: 100%;
 	height: 100vh;
@@ -7,74 +8,103 @@
 	top: 0;
 	left: 0;
 	@extend %flex-centered;
-	background: url("/arquivos/bg-tapume.png") no-repeat;
-	background-size: cover;
-	&.is--remove{
-		display: none !important;
+	background-color: $color-black;
+	&.is--active{
+		display: flex !important;
 	}
-	.rr-modal-city{
-		@extend %flex-spaced;
-		width: 850px;
-		height: 250px;
-		background: $color-black;
+	@include breakpoint('sm'){
+		height: 100%;
+		background-image: url("/arquivos/bg-tapume-mobile.jpg");
+		background-repeat: no-repeat;
+		background-position: bottom;
+	}
+	&__container{
+		width: 1350px;
+		height: 675px;
+		@extend %flex-centered;
+		background-image: url("/arquivos/bg-tapume.jpg");
+		background-repeat: no-repeat;
+		background-position: right;
 		flex-wrap: wrap;
-		div,
-		form{
-			flex: 1 1 300px;
+		@include breakpoint('sm'){
+			height: 350px;
+			width: 335px;
+			background-image: none;
+			background: $color-black;
 		}
-		&__form{
-			@extend %flex-centered;
-			flex-direction: column;
-			font-family: $font-sans;
-			color: $color-white;
-			span{
-				font-size: 13px;
-				margin-bottom: 15px;
+	}
+	&__logo,
+	&__form{
+		flex-basis: 425px;
+		@include breakpoint('sm'){
+			flex-basis: 320px;
+		}
+	}
+	&__form{
+		@extend %flex-centered;
+		flex-direction: column;
+		font-family: $font-sans;
+		color: $color-white;
+		height: 230px;
+		background: $color-black;
+		&--question{
+			font-size: 13px;
+			margin-bottom: 15px;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+		select,
+		&--send,
+		p{
+			width: 290px;
+			height: 40px;
+			margin: 0;
+		}
+		img{
+			position: absolute;
+			z-index: -1;
+			right: 35px;
+			top: 0;
+		}
+		select{
+			margin-bottom: 10px;
+			border: 2px solid $color-white;
+			background: $color-black;
+			font-size: 14px;
+			font-weight: bold;
+			appearance: none;
+			padding-left: 10px;
+			option{
+				background: $color-white;
 				font-weight: bold;
-				text-transform: uppercase;
-			}
-			select,
-			input,
-			p{
-				width: 290px;
-				height: 40px;
-				margin: 0;
-			}
-			select{
-				margin-bottom: 10px;
-				border: 2px solid $color-white;
-				background: $color-black;
 				font-size: 14px;
-				font-weight: bold;
-				position: relative;
-				option{
-					background: $color-white;
-					font-weight: bold;
-					font-size: 14px;
-					color: $color-black;
-					overflow-y: hidden;
-					&:hover{
-						background: $color-black;
-						color: $color-white;
-					}
+				color: $color-black;
+				overflow-y: hidden;
+				&:hover{
+					background: $color-black;
+					color: $color-white;
 				}
 			}
-			input{
-				background: $color-white;
-				font-size: 14px;
-				font-weight: bold;
-				text-transform: uppercase;
-				color: $color-black;
-				border: 0;
-			}
-			&--text{
-				margin-top: 15px !important; //because bootstrap --'
-				font-size: 14px;
-				font-weight: 600;
+		}
+		&--send{
+			background: $color-white;
+			font-size: 14px;
+			font-weight: bold;
+			text-transform: uppercase;
+			color: $color-black;
+			border: 0;
+			position: relative;
+			transition: all .4s ease-in-out;
+			&:hover{
+				color: $color-white;
+				background: $color-black;
+				border: 2px solid $color-white;
 			}
 		}
+		&--text{
+			margin-top: 15px !important; //because bootstrap --'
+			font-size: 14px;
+			font-weight: 600;
+		}
 	}
-}
-.utmi_selector{
-	display: none;
 }

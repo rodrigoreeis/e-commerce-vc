@@ -2,23 +2,24 @@ import GlobalSelector from "../_global-selector";
 import { getOrderForm, updateOrderForm} from "../_VTEXHelpers";
 
 const {$modalCity} = GlobalSelector;
-
+const {$globals} = GlobalSelector;
 const Methods = {
     init() {
         if(!localStorage.cidade){ 
             Methods.modalPopUpCity();
         }
     },
- 
     modalPopUpCity() {
+        $globals.body.classList.add('is--lock');
+        $modalCity.modal.classList.add('is--active');
         $modalCity.formModalCity.addEventListener('submit', (ev) => {
             ev.preventDefault();
             localStorage.cidade = $modalCity.formModalCitySelect.value;
             Methods.__chekoutUpdateCity();
-            $modalCity.closeModal.classList.add('is--remove');
+            $modalCity.modal.classList.remove('is--active');
+            $globals.body.classList.remove('is--lock');
         })
     },
-
     __chekoutUpdateCity(){
         getOrderForm()
             .then((result) => {

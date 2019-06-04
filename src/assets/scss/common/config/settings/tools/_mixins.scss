@@ -465,3 +465,8 @@
     text-overflow: ellipsis;
 }
 
+body{
+	&.is--lock{
+		overflow: hidden;
+	}
+}
