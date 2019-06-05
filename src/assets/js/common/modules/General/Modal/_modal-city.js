@@ -1,8 +1,7 @@
 import GlobalSelector from "../_global-selector";
 import { getOrderForm, updateOrderForm} from "../_VTEXHelpers";
 
-const {$modalCity} = GlobalSelector;
-const {$globals} = GlobalSelector;
+const {$modalCity , $globals} = GlobalSelector;
 const Methods = {
     init() {
         if(!localStorage.cidade){ 
