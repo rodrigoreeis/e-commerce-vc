@@ -15,6 +15,6 @@
     }
    
     @else {
-      @warn "The breakpoint mixin only supports 'sm', 'md' and 'lg'";
+      @warn "The breakpoint mixin only supports 'spm', sm', 'md' and 'lg'";
     }
   }
