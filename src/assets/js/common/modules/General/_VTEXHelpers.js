@@ -5,3 +5,4 @@ export const getOrderForm = () => {
 export const updateOrderForm = (string, object) => {
     return vtexjs.checkout.sendAttachment(string, object)
 };
+
