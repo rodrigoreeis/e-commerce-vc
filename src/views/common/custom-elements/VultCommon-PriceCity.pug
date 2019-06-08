@@ -5,6 +5,7 @@ div(class="rr-modal-overlay")
         form(class="rr-modal-overlay__form js--form--city")
             span(class="rr-modal-overlay__form--question") Selecione seu estado:
             select(name="cidade" class="js--form--option" required )
+                option(value="") Selecione uma opção
                 option(value="AC") Acre
                 option(value="AL") Alagoas
                 option(value="AM") Amazonas
@@ -29,11 +30,11 @@ div(class="rr-modal-overlay")
                 option(value="RS") Rio Grande do Sul
                 option(value="SC") Santa Catarina
                 option(value="SE") Sergipe
-                option(value="SP" selected="true") São Paulo
+                option(value="SP") São Paulo
                 option(value="TO") Tocantis
             input(type="submit" value="Enviar" class="rr-modal-overlay__form--send")
             p(class="rr-modal-overlay__form--text") Atenção! Os preços dos produtos podem 
-                br/ Variar de acordo com a região escolhida
+                br/ variar de acordo com a região escolhida
     //- div(class="rr-modal-city__geolocation")
       //- span(class="js--city--geolocation") Usar minha localização atual 
 

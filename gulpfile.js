@@ -33,10 +33,10 @@ const htmls = () => {
   return gulp.src([
     paths.htmls.src,
     '!src/views/common/_layouts/*.pug',
-    '!src/views/common/_partials/*.pug',
+    '!src/views/common/_partials/**/*.pug',
   ])
     .pipe(pug({
-      pretty: false,
+      pretty: true,
     }))
     .pipe(gulp.dest(paths.htmls.dest));
 }

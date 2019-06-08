@@ -55,3 +55,13 @@ input[type="image"],
 button {
     cursor: pointer;
 }
+
+#ajaxBusy {
+    position: absolute !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    -webkit-transform: translate(100%, 100%) !important;
+    -ms-transform: translate(100%, 100%) !important;
+    transform: translate(100%, 100%) !important;
+    will-change: transform; 
+}

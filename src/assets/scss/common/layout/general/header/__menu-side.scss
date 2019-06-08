@@ -1,0 +1,67 @@
+.rr-menu-side{
+    max-width: 370px;
+    height: 100%;
+    background:$color-black;
+    &__list{
+        height: 65%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @include rem(margin, 35px 0 5px 0);
+        position: relative;
+        &--item{
+            display: flex;
+            align-items: center;
+            flex: 1;
+            background: $color-black;
+            font-family: $font-bebas;
+            @include rem(font-size, 32px);
+            font-weight: 500;
+            @include rem(padding, 5px 0);
+            &:hover{
+                background: $color-grey-1;
+            }
+            &:nth-child(7){
+                background: $color-pink;
+            }
+            &::after,
+            &::before{
+                content: "";
+                @include rem(width, 12px);
+                @include rem(height, 3px);
+                @include rem(right, 20px);
+                background: $color-white;
+                position: absolute; 
+            }
+            &::after{
+                transform: rotate(90deg);
+                transition: all .6s ease-in-out;
+            }
+            .rr-category-name{
+                @include rem(padding-left, 35px);
+            }
+           
+            &.is--active{
+                background: $color-grey-1;
+                &::after{
+                    transform: rotate(0);
+                }
+            }
+        }
+    }
+    &__users{
+        height: 35%;
+        background: $color-black-2;
+        font-family: $font-sans;
+        @include rem(font-size, 14px);
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        &--item{
+            @include rem(padding-left, 35px);
+            &:nth-child(2){
+                @include rem(padding, 45px 0);
+            }
+        }
+    }
+}

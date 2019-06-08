@@ -32,13 +32,10 @@
 /**
  * Common Helpers
  */
-@mixin container($padding-left: 16px, $padding-right: 16px) {
+@mixin container {
     margin-left: auto;
     margin-right: auto;
-    @include rem(padding-left, $padding-left);
-    @include rem(padding-right, $padding-right);
-    width: 100%;
-    max-width: $container-width;
+    max-width: 1336px;
 }
 
 @mixin smooth-shown {
@@ -361,8 +358,8 @@
     display: inline-block;
     width: $arrow-width;
     height: $arrow-width;
-    border-top: $arrow-size solid #333;
-    border-right: $arrow-size solid #333;
+    border-top: $arrow-size ;
+    border-right: $arrow-size;
     transform: rotate($pos);
 }
 

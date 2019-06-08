@@ -1,0 +1,34 @@
+.rr-header__top{
+    @extend %flex-spaced;
+    @include rem(height, 80px);
+    &--logo{
+        @extend %flex-centered;
+    }
+    &__group,
+    &__user{
+        flex-basis: 240px;
+    }
+    &__group{
+        &--accessibility{
+            @include rem(padding-right, 55px);
+        }
+        &--accessibility,
+        &--helper{
+            position: relative;
+            cursor: pointer;
+            &::after{
+                @include arrow-generate('down', 10px , 3px solid $color-white);
+                transform: rotate(135deg) translate(-6px, -4px);
+            }
+        }
+    }
+    &__user{
+        display: flex;
+        justify-content: flex-end;
+        &--minicart{
+            @include rem(padding-left, 35px);
+        }
+   }
+}
+
+

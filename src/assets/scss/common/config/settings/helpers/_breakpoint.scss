@@ -2,7 +2,7 @@
     @if $breakpoint == spm {
         @media (max-width: $breakpoint-super-small) { @content; }
     }
-    @if $breakpoint == sm {
+    @else if $breakpoint == sm {
       @media (max-width: $breakpoint-small) { @content; }
     }
    
@@ -15,6 +15,6 @@
     }
    
     @else {
-      @warn "The breakpoint mixin only supports 'sm', 'md' and 'lg'";
+      @warn "The breakpoint mixin only supports 'spm', sm', 'md' and 'lg'";
     }
   }

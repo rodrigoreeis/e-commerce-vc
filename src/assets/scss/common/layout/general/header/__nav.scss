@@ -1,0 +1,78 @@
+.rr-header__nav{
+    display: flex;
+    align-items: center;
+    @include rem(height, 65px);
+    &___list{
+        display: flex;
+        flex-basis: 865px;
+        text-transform: uppercase;
+        @include rem(font-size, 14px);
+        &--item{
+            @include rem(margin-right, 45px);
+            @include rem(letter-spacing, 0.6px);
+            position: relative;
+            &:first-of-type{
+                @include rem(margin-left, 45px);
+                cursor: pointer;
+                &:hover{
+                    &::before{
+                        width: 0;
+                    }
+                }
+            }
+            &:last-of-type{
+                color: $color-pink;
+            }
+            &:before{
+                content: "";
+                width: 0%;
+                bottom: 0;
+                left: 0;
+                background: $color-white;
+                @include rem(height, 1px);
+                position: absolute;
+                transition: width .3s ease-in-out;
+            }
+            &:hover{
+                &::before{
+                    width: 100%;
+                }
+            }
+            &---menu{
+                @include rem(width, 32px);
+                @include rem(height, 3px);
+                @include rem(top, 9px);
+                @include rem(left, -45px);
+                background: $color-white;
+                position: absolute;
+                &::before,
+                &::after{
+                    content: "";
+                    @include rem(width, 32px);
+                    @include rem(height, 3px);
+                    @include rem(bottom, 9px);
+                    background: $color-white;
+                    position: absolute;
+                }
+                &:after{
+                    @include rem(bottom, -9px)
+                }
+            }
+        }
+    }
+    &--search{
+        flex-basis: 387px;
+        fieldset{
+            border-bottom: 1px solid;
+            position: relative;
+            legend,
+            label,
+            select{
+                display: none;
+            }
+            .btn-buscar{
+                opacity: 0;
+            }
+        }
+    }
+}

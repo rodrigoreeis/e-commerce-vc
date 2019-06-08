@@ -19,10 +19,10 @@ body {
     /* stop WebKit and Windows mobile changing text size */
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-
+    font-family: $font-sans;
+    background-color: $color-body-bg;
+    
     // color: $color-body-text;
-    // background-color: $color-body-bg;
-    // font-family: $font-main;
 }
 
 h1,
