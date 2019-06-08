@@ -1,0 +1,22 @@
+.rr-header{
+    @include rem(height, 170px);
+    @include rem(font-size, 14px);
+    width: 100%;
+    color: $color-white;
+    background: $color-black;
+    position: fixed;
+    font-weight: bold;
+    &:before{
+        content: "";
+        @include rem(height, 1px);
+        position: absolute; 
+        width: 100%;
+        background: $color-grey-1;
+        top: 45%;
+    }
+    &__top,
+    &__nav {
+        max-width: 1250px;
+        margin: 0 auto;
+    }
+}

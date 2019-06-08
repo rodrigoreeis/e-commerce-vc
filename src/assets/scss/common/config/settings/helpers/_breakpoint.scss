@@ -2,7 +2,7 @@
     @if $breakpoint == spm {
         @media (max-width: $breakpoint-super-small) { @content; }
     }
-    @if $breakpoint == sm {
+    @else if $breakpoint == sm {
       @media (max-width: $breakpoint-small) { @content; }
     }
    

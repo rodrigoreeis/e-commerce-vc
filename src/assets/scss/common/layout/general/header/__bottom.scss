@@ -1,0 +1,14 @@
+.rr-header__bottom{
+    background: $color-pink;
+    color: $color-white;
+    font-weight: 600;
+    @extend %flex-centered;
+    @include rem(height, 32px);
+    &--text{
+        a{
+            text-transform: uppercase;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    }
+}
