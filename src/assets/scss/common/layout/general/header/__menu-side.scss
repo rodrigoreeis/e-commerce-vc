@@ -1,13 +1,13 @@
 .rr-menu-side{
     max-width: 370px;
     height: 100%;
-    background:$color-black;
+    background:$color-black-2;
     &__list{
         height: 65%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        @include rem(margin, 35px 0 5px 0);
+        @include rem(margin-top, 35px);
         position: relative;
         &--item{
             display: flex;

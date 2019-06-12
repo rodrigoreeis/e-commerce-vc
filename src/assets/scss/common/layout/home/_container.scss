@@ -3,14 +3,9 @@
     margin: 0 auto;
     &__section{
         @include rem(margin,80px 0);
-        .rr-banners{
-            .box-banner{
-                flex: 1
-            }
-        }
     }
     &__wrapper{
-        display: flex;
+        @extend %flex-spaced;
         // @include rem(margin-bottom, 90px);
     }
     &__title{

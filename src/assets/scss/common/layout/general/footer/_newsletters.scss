@@ -1,0 +1,38 @@
+
+.rr-footer-newsletter,
+.rr-copyright{
+    padding: 31px calc((100% - 1135px) / 2);
+    flex-wrap: wrap;
+}
+.rr-footer-newsletter{
+    background: $color-grey-light;
+    display: flex;
+    &__title{
+        @include rem(font-size, 34px);
+        font-weight: bold;
+        font-family: $font-bebas;
+        color: $color-grey-3;
+        flex: 1 1 400px;
+    }
+    &__form{
+        flex: 1 1 400px;
+        position: relative;
+        input{
+            @include rem(border-bottom, 1px solid $color-black-2);
+            @include rem(font-size, 16px);
+            width: 100%;
+            height: 100%;
+            font-family: $font-sans;
+            color: $color-grey-3;
+        }
+        button{
+            position: absolute;
+            @include rem(width, 50px);
+            height: 100%;
+            right: 0;
+            &::after{
+                @include arrow-generate('right', 10px , 3px solid $color-black);
+            }
+        }
+    }
+}

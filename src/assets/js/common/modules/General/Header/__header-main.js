@@ -23,6 +23,26 @@ const Methods = {
             $header.menu.classList.remove('is--active');
         })
     },
+    eae(){
+
+        let _localHeaders = new Headers();
+        _localHeaders.append('Authorization', 'Basic f7d6d9a4-c36a-458e-aede-c4324cfb9c6b');
+        _localHeaders.append('Accept', 'application/json')
+        _localHeaders.append("Content-Type", "application/json")
+        let _urlToSearch = "https://service.yourviews.com.br/api/44f7277f-9dfa-458d-b9d7-f2db830332fe/review/reviewshelf?productIds=58"
+        let _vtexHeaderConfig = {
+            method: 'GET',
+            mode: 'cors',
+            headers: _localHeaders
+        }
+        fetch(_urlToSearch, _vtexHeaderConfig)
+            .then(response => response.json())
+            .then(response => {
+                console.log(response);
+            })
+
+    },
+
     // openSubCategory(){
     //     [...El].map((elements) => {
     //         elements.addEventListener('click', ({currentTarget}) => {

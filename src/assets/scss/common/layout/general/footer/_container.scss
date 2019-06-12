@@ -1,0 +1,31 @@
+.rr-footer{
+    background: $color-grey-2;
+    padding: 62px calc((100% - 1135px) / 2);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    &__social{
+        &___list{
+            @extend %flex-spaced;
+            @include rem(margin-top, 30px)
+         
+        }
+    }
+    &__list{
+        &--item{
+            @include rem(margin-bottom, 20px);
+            @include rem(font-size, 14px);
+            font-family: $font-sans;
+            color: $color-grey-3;
+        }
+    }
+    &__wrapper{
+        &--title{
+            @include rem(font-size, 34px);
+            @include rem(margin, 20px 0 20px 0);
+            font-weight: bold;
+            font-family: $font-bebas;
+            color: $color-grey-3;
+        }
+    }
+}
