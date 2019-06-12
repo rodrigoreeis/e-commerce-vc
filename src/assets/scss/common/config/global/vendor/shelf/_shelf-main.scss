@@ -1,0 +1,81 @@
+.rr-shelf-two{
+    h2{
+        display: none;        
+    }
+}
+.rr-shelf{
+    width: 100%;
+    h2{
+        display: none;        
+    }
+    &__item{
+        // @include rem(margin, 0 20px);
+        // @include rem(height, 480px);
+        &:hover{
+            .rr-shelf__buy--btn{
+                background: $color-pink;
+            }
+        }
+    }
+    &__container{
+        @extend %flex-column;
+        align-items: center;
+    }
+    &__content{
+        @extend %flex-column;
+        @include rem(height, 115px);
+        @include rem(margin-top, 20px);
+        font-family: $font-sans;
+        color: $color-black-2;
+        justify-content: space-around;
+        width: 100%;
+    }
+    &__title{
+        @include rem(font-size, 15px);
+        text-transform: uppercase;
+        text-align: center;
+    }
+    .yv-review-quickreview{
+        .yv-bootstrap{
+            text-align: center;
+            span{
+                display: none;
+            }
+            i{
+                color: $color-black !important;
+            }
+        }
+    }
+    &__price-container{
+        @extend %flex-column;
+    }
+    &__price-terrt{
+        display: flex;
+        flex-direction: column;
+    }
+    &__best-price{
+        @include rem(font-size, 16px);
+        font-weight: bold;
+        text-align: center;
+    }
+
+    &__installments{
+        @include rem(font-size, 14px);
+        font-weight: 500;
+        text-align: center;
+    }
+    &__buy{
+        @include rem(margin-top, 10px);
+        &--btn{
+            width: 100%;
+            @include rem(padding, 14px);
+            @include rem(font-size, 16px);
+            @include rem(letter-spacing, 2px);
+            background: $color-black;
+            color: $color-white;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: all .3s ease-in-out;
+        }
+    }
+}

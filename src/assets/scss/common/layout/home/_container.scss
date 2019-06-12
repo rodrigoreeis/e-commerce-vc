@@ -1,0 +1,37 @@
+.rr-container{
+    max-width: 1212px;
+    margin: 0 auto;
+    &__section{
+        @include rem(margin,80px 0);
+        .rr-banners{
+            .box-banner{
+                flex: 1
+            }
+        }
+    }
+    &__wrapper{
+        display: flex;
+        // @include rem(margin-bottom, 90px);
+    }
+    &__title{
+        @include rem(font-size, 64px);
+        @include rem(letter-spacing, 4px);
+        @include rem(margin-bottom, 30px );
+        font-weight: bold;
+        font-family: $font-bebas;
+        text-transform: uppercase;
+        color: $color-black-2;
+        text-align: center;
+    }
+    &__banner-shelf{
+        display: flex;
+        @include rem(margin-bottom, 90px);
+        &--left,
+        &--right{
+            flex: 1;
+        }
+        &--right{
+            width: 500px;
+        }
+    }
+}

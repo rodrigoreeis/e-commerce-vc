@@ -4,8 +4,9 @@
     width: 100%;
     color: $color-white;
     background: $color-black;
-    position: fixed;
     font-weight: bold;
+    z-index: 5;
+    position: fixed;
     &:before{
         content: "";
         @include rem(height, 1px);

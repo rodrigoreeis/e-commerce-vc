@@ -14,12 +14,20 @@
             align-items: center;
             flex: 1;
             background: $color-black;
-            font-family: $font-bebas;
             @include rem(font-size, 32px);
             font-weight: 500;
             @include rem(padding, 5px 0);
             &:hover{
                 background: $color-grey-1;
+                &::after{
+                    transform: rotate(-360deg);
+                }
+                &::before{
+                    transform: rotate(-360deg)
+                }
+                .rr-sub-category__list{
+                    transform: translateX(100%);
+                }
             }
             &:nth-child(7){
                 background: $color-pink;
@@ -33,32 +41,34 @@
                 background: $color-white;
                 position: absolute; 
             }
+            &::before,
+            &::after{
+                transition: all .5s ease-in-out;
+            }
             &::after{
                 transform: rotate(90deg);
-                transition: all .6s ease-in-out;
             }
             .rr-category-name{
                 @include rem(padding-left, 35px);
-            }
-           
-            &.is--active{
-                background: $color-grey-1;
-                &::after{
-                    transform: rotate(0);
-                }
+                font-family: $font-bebas;
             }
         }
     }
     &__users{
-        height: 35%;
+        height: 30%;
         background: $color-black-2;
         font-family: $font-sans;
         @include rem(font-size, 14px);
         font-weight: bold;
-        display: flex;
-        flex-direction: column;
+        display: flex; 
+        align-items: center;
         &--item{
+            display: flex;
+            flex-direction: column;
             @include rem(padding-left, 35px);
+            a{
+                padding: 12px 0;
+            }
             &:nth-child(2){
                 @include rem(padding, 45px 0);
             }

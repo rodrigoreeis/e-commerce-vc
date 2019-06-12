@@ -8,7 +8,7 @@ const Methods = {
     init(){
         Methods.openMenu();
         Methods.closeMenu();
-        Methods.openSubCategory();
+        // Methods.openSubCategory();
     },
     openMenu(){
         $header.openMenu.addEventListener('click', () => {
@@ -18,35 +18,35 @@ const Methods = {
     },
     closeMenu(){
         $globals.overlay.addEventListener('click', () => {
-            Methods.__removeAllSubCategoryOpen();
+            // Methods.__removeAllSubCategoryOpen();
             $globals.overlay.classList.remove('is--active');
             $header.menu.classList.remove('is--active');
         })
     },
-    openSubCategory(){
-        [...El].map((elements) => {
-            elements.addEventListener('click', ({currentTarget}) => {
-                if(!currentTarget.classList.contains('is--active')){
-                    currentTarget.classList.add('is--active');
-                    Methods.__removeAllSubCategoryOpen();
-                    document.querySelector(`.rr-sub-category__list[data-category='${currentTarget.dataset.category}']`).classList.toggle('is--active');
-                }else{
-                    currentTarget.classList.remove('is--active')
-                    Methods.__removeAllSubCategoryOpen();
-                }
-            })
-        })
-    },
+    // openSubCategory(){
+    //     [...El].map((elements) => {
+    //         elements.addEventListener('click', ({currentTarget}) => {
+    //             if(!currentTarget.classList.contains('is--active')){
+    //                 currentTarget.classList.add('is--active');
+    //                 Methods.__removeAllSubCategoryOpen();
+    //                 document.querySelector(`.rr-sub-category__list[data-category='${currentTarget.dataset.category}']`).classList.toggle('is--active');
+    //             }else{
+    //                 currentTarget.classList.remove('is--active')
+    //                 Methods.__removeAllSubCategoryOpen();
+    //             }
+    //         })
+    //     })
+    // },
     /**
      * @access private
      */
-    __removeAllSubCategoryOpen(){
-        const categoryList = document.querySelectorAll('.rr-sub-category__list');
-            [...categoryList].map((el) => {
-                el.classList.remove('is--active')
-            });
+    // __removeAllSubCategoryOpen(){
+    //     const categoryList = document.querySelectorAll('.rr-sub-category__list');
+    //         [...categoryList].map((el) => {
+    //             el.classList.remove('is--active')
+    //         });
             
-    },
+    // },
 }
 
 export default{

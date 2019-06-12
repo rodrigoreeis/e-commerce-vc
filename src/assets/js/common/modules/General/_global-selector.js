@@ -6,7 +6,7 @@ export default{
     },
     $globals: {
         body: document.querySelector('body'),
-        overlay: document.querySelector('.rr-overlay')
+        overlay: document.querySelector('.rr-overlay'),
     },
     $header:{
         openMenu: document.querySelector('.js--menu'),

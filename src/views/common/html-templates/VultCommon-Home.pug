@@ -7,11 +7,15 @@ block vars
     - var $templateClass = "home"
 //- Page styles
 block append styles
+    link(rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css")/
     link(rel='stylesheet', href=`/arquivos/${$storeName}-${$templateName}.css`, media='all')/
 
 //- Main Content
 block content
-    
+    include ../_partials/home/_main-banner.pug
+    include ../_partials/home/_container.pug
+        
 block append scripts
+    script(type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js")
     script(type='text/javascript', src=`/arquivos/${$storeName}-${$templateName}.js`) 
 
