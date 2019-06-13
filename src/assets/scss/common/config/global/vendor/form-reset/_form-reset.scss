@@ -21,25 +21,25 @@ A couple of things to watch out for:
 
 
 ----------------------------------------------------------------------------------------------------*/
-// input {
-//   @extend %form-reset-input;
-// }
+input {
+  @extend %form-reset-input;
+}
 
-// label {
-//   @extend %form-reset-label;
-// }
+label {
+  @extend %form-reset-label;
+}
 
-// select {
-//   @extend %form-reset-select;
-// }
+select {
+  @extend %form-reset-select;
+}
 
-// button {
-//   @extend %form-reset-button;
-// }
+button {
+  @extend %form-reset-button;
+}
 
-// textarea {
-//   @extend %form-reset-textarea;
-// }
+textarea {
+  @extend %form-reset-textarea;
+}
 
 @mixin form-reset-general {
     display: inline-block;

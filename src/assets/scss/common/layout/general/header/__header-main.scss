@@ -1,5 +1,4 @@
 .rr-header{
-    @include rem(height, 170px);
     @include rem(font-size, 14px);
     width: 100%;
     color: $color-white;
@@ -7,13 +6,65 @@
     font-weight: bold;
     z-index: 5;
     position: fixed;
+    transition: all .3s ease-in-out;
     &:before{
         content: "";
         @include rem(height, 1px);
         position: absolute; 
         width: 100%;
         background: $color-grey-1;
-        top: 45%;
+        top: 80px;
+    }
+    &.is--active{
+        transform: translateY(-65px);
+        &:before{
+            display: none;
+        }
+        .rr-header__top{
+            transform: translateY(63px);
+            &__group{
+                opacity: 0;
+            }
+        }
+        .rr-header__nav{
+            &___list{
+                &--item{
+                    opacity: 0;
+                    pointer-events: none;
+                    &:first-of-type{
+                        opacity: 1;
+                        pointer-events: auto;
+                    }
+                }
+            }
+            &--search{
+                position: fixed;
+                left: 0;
+                width: 100%;
+                background: $color-white;
+                border-bottom: 1px solid $color-black;
+                height: 61px;
+                display: flex;
+                align-items: center;
+                opacity: 0;
+                visibility: visible;
+                transform:  all .3s ease-in-out;
+                &.is--active{
+                    z-index: 2;
+                    visibility: visible;
+                    opacity: 1;
+                    top: 67px;
+                }
+                fieldset{
+                    .btn-buscar{
+                        display: none;
+                    }
+                    .fulltext-search-box{
+                        color: $color-black;
+                    }
+                }
+            }
+        }
     }
     &__top,
     &__nav {

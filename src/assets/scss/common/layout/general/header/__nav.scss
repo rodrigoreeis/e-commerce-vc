@@ -2,6 +2,8 @@
     display: flex;
     align-items: center;
     @include rem(height, 65px);
+    transition: top 1s linear;
+    top: 0;
     &___list{
         display: flex;
         flex-basis: 865px;
@@ -70,8 +72,20 @@
             select{
                 display: none;
             }
+            .fulltext-search-box{
+                width: 90%;
+                @include rem(font-size, 16px);
+                padding: 5px 0;
+            }
             .btn-buscar{
-                opacity: 0;
+                @include rem(right, -8px);
+                @include rem(padding, 15px);
+                width: 10%;
+                font-size: 0;
+                background: url(/arquivos/iconsearchheader.png) no-repeat;
+                background-position: center;
+                position: absolute;
+                top: 0px;
             }
         }
     }
