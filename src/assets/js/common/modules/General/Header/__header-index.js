@@ -1,5 +1,13 @@
-import header from "./__header-main";
+import Header from "./__header-main";
+import HeaderSearch from "./__search";
+
+const Methods = {
+    init() {
+        Header.init();
+        HeaderSearch.init();
+    }
+}
 
 export default {
-    init: header.init
+    init: Methods.init
 }

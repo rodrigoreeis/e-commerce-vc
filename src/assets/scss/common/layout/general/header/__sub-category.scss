@@ -10,25 +10,21 @@
     text-transform: initial;
     transform: translateX(-100%);
     background: $color-white;
-    color:$color-black-2;
+    color:$color-black;
     transition: all .5s ease-in-out;
-    font-family: $font-sans;
+    font-family: $font-mont;
     // @include rem(box-shadow, 0 8px 16px 1px $color-white);
     &.is--active{
         transform: translateX(100%);
     }
     &--item{
         @include rem(padding, 10px 0);
+        font-weight: 400;
+        @include rem(font-size, 17px);
         &:first-of-type,
         &:last-of-type{
-            @include rem(font-size, 18px);
+            @include rem(font-size, 19px);
             font-weight: bold;
-        }
-        &:first-of-type{
-            @include rem(margin-bottom, 20px);
-        }
-        &:last-of-type{
-            @include rem(margin-top, 20px);
         }
     }
 }

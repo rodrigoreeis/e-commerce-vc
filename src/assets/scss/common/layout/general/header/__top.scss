@@ -26,8 +26,13 @@
     &__user{
         display: flex;
         justify-content: flex-end;
+        &--account,
         &--minicart{
             @include rem(padding-left, 35px);
+        }
+        &--search{
+            transition: transform .3s ease-in-out;
+            transform: scale(0);
         }
    }
 }

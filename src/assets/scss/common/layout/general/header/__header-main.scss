@@ -6,24 +6,35 @@
     font-weight: bold;
     z-index: 5;
     position: fixed;
-    transition: all .3s ease-in-out;
+    transition: transform .3s ease-in-out;
     &:before{
         content: "";
         @include rem(height, 1px);
+        @include rem(top, 80px);
         position: absolute; 
         width: 100%;
         background: $color-grey-1;
-        top: 80px;
+        opacity: 1;
+        visibility: visible;
+        transition: all .1s ease;
+
     }
     &.is--active{
         transform: translateY(-65px);
         &:before{
-            display: none;
+            opacity: 0;
+            visibility: hidden;
         }
         .rr-header__top{
             transform: translateY(63px);
             &__group{
                 opacity: 0;
+            }
+            &__user{
+                &--search{
+                    transform: scale(1);
+                    cursor: pointer;
+                }
             }
         }
         .rr-header__nav{
@@ -34,36 +45,46 @@
                     &:first-of-type{
                         opacity: 1;
                         pointer-events: auto;
+                        z-index: 3;
+                    }
+                    .rr-menu-slide{
+                        @include rem(top, 65px);
                     }
                 }
             }
             &--search{
                 position: fixed;
                 left: 0;
+                @include rem(top, 145px);
                 width: 100%;
+                z-index: 5017;
                 background: $color-white;
                 border-bottom: 1px solid $color-black;
-                height: 61px;
+                @include rem(height, 61px);
                 display: flex;
                 align-items: center;
                 opacity: 0;
-                visibility: visible;
+                visibility: hidden;
                 transform:  all .3s ease-in-out;
                 &.is--active{
-                    z-index: 2;
                     visibility: visible;
                     opacity: 1;
-                    top: 67px;
+                    visibility: visible;
                 }
                 fieldset{
+                    width: 100%;
                     .btn-buscar{
                         display: none;
                     }
                     .fulltext-search-box{
                         color: $color-black;
+                        width: 100%;
                     }
                 }
             }
+        }
+        .rr-overlay {
+            @include rem(top, 65px);
         }
     }
     &__top,
@@ -71,4 +92,5 @@
         max-width: 1250px;
         margin: 0 auto;
     }
+  
 }

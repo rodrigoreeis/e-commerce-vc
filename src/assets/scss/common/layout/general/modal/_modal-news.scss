@@ -1,0 +1,99 @@
+.rr-news{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url("/arquivos/backgroundnews.png");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include rem(width, 700px);
+    @include rem(height, 400px);
+    color: $color-black-2;
+    z-index: 5016;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease-in-out;
+    &.is--active{
+        opacity: 1;
+        visibility: visible;
+    }
+    &__title{
+        text-transform: uppercase;
+        font-family: $font-bebas;
+        font-weight: bold;
+        @include rem(font-size, 28px);
+        @include rem(letter-spacing, 2px);
+        @include rem(margin, 73px 0 40px 0 )
+    }
+    &__text{
+        text-transform: uppercase;
+        @include rem(font-size, 32px);
+        font-family: $font-bebas;
+        @include rem(margin-bottom, 5px);
+
+    }
+    &__text-small{
+        font-family: $font-sans;
+        @include rem(font-size, 14px)
+    }
+    &__form{
+        @extend %flex-column;
+        @include rem(margin-top, 10px);
+        align-items: center;
+        width: 55%;
+        input{
+            width: 100%;
+            border-bottom: 2px solid $color-black-2;
+            color: $color-black-2;
+            @include rem(padding-bottom, 5px)
+        }
+        button{
+            width: 65%;
+            @include rem(padding, 13px);
+            @include rem(font-size, 16px);
+            @include rem(margin-top, 20px);
+            font-weight: bold;
+            background: $color-black;
+            text-transform: uppercase;
+            color: $color-white;
+            transition: all .3s ease-in-out;
+            border: 2px solid $color-black;
+            &:hover{
+                background: $color-white;
+                color: $color-black;
+            }
+        }
+    }
+    &__not{
+        @include rem(font-size, 14px);
+        @include rem(padding-top, 5px);
+        cursor: pointer;
+        color: $color-black-2;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    .rr-news-close{
+        @include rem(padding, 30px);
+        position: absolute;
+        right: 0;
+        cursor: pointer;
+        font-size: 0;
+        &::before,
+        &::after{
+            content: "";
+            @include rem(height, 3px);
+            @include rem(top, 25px);
+            width: 100%;
+            background: $color-black;
+            left: 0;
+            position: absolute;
+            transform: rotate(45deg);
+        }
+        &::after{
+            transform: rotate(-45deg);
+        }
+    }
+}
