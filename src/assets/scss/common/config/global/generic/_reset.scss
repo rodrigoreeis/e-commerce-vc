@@ -65,15 +65,3 @@ button {
     transform: translate(100%, 100%) !important;
     will-change: transform; 
 }
-
-.rr-desktop{
-    @media(max-width: 768px){
-        display: none;
-    }
-}
-
-.rr-mobile{
-    @media(min-width: 768px){
-        display: none;
-    }
-}

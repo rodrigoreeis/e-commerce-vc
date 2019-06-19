@@ -3,6 +3,12 @@ html {
     @include rem-baseline;
     box-sizing: border-box;
     height: 100%;
+    @include breakpoint('sm'){
+        font-size: 90%;
+    }
+    @include breakpoint('spm'){
+        font-size: 80%;
+    }
 }
 
 body {
@@ -77,4 +83,15 @@ button {
 
 textarea {
     @extend %form-reset-textarea;
+}
+
+.rr-desktop{
+    @media(max-width: 768px){
+        display: none !important;
+    }
+}
+.rr-mobile{
+    @media(min-width: 768px){
+        display: none !important;
+    }
 }

@@ -16,11 +16,16 @@
 @import "./vendor/form-reset/form-reset";
 @import "./vendor/slick-carousel/slick-carousel";
 @import "./vendor/slick-carousel/slick-carousel-theme";
-@import "./vendor/shelf/shelf-main";
-
+@import "./vendor/yourviews/yourViews";
 
 /* 
 ** Elements
 **
 */
 @import "./elements/roots";
+
+/* 
+** Shelf
+**
+*/
+@import "./shelf/shelf-bases";

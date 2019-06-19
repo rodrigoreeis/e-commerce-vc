@@ -14,21 +14,21 @@ const Methods = {
         console.log($header.news.lastElementChild)
         $header.news.firstElementChild.firstElementChild.addEventListener('click', (ev) =>{
             ev.preventDefault();
-            $modalNews.el.classList.add('is--active');
+            $modalNews.shelf.classList.add('is--active');
             openOverlay();
         })
     },
     closeModal(){
         $globals.overlay.addEventListener('click', () => {
             Methods.__BtnsModalNews();
-            closeOverlay($modalNews.el)
+            closeOverlay($modalNews.shelf)
         })
     },
     __BtnsModalNews(){
         const btnClose = document.querySelectorAll('.js--news--close');
         [...btnClose].map((el) => {
             el.addEventListener('click', () => {
-                closeOverlay($modalNews.el)
+                closeOverlay($modalNews.shelf)
             })
         })
     },

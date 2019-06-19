@@ -8,6 +8,9 @@
         display: flex !important;
         color: $color-black-2;
         @include rem(left, 65px);
+        @include breakpoint('sm'){
+            left: 38px;
+        }
         li{
             position: relative;
             @include rem(padding, 0 18px);

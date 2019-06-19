@@ -1,16 +1,26 @@
 .rr-shelf-two{
+    @include breakpoint('sm'){
+        @include rem(padding, 30px);
+        width: 100%;
+    }
     h2{
         display: none;        
     }
 }
 .rr-shelf{
     width: 100%;
+    @include breakpoint('sm'){
+        @include rem(padding, 30px);
+    }
     h2{
         display: none;        
     }
     &__item{
         // @include rem(margin, 0 20px);
         // @include rem(height, 480px);
+        @include breakpoint('sm'){
+            max-width: 162px;
+        }
         &:hover{
             .rr-shelf__buy--btn{
                 background: $color-pink;
@@ -35,17 +45,7 @@
         text-transform: uppercase;
         text-align: center;
     }
-    .yv-review-quickreview{
-        .yv-bootstrap{
-            text-align: center;
-            span{
-                display: none;
-            }
-            i{
-                color: $color-black !important;
-            }
-        }
-    }
+  
     &__price-container{
         @extend %flex-column;
     }

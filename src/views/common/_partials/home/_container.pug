@@ -1,15 +1,17 @@
 div(class="rr-container")
     section(class="rr-container__section")
-        div(class="rr-container__wrapper rr-banners js--lazyload has--lazyload" data-noscript="")
-            noscript <vtex:contentPlaceHolder id="Mini-Banners" />
+        div(class="rr-container__wrapper rr-banners")
+            <vtex:contentPlaceHolder id="Mini-Banners" />
     section(class="rr-container__section")
         h2(class="rr-container__title") Mais Vendidos
         div(class="rr-container__wrapper")
             div(class="rr-shelf")
                 <vtex:contentPlaceHolder id="Mais-Vendidos" />
     section(class="rr-container__section")
-        div(class="rr-container__wrapper js--lazyload has--lazyload" data-noscript="")
+        div(class="rr-container__wrapper js--lazyload has--lazyload rr-desktop" data-noscript="")
             noscript <vtex:contentPlaceHolder id="Banner-Full" />
+        div(class="rr-container__wrapper js--lazyload has--lazyload rr-mobile" data-noscript="")
+            noscript <vtex:contentPlaceHolder id="Banner-Full-Mobile" />
     section(class="rr-container__section")
         h2(class="rr-container__title") Quem ama, usa!
         div(class="rr-container__wrapper")
@@ -24,5 +26,5 @@ div(class="rr-container")
                 <vtex:contentPlaceHolder id="Coleção-Lançamentos" />
     section(class="rr-container__section")
         h2(class="rr-container__title") Em destaque
-        div(class="rr-container__wrapper rr-banners js--lazyload has--lazyload" data-noscript="")
-            noscript <vtex:contentPlaceHolder id="Em-Destaque" />
+        div(class="rr-container__wrapper rr-banners")
+            <vtex:contentPlaceHolder id="Em-Destaque" />

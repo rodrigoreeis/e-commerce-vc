@@ -7,7 +7,9 @@ const Methods = {
     init(){
         Methods.openMenu();
         Methods.closeMenu();
-        Methods.debouceEventScroll();
+        if(window.innerWidth > 768){
+            Methods.debouceEventScroll();
+        }
     },
     openMenu(){
         $header.openMenu.addEventListener('click', () => {
@@ -36,10 +38,10 @@ const Methods = {
     * @access private
     */
     __actionScrollHeader(){
-        if($header.el.nextElementSibling.getBoundingClientRect().top < 0){
-            $header.el.classList.add('is--active')
+        if($header.shelf.nextElementSibling.getBoundingClientRect().top < 0){
+            $header.shelf.classList.add('is--active')
         }else{
-            $header.el.classList.remove('is--active')
+            $header.shelf.classList.remove('is--active')
         }
     },
 

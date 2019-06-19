@@ -3,8 +3,14 @@
     padding: 62px calc((100% - 1135px) / 2);
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    @include breakpoint('sm'){
+        flex-direction: column;
+        align-items: center;
+    }
     &__social{
+        @include breakpoint('sm'){
+            margin-bottom: 50px;
+        }
         &___list{
             @extend %flex-spaced;
             @include rem(margin-top, 30px)
@@ -12,6 +18,19 @@
         }
     }
     &__list{
+        @include breakpoint('sm'){
+            max-height: 0px;
+            margin-top: 0;
+            margin-bottom: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: all .4s ease-in-out;
+            &.is--active{
+                max-height: 50em;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
         &--item{
             @include rem(margin-bottom, 20px);
             @include rem(font-size, 14px);
@@ -20,12 +39,46 @@
         }
     }
     &__wrapper{
+        @include breakpoint('sm'){
+            width: 100%;
+            padding-left: 30px;
+        }
+        .rr-payment{
+            &::after,
+            &::before{
+                display: none;
+            }
+        }
         &--title{
             @include rem(font-size, 34px);
             @include rem(margin, 20px 0 20px 0);
             font-weight: bold;
             font-family: $font-bebas;
             color: $color-grey-3;
+            &.is--active{
+                &::after{
+                    transform: rotate(180deg);
+                }
+            }
+            @include breakpoint('sm'){
+                position: relative;
+                font-weight: 500;
+                    &::after,
+                    &::before{
+                        content: "";
+                        right: 25px;
+                        position: absolute;
+                        background: $color-grey-3;;
+                        width: 10px;
+                        height: 2.4px;
+                        top: 50%;
+                    }  
+                    &::after{
+                        transition: all .3s ease;
+                        transform: rotate(90deg);
+                    }
+            }
+            
         }
     }
 }

@@ -7,6 +7,9 @@ const Methods = {
         Methods.initCarrouselBannerMain();
         Methods.initShelfCarrousel();
         Methods.initShelfCarrouselTwoProduct();
+        if(window.innerWidth < 768) {
+            Methods.initShelfCarrouselBannersMobile();
+        }
     },
     
     initCarrouselBannerMain(){
@@ -17,6 +20,16 @@ const Methods = {
             autoplaySpeed: 2000,
             dots: true,
             arrows: false,
+            responsive: [
+                {
+                  breakpoint: 768,
+                    settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                  }
+                }
+            ]
         })
     },
     initShelfCarrousel(){
@@ -28,6 +41,16 @@ const Methods = {
             // autoplaySpeed: 2000,
             dots: false,
             arrows: true,
+            responsive: [
+                {
+                  breakpoint: 768,
+                    settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                  }
+                }
+            ]
         })
     },
     initShelfCarrouselTwoProduct(){
@@ -39,6 +62,16 @@ const Methods = {
             arrows: true,
         })
     },
+    initShelfCarrouselBannersMobile(){
+        selector.shelfBannersMobile.slick({
+            slidesToShow: 1.5,
+            slidesToScroll: 1,
+            infinite: true,
+            dots: false,
+            arrows: false,
+            variableWidth: true
+        })
+    }
 
 }
 

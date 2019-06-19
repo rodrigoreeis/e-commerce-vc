@@ -4,4 +4,7 @@
     max-width: 1336px;
     margin: 0 auto;
     position: relative;
+    @include breakpoint('sm'){
+        padding-top: 65px;
+    }
 }

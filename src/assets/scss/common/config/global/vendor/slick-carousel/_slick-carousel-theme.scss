@@ -1,8 +1,14 @@
 .slick-slide {
     @include rem(margin-left, 20px);
+    @include breakpoint('sm'){
+        margin-left: 13px;
+    }
 }
 .slick-list {
     @include rem(margin-left, -20px);
+    @include breakpoint('sm'){
+        margin-left: -13px;
+    }
 }
 .slick-next,
 .slick-prev{
@@ -12,13 +18,22 @@
     transform: translateY(-50%);
     font-size: 0;
     z-index: 3;
+    @include breakpoint('sm'){
+        top: 20%;
+    }
 }
 .slick-prev{
     @include rem(width, 30px);
     @include rem(left, -30px);
     @include arrow-generate('left', 30px , 7px solid $color-black);
+    @include breakpoint('sm'){
+        display: none !important;
+    }
 }
 .slick-next{
     @include rem(right, -30px);
     @include arrow-generate('right', 30px , 7px solid $color-black);
+    @include breakpoint('sm'){
+        right: 5px;
+    }
 }

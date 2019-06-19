@@ -1,6 +1,9 @@
 .rr-copyright{
     background: $color-grey-black;
     @extend %flex-spaced;
+    @include breakpoint('sm'){
+        flex-direction: column-reverse;
+    }
     &__text{
         font-family: $font-lato;
         @include rem(font-size, 12px);
@@ -9,5 +12,8 @@
         color: $color-grey-3;
         letter-spacing: .1em;
         max-width: 500px;
+        @include breakpoint('sm'){
+            margin-top: 35px;
+        }
     }
 }

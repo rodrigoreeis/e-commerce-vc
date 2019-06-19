@@ -1,25 +1,5 @@
 .rr-header{
-    @include rem(font-size, 14px);
-    width: 100%;
-    color: $color-white;
-    background: $color-black;
-    font-weight: bold;
-    z-index: 5;
-    position: fixed;
-    transition: transform .3s ease-in-out;
-    &:before{
-        content: "";
-        @include rem(height, 1px);
-        @include rem(top, 80px);
-        position: absolute; 
-        width: 100%;
-        background: $color-grey-1;
-        opacity: 1;
-        visibility: visible;
-        transition: all .1s ease;
-
-    }
-    &.is--active{
+    @include breakpoint('sm'){
         transform: translateY(-65px);
         &:before{
             opacity: 0;
@@ -27,10 +7,20 @@
         }
         .rr-header__top{
             transform: translateY(63px);
+            padding: 0 15px;
+            height: 58px;
             &__group{
                 opacity: 0;
             }
+            &--logo{
+                img{
+                    width: 215px;
+                }
+            }
             &__user{
+                &--account{
+                    display: none;
+                }
                 &--search{
                     transform: scale(1);
                     cursor: pointer;
@@ -46,6 +36,13 @@
                         opacity: 1;
                         pointer-events: auto;
                         z-index: 3;
+                        span{
+                            display: none;
+                        }
+                    }
+                    &---menu{
+                        top: 20px;
+                        left: -25px;
                     }
                     .rr-menu-slide{
                         @include rem(top, 65px);
@@ -87,10 +84,4 @@
             @include rem(top, 65px);
         }
     }
-    &__top,
-    &__nav {
-        max-width: 1250px;
-        margin: 0 auto;
-    }
-  
 }

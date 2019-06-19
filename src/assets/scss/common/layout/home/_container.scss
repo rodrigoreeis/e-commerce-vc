@@ -1,12 +1,24 @@
 .rr-container{
     max-width: 1212px;
     margin: 0 auto;
+   
     &__section{
         @include rem(margin,80px 0);
+        @include breakpoint('sm'){
+            @include rem(margin,50px 0);
+        }
     }
     &__wrapper{
         @extend %flex-spaced;
         // @include rem(margin-bottom, 90px);
+    }
+    @include breakpoint('sm'){
+        .rr-banners{
+            margin-left: 47px;
+            img{
+                width: 224px
+            }
+        }
     }
     &__title{
         @include rem(font-size, 64px);
@@ -17,16 +29,23 @@
         text-transform: uppercase;
         color: $color-black-2;
         text-align: center;
+        @include breakpoint('sm'){
+            font-size: 40px;
+        }
     }
     &__banner-shelf{
         display: flex;
         @include rem(margin-bottom, 90px);
+        flex-wrap: wrap;
         &--left,
         &--right{
-            flex: 1;
+            flex: 1 1 300px;
         }
         &--right{
             width: 500px;
+            @include breakpoint('sm'){
+                width: 100%;
+            }
         }
     }
 }
