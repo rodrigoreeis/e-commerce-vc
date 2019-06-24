@@ -2,6 +2,9 @@
   .yv-review-quickreview{
     .yv-bootstrap{
         text-align: center;
+        @include breakpoint('sm'){
+            font-size: 9px !important;
+        }
         span{
             display: none;
         }

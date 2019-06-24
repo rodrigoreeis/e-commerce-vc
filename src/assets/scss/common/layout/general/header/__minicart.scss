@@ -1,0 +1,40 @@
+.rr-minicart{
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: none;
+    @include rem(width, 375px);
+    @extend %flex-spaced;
+    height: 100vh;
+    background: $color-white;
+    flex-direction: column;
+    &__top,
+    &__bottom{
+        width: 100%;
+        @include rem(padding, 0 10px);
+    }
+    &__top{
+        @include rem(height, 70px);
+        background: $color-black;
+        color: $color-white;
+        @extend %flex-spaced;
+        &--text{
+            font-family: $font-bebas;
+            @include rem(font-size, 32px);
+            font-weight: bold;
+        }
+    }
+    &__bottom{
+        border-top: 1px solid $color-grey-1;
+        @include rem(height, 140px);
+        display: flex;
+        flex-wrap: wrap;
+        &--btn{
+            width: 100%;
+            background: $color-black;
+            color: $color-white;
+            font-family: $font-bebas;
+            @include rem(font-size, 32px);
+        }
+    }
+}

@@ -29,7 +29,7 @@ article(class=`rr-shelf__item`)
 
                 != '\n#if ($product.NumbersOfInstallment > 1)\n'
                 div(class='rr-shelf__installments-container')
-                    div(class='rr-shelf__installments') ou ${product.NumbersOfInstallment}x de $productInstallmentValue sem jurus
+                    div(class='rr-shelf__installments') ${product.NumbersOfInstallment}x de $productInstallmentValue s/ jurus
                 != '\n#end\n'
             != '\n#else\n'
             div(class='rr-shelf__out-of-stock js--out-of-stock')

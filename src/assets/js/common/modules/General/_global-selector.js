@@ -5,7 +5,9 @@ export default{
         modal: document.querySelector('.rr-modal-overlay'),
     },
     $modalNews: {
-        shelf: document.querySelector('.rr-news')
+        shelf: document.querySelector('.rr-news'),
+        newsletter: document.querySelector('.js--popup--news'),
+        btn: document.querySelector('.js--popup--news button')
     },
     $globals: {
         body: document.querySelector('body'),
@@ -19,5 +21,4 @@ export default{
         search: document.querySelector('.rr-header__nav--search'),
         searchBtn: document.querySelector('.rr-header__top__user--search')
     },
-
 } 

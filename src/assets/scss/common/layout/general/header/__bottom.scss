@@ -4,6 +4,10 @@
     font-weight: 600;
     @extend %flex-centered;
     @include rem(height, 32px);
+    display: none;
+    &.is--active{
+        display: flex;
+    }
     &--text{
         @include breakpoint('sm'){
             font-size: 10px;

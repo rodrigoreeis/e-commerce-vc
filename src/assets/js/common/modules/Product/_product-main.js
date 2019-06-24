@@ -32,8 +32,8 @@
 // 		const thumbs = document.querySelectorAll('.select label')
 // 		console.log(thumbs)
 // 		response[0].items.map((thumbSku) => {
-// 			arrayThumb.push(thumbSku.images)
-// 		})
+// // 			arrayThumb.push(thumbSku.images)
+// // 		})
 // 		console.log(arrayThumb)
 // 		for(let i = 0; i < arrayThumb.length ; i++) {
 // 			for(let j = 0; j < arrayThumb[i].length ;j++){
