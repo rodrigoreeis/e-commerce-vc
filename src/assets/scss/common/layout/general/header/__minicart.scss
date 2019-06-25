@@ -2,7 +2,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    display: none;
+    z-index: 5017;
     @include rem(width, 375px);
     @extend %flex-spaced;
     height: 100vh;
@@ -27,14 +27,27 @@
     &__bottom{
         border-top: 1px solid $color-grey-1;
         @include rem(height, 140px);
-        display: flex;
+        @include rem(padding, 17px 14px 18px 12px);
+        @extend %flex-spaced;
         flex-wrap: wrap;
+        align-items: center;
+        &--text,
+        &--price{
+            @include rem(font-size, 14px);
+            @include font-weight(bold);
+            text-transform: uppercase;
+            color: $color-black-2;
+        }
+        &--price{
+            @include rem(font-size, 20px);
+        }
         &--btn{
             width: 100%;
+            @include rem(height, 75px);
+            @include rem(font-size, 32px);
             background: $color-black;
             color: $color-white;
             font-family: $font-bebas;
-            @include rem(font-size, 32px);
         }
     }
 }

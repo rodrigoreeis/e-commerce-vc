@@ -1,6 +1,6 @@
-import cacheSelector from "./_global-selector";
-const {$globals} = cacheSelector;
+import cacheSelector from "../_global-selector";
 
+const {$globals} = cacheSelector;
 
 export const openOverlay = () => {
     $globals.overlay.classList.add('is--active');

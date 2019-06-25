@@ -1,5 +1,5 @@
 import GlobalSelector from "../_global-selector";
-import {openOverlay, closeOverlay} from "../methods";
+import {openOverlay, closeOverlay} from "../utils/methods";
 
 const {$modalNews, $header, $globals} = GlobalSelector;
 

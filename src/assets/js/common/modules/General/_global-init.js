@@ -4,6 +4,7 @@ import Modals from "./Modal/_modal-index";
 import Order from "./Order/_order-index";
 import Header from "./Header/__header-index";
 import Footer from "./Footer/__footer-mobile";
+import Minicart from "./Minicart/_minicart-index";
 
 const Methods = {
     init() {
@@ -11,6 +12,7 @@ const Methods = {
         Order.init();
         Header.init();
         Footer.init();
+        Minicart.init();
     }
 }
 export default {

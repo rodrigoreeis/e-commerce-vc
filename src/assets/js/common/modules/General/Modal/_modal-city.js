@@ -1,5 +1,5 @@
 import GlobalSelector from "../_global-selector";
-import { getOrderForm, updateOrderForm} from "../_VTEXHelpers";
+import { getOrderForm, updateOrderForm} from "../utils/_VTEXHelpers";
 
 const {$modalCity , $globals} = GlobalSelector;
 const Methods = {

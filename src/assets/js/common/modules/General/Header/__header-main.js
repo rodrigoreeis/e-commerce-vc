@@ -1,5 +1,5 @@
 import cacheSelector from "../_global-selector";
-import {openOverlay, closeOverlay} from "../methods";
+import {openOverlay, closeOverlay} from "../utils/methods";
 
 const {$header,$globals} = cacheSelector;
 
