@@ -53,11 +53,14 @@
         @extend %flex-column;
     }
     &__price-terrt{
-        display: flex;
-        flex-direction: column;
+        @extend %flex-centered;
+    }
+    &__old-price{
+        @include rem(font-size, 14px);
+        @include rem(margin-right, 20px);
     }
     &__best-price{
-        @include rem(font-size, 16px);
+        @include rem(font-size, 20px);
         font-weight: bold;
         text-align: center;
     }
