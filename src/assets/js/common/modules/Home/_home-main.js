@@ -36,9 +36,7 @@ const Methods = {
         selector.shelf.slick({
             slidesToShow: 4,
             slidesToScroll: 1,
-            infinite: true,
-            // autoplay: true,
-            // autoplaySpeed: 2000,
+            infinite: false,
             dots: false,
             arrows: true,
             responsive: [
@@ -66,7 +64,7 @@ const Methods = {
         selector.shelfBannersMobile.slick({
             slidesToShow: 1.5,
             slidesToScroll: 1,
-            infinite: true,
+            infinite: false,
             dots: false,
             arrows: false,
             variableWidth: true

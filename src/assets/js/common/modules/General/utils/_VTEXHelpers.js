@@ -9,3 +9,10 @@ export const updateOrderForm = (string, object) => {
 export const addToCart = (item) => {
     return vtexjs.checkout.addToCart([item])
 }
+
+export const updateItem = (item) => {
+    return vtexjs.checkout.updateItems([item]);
+}
+export const removeItem = (item) => {
+    return vtexjs.checkout.removeItems(item)
+}

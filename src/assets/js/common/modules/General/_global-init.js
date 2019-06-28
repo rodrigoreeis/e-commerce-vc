@@ -11,12 +11,12 @@ const {$loader} = GlobalSelector
 
 const Methods = {
     init() {
+        Methods.ajaxLoader();
         Modals.init();
         Order.init();
         Header.init();
         Footer.init();
         Minicart.init();
-        Methods.ajaxLoader();
     },
 
     ajaxLoader(){

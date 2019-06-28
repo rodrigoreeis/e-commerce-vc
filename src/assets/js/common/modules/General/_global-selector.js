@@ -25,11 +25,15 @@ export default{
         shelf: document.querySelector('.rr-minicart'),
         products: document.querySelector('.js--products'),
         openMinicart: document.querySelector('.js--minicart'),
+        closeMinicart: document.querySelector('.rr-minicart__top--close'),
         price: document.querySelector('.js--minicart--price'),
-        amount: document.querySelector('.js--minicart--amount')
+        amount: document.querySelector('.js--minicart--amount'),
+        bottom: document.querySelector('.rr-minicart__bottom'),
+        empy: document.querySelector('.rr-minicart__empy')
     },
     $shelf: {
-        btn: document.querySelectorAll('.rr-shelf__buy--btn')
+        btn: document.querySelectorAll('.rr-shelf__buy--btn'),
+ 
     },
     $loader:{
         shelf: document.querySelector('.rr-ajax-loader')

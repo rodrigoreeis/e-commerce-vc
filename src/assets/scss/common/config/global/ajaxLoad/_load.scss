@@ -10,6 +10,9 @@
     perspective: 600;
     justify-content: center;
     z-index: 5017;
+    @include breakpoint('sm'){
+        width: 100%;
+    }
     &.is--remove{
         opacity: 0;
         visibility: hidden;
@@ -33,31 +36,31 @@
         border-top-color: $color-black;
         border-radius: 50%;
         animation: spin 3s linear infinite;
-        width: 200px;
+        @include rem(width, 200px);
         height: 200px;
         &::before{
             content: "";
             position: absolute;
             border: 3px solid transparent;
-            border-top-color: #f9f9f9;
+            border-top-color: $color-black;
             border-radius: 50%;
             animation: spin 1.5s linear infinite;
-            top: 15px;
-            left: 15px;
-            right: 15px;
-            bottom: 15px;
+            @include rem(top, 15px);
+            @include rem(left, 15px);
+            @include rem(right, 15px);
+            @include rem(bottom, 15px);
         }
         &::after{
             content: "";
             position: absolute;
             border: 3px solid transparent;
             border-radius: 50%;
-            border-top-color: $color-pink;
+            border-top-color: $color-black;
             animation: spin 2s linear infinite;
-            top: 5px;
-            left: 5px;
-            right: 5px;
-            bottom: 5px;
+            @include rem(top, 5px);
+            @include rem(left, 5px);
+            @include rem(right, 5px);
+            @include rem(bottom, 5px);
         }
     }
 }

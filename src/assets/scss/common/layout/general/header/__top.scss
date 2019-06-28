@@ -34,6 +34,16 @@
             transition: transform .3s ease-in-out;
             transform: scale(0);
         }
+        &--minicart{
+            cursor: pointer;
+            position: relative;
+            span{
+                position: absolute;
+                @include rem(top, 6px);
+                @include rem(right, 2.5px);
+                @include rem(font-size, 12px);
+            }
+        }
    }
 }
 
