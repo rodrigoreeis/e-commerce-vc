@@ -188,7 +188,7 @@ const Methods = {
     __updatedIndexProduct(){
         const itemIndex = document.querySelectorAll('.rr-product__remove');
         getOrderForm()
-            .then((result) => {
+            .then((result) => { 
                 const index = result.items;
                 for(let i = 0; i < index.length; i++){
                     console.log(itemIndex[i])
