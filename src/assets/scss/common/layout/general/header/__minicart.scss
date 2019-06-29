@@ -29,7 +29,7 @@
             font-weight: bold;
         }
     }
-    .rr-products{
+    &-product{
         height: calc(100vh - 76px - 184px);
         width: 100%;
         display: none;
@@ -37,12 +37,34 @@
         &.is--active{
             display: block;
         }
-    }
-    .rr-product__remove{
-        padding: 20px;
-        display: block;
-        background: red;
-        cursor: pointer;
+        &__wrapper{
+            display: flex;
+            justify-content: space-between;
+        }
+        &__qty{
+            width: 30px;
+            display: flex;
+            &--less{
+                display: block;
+                padding: 5px;
+                background: red;
+            }
+            &--val{
+                width: 20px;
+                text-align: center;
+            }
+            &--more{
+                display: block;
+                padding: 5px;
+                background: green;
+            }
+        }
+        &__remove{
+            padding: 20px;
+            display: block;
+            background: black;
+            cursor: pointer;
+        }
     }
     &__bottom{
         border-top: 1px solid $color-grey-1;

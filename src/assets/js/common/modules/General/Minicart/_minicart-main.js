@@ -33,7 +33,9 @@ const Methods = {
     priceAmountMinicart(){
         getOrderForm()
             .done((result) => {
-                $minicart.price.textContent = (result.value / 100).toLocaleString('pt-BR',{style: 'currency', currency:'BRL'});
+                if(result.totalizers.length != 0){
+                    $minicart.price.textContent = (result.totalizers[0].value / 100).toLocaleString('pt-BR',{style: 'currency', currency:'BRL'});
+                }
             })
     },
     amountItemsMinicart(){
@@ -51,28 +53,54 @@ const Methods = {
         const priceProduct = document.createElement('span');
         const linkProduct = document.createElement('a');
         const removeItem = document.createElement('span');
+        const containerQty = document.createElement('div')
+        const quantityMore = document.createElement('a');
+        const quantityValue = document.createElement('input');
+        const quantityLess = document.createElement('a');
 
-        wrapperProduct.classList.add('rr-product__wrapper')
-        imgProduct.classList.add('rr-product__img')
-        containerProduct.classList.add('rr-product__container')
-        nameProduct.classList.add('rr-product__name')
-        priceProduct.classList.add('rr-product__price')
-        priceDiscountProduct.classList.add('rr-product__old-price')
-        removeItem.classList.add('rr-product__remove')
-        
+        wrapperProduct.classList.add('rr-minicart-product__wrapper')
+        imgProduct.classList.add('rr-minicart-product__img')
+        containerProduct.classList.add('rr-minicart-product__container')
+        nameProduct.classList.add('rr-minicart-product__name')
+        priceProduct.classList.add('rr-minicart-product__price')
+        priceDiscountProduct.classList.add('rr-minicart-product__old-price')
+        removeItem.classList.add('rr-minicart-product__remove')
+        containerQty.classList.add('rr-minicart-product__qty')
+        quantityLess.classList.add('js--minicart-qty', 'rr-minicart-product__qty--less',)
+        quantityValue.classList.add('rr-minicart-product__qty--val')
+        quantityMore.classList.add('js--minicart-qty','rr-minicart-product__qty--more')
+
         $minicart.products.appendChild(wrapperProduct)
         linkProduct.appendChild(imgProduct);
         wrapperProduct.appendChild(linkProduct);
         wrapperProduct.appendChild(containerProduct)
         wrapperProduct.appendChild(removeItem)
+        containerQty.appendChild(quantityLess)
+        containerQty.appendChild(quantityValue)
+        containerQty.appendChild(quantityMore)
         containerProduct.appendChild(nameProduct)
         containerProduct.appendChild(priceDiscountProduct)
         containerProduct.appendChild(priceProduct)
+        containerProduct.appendChild(containerQty)
 
+        quantityMore.addEventListener('click', ({currentTarget}) => {
+            ajaxLoader();
+            Methods.__changeQuantityItem(currentTarget);
+        })
+        quantityLess.addEventListener('click', ({currentTarget}) => {
+            ajaxLoader();
+            Methods.__changeQuantityItem(currentTarget);
+        })
         removeItem.addEventListener('click', ({currentTarget}) => {
             Methods.__removeToItem(currentTarget);
         });
 
+        removeItem.textContent = "X";
+        quantityValue.setAttribute('type', 'text')
+        quantityValue.setAttribute('readonly', 'readonly')
+        quantityValue.setAttribute('value', `${items.quantity}`)
+        quantityLess.setAttribute('data-qty', '-')
+        quantityMore.setAttribute('data-qty', '+')
         removeItem.setAttribute('data-index', `${itemIndex}`)
         linkProduct.setAttribute('href', items.detailUrl);
         imgProduct.setAttribute('src', items.imageUrl.replace('-55-55', '-80-80'))
@@ -113,7 +141,6 @@ const Methods = {
             button.addEventListener('click', ({currentTarget}) => {
                 Methods.__minicartIsOpen();
                 Methods.__minicartNotEmpy();
-                console.log("clicado")
                 const elementId = currentTarget.firstChild.getAttribute('data-productId');
                 fetch(`/api/catalog_system/pub/products/search/?fq=productId:${elementId}`)
                     .then((response) => response.json())
@@ -135,10 +162,7 @@ const Methods = {
             .then((response) => {
                 const itemsId = response.items.map((el) =>  el.id)
                 const validateProduct = itemsId.indexOf(skuItem);
-                if(validateProduct != -1){
-                    alert('Esse produto já existe no carrinho!')
-                }
-                else{
+                if(validateProduct === -1){
                     ajaxLoader();
                     Methods.__addToItem(item);
                 }
@@ -186,16 +210,59 @@ const Methods = {
               })
     },
     __updatedIndexProduct(){
-        const itemIndex = document.querySelectorAll('.rr-product__remove');
+        const itemIndex = document.querySelectorAll('.rr-minicart-product__remove');
         getOrderForm()
             .then((result) => { 
                 const index = result.items;
+                console.log(index)
                 for(let i = 0; i < index.length; i++){
+                    itemIndex[i].setAttribute('data-index', i)
                     console.log(itemIndex[i])
-                    itemIndex[i].setAttribute('data-index', `${i}`)
                 }
         });
-    }
+    },
+    __changeQuantityItem(currentTarget){
+        const currentIndex = currentTarget.parentNode.parentNode.nextSibling.dataset.index;
+        const currentOperator = currentTarget.dataset.qty;
+        const currentValue = currentTarget.parentNode.firstElementChild.nextElementSibling;
+        getOrderForm()
+            .then((result) => {
+                const currentQuantity = result.items[currentIndex].quantity;
+                let newQuantity = currentQuantity;
+                if(currentOperator == '+'){
+                    newQuantity += 1
+                }
+                else{
+                    newQuantity -= 1
+                    console.log(newQuantity)
+                    if(newQuantity == 0) {
+                        const _self = currentTarget.parentNode.parentNode.parentNode;
+                        _self.remove();
+                        console.log(_self)
+                    }
+                }
+                const updateQty = {
+                    index: currentIndex,
+                    quantity : newQuantity
+                }
+                return updateItem(updateQty)
+                    .done((orderForm) => {
+                        Methods.__updatedIndexProduct();
+                        Methods.priceAmountMinicart();
+                        finishAjaxLoader();
+                        if(!$minicart.products.childNodes.length == 0){
+                            if(!newQuantity == 0){
+                                const changeValueQuantity = orderForm.items[currentIndex].quantity;
+                                currentValue.setAttribute('value', `${changeValueQuantity}`)
+                            }
+                        }else{
+                            Methods.amountItemsMinicart();
+                            Methods.__minicartEmpy();
+                            closeOverlay($minicart.shelf)
+                        }
+                    });
+            })
+    },
 }
 
 export default {
