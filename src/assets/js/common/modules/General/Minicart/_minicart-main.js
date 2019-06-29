@@ -139,6 +139,7 @@ const Methods = {
     addItemToMinicart(){
         [...$shelf.btn].map((button) => {
             button.addEventListener('click', ({currentTarget}) => {
+                ajaxLoader();
                 Methods.__minicartIsOpen();
                 Methods.__minicartNotEmpy();
                 const elementId = currentTarget.firstChild.getAttribute('data-productId');
@@ -163,8 +164,9 @@ const Methods = {
                 const itemsId = response.items.map((el) =>  el.id)
                 const validateProduct = itemsId.indexOf(skuItem);
                 if(validateProduct === -1){
-                    ajaxLoader();
                     Methods.__addToItem(item);
+                }else{
+                    finishAjaxLoader();
                 }
             })
     },
@@ -180,10 +182,10 @@ const Methods = {
         addToCart(item)
             .done((response) => {
                 console.log('Item adicionado!');
-                finishAjaxLoader();
                 Methods.__addNewItemMinicart();
                 Methods.priceAmountMinicart();
                 Methods.amountItemsMinicart();
+                finishAjaxLoader();
             });
     },
 
