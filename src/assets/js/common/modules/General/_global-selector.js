@@ -33,7 +33,6 @@ export default{
     },
     $shelf: {
         btn: document.querySelectorAll('.rr-shelf__buy--btn'),
- 
     },
     $loader:{
         shelf: document.querySelector('.rr-ajax-loader')

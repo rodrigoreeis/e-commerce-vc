@@ -50,6 +50,7 @@ const Methods = {
         const containerProduct = document.createElement('div');
         const nameProduct = document.createElement('p');
         const priceDiscountProduct = document.createElement('del');
+        const pricePercentage = document.createElement('span')
         const priceProduct = document.createElement('span');
         const linkProduct = document.createElement('a');
         const removeItem = document.createElement('span');
@@ -62,6 +63,7 @@ const Methods = {
         imgProduct.classList.add('rr-minicart-product__img')
         containerProduct.classList.add('rr-minicart-product__container')
         nameProduct.classList.add('rr-minicart-product__name')
+        pricePercentage.classList.add('rr-minicart-product__price-percentage')
         priceProduct.classList.add('rr-minicart-product__price')
         priceDiscountProduct.classList.add('rr-minicart-product__old-price')
         removeItem.classList.add('rr-minicart-product__remove')
@@ -81,6 +83,7 @@ const Methods = {
         containerProduct.appendChild(nameProduct)
         containerProduct.appendChild(priceDiscountProduct)
         containerProduct.appendChild(priceProduct)
+        containerProduct.appendChild(pricePercentage)
         containerProduct.appendChild(containerQty)
 
         quantityMore.addEventListener('click', ({currentTarget}) => {
@@ -103,10 +106,22 @@ const Methods = {
         quantityMore.setAttribute('data-qty', '+')
         removeItem.setAttribute('data-index', `${itemIndex}`)
         linkProduct.setAttribute('href', items.detailUrl);
-        imgProduct.setAttribute('src', items.imageUrl.replace('-55-55', '-80-80'))
+        imgProduct.setAttribute('src', items.imageUrl.replace('-55-55', '-120-120'))
         nameProduct.textContent = items.name
-        priceDiscountProduct.textContent = items.listPrice == items.price ? priceDiscountProduct.remove() : (items.listPrice / 100).toLocaleString('pt-BR',{style: 'currency', currency:'BRL'});
+        priceDiscountProduct.textContent = Methods.__priceItems(items, priceDiscountProduct, pricePercentage);
         priceProduct.textContent = (items.price / 100).toLocaleString('pt-BR',{style: 'currency', currency:'BRL'});
+    },
+    __priceItems(items, priceDiscountProduct, pricePercentage){
+        if(items.listPrice == items.price){
+            priceDiscountProduct.remove();
+            pricePercentage.remove();
+        }else{
+            (items.listPrice / 100).toLocaleString('pt-BR',{style: 'currency', currency:'BRL'}); 
+            if( porcetage != 0){
+                const porcetageDiscount = (((( items.price / 100) / ((items.listPrice / 100))) - 1) * 100)
+                pricePercentage.textContent =`${porcetageDiscount}%`
+            }
+        }
     },
     __minicartEmpy(){
         $minicart.empy.classList.add('is--active');
@@ -145,7 +160,6 @@ const Methods = {
                 fetch(`/api/catalog_system/pub/products/search/?fq=productId:${elementId}`)
                     .then((response) => response.json())
                     .then((result) => {
-                        console.log(result[0].items[0].itemId)
                         let skuItem = result[0].items[0].itemId
                         const item = {
                             id: skuItem,
@@ -179,7 +193,6 @@ const Methods = {
     __addToItem(item){
         addToCart(item)
             .done((response) => {
-                console.log('Item adicionado!');
                 finishAjaxLoader();
                 Methods.__addNewItemMinicart();
                 Methods.priceAmountMinicart();
@@ -199,7 +212,6 @@ const Methods = {
                 }]
                 return removeItem(itemToRemove)
             }).done((result) => {
-                console.log('item removido');
                 if(!result.items.length){
                     Methods.__minicartEmpy();
                 }
@@ -214,10 +226,8 @@ const Methods = {
         getOrderForm()
             .then((result) => { 
                 const index = result.items;
-                console.log(index)
                 for(let i = 0; i < index.length; i++){
                     itemIndex[i].setAttribute('data-index', i)
-                    console.log(itemIndex[i])
                 }
         });
     },
@@ -234,11 +244,10 @@ const Methods = {
                 }
                 else{
                     newQuantity -= 1
-                    console.log(newQuantity)
                     if(newQuantity == 0) {
                         const _self = currentTarget.parentNode.parentNode.parentNode;
+                        Methods.priceAmountMinicart();
                         _self.remove();
-                        console.log(_self)
                     }
                 }
                 const updateQty = {

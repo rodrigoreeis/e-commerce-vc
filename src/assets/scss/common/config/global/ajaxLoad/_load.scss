@@ -17,7 +17,6 @@
         opacity: 0;
         visibility: hidden;
         transition: all .3s ease-in-out;
-
     }
     svg{
         position: absolute;
@@ -36,8 +35,9 @@
         border-top-color: $color-black;
         border-radius: 50%;
         animation: spin 3s linear infinite;
-        @include rem(width, 200px);
+        width: 200px;
         height: 200px;
+        
         &::before{
             content: "";
             position: absolute;

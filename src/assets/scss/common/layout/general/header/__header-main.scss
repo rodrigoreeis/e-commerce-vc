@@ -31,6 +31,9 @@
                 opacity: 0;
             }
             &__user{
+                @media(min-width: 1024px){
+                    margin-top: 10px;
+                }
                 &--search{
                     transform: scale(1);
                     cursor: pointer;
@@ -42,10 +45,12 @@
                 &--item{
                     opacity: 0;
                     pointer-events: none;
+                    @media(min-width: 1024px){
+                        margin-top: -10px;
+                    }
                     &:first-of-type{
                         opacity: 1;
                         pointer-events: auto;
-                        z-index: 3;
                     }
                     .rr-menu-slide{
                         @include rem(top, 65px);
@@ -78,7 +83,10 @@
                     }
                     .fulltext-search-box{
                         color: $color-black;
-                        width: 100%;
+                        max-width: 1250px;
+                        @include rem(padding, 5px 0);
+                        display: block;
+                        margin: 0 auto;
                     }
                 }
             }

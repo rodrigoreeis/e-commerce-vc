@@ -64,6 +64,7 @@
     }
     &--search{
         flex-basis: 387px;
+        
         fieldset{
             border-bottom: 1px solid;
             position: relative;
@@ -89,4 +90,7 @@
             }
         }
     }
+}
+ul.ui-autocomplete.ui-menu.ui-widget.ui-widget-content.ui-corner-all{
+    display: none !important;
 }

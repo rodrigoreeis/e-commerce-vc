@@ -6,6 +6,8 @@
     left: 0;
     background: rgba(0,0,0,0.5);
     @include smooth-shown;
-    z-index: 5015;
     cursor: pointer;
+    @include breakpoint('sm'){
+        height: 110vh;
+    }
 }

@@ -35,7 +35,6 @@
                     &:first-of-type{
                         opacity: 1;
                         pointer-events: auto;
-                        z-index: 3;
                         span{
                             display: none;
                         }
@@ -52,7 +51,7 @@
             &--search{
                 position: fixed;
                 left: 0;
-                @include rem(top, 145px);
+                top: 100%;
                 width: 100%;
                 z-index: 5017;
                 background: $color-white;

@@ -10,6 +10,9 @@
     flex-direction: column;
     transform: translateX(200%);
     transition: all .3s ease-in-out;
+    @include breakpoint('sm'){
+        width: 100%;
+    }
     &.is--active{
         transform: translateX(0)
     }
@@ -17,6 +20,7 @@
     &__bottom{
         width: 100%;
         @include rem(padding, 0 10px);
+        
     }
     &__top{
         @include rem(height, 70px);
@@ -28,43 +32,141 @@
             @include rem(font-size, 32px);
             font-weight: bold;
         }
+        &--close{
+            @include rem(padding, 17px);
+            position: relative;
+            color: $color-black;
+            cursor: pointer;
+            transform: rotate(45deg);
+            &::before,
+            &::after{
+                content: "";
+                @include rem(width, 50px);
+                @include rem(height, 2px);
+                background: $color-white;
+                position: absolute;
+                left: 0;
+                top: 25px;
+            }
+            &::after{
+                transform: rotate(90deg);
+            }
+        }
     }
     &-product{
-        height: calc(100vh - 76px - 184px);
-        width: 100%;
+        height: calc(100vh - 67px - 184px);
+        width: 98%;
         display: none;
         overflow-y: auto;
+        overflow-x: hidden;
+        &::-webkit-scrollbar{
+            @include rem(width, 6px);
+            background-color: transparent;
+        }
+        &::-webkit-scrollbar-thumb{
+            background-color: $color-grey-1;
+            @include rem(border-radius, 5px);
+        }
         &.is--active{
             display: block;
         }
+        &__container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: $color-black-2;
+            position: relative;
+            @include rem(padding-left, 10px);
+            @include rem(width, 200px);
+        }
         &__wrapper{
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+        }
+        &__name{
+            @include rem(font-size, 14px);
+            text-transform: uppercase;
+        }
+        &__price{
+            @include rem(font-size, 16px);
+            font-weight: bold;
+        }
+        &__price-percentage{
+            @include rem(font-size, 14px);
+            font-weight: bold;
+            color: $color-pink;
         }
         &__qty{
-            width: 30px;
             display: flex;
+            @include rem(width, 92px);
+            @include rem(height, 22px);
+            text-align: center;
+            &--less,
+            &--more{
+                width: calc(92px - 45px);
+                border: 2px solid;
+                font-weight: bold;
+                position: relative;
+                &::before{
+                    content: "";
+                    @include rem(height, 2px);
+                    @include rem(width, 9px);
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
             &--less{
-                display: block;
-                padding: 5px;
-                background: red;
+                border-color: $color-pink;
+                &::before{
+                    background: $color-pink;
+                }
             }
             &--val{
-                width: 20px;
-                text-align: center;
+               @include rem(width, 45px);
+               text-align: center;
+               font-weight: bold;
+               @include rem(font-size, 14px);
             }
             &--more{
-                display: block;
-                padding: 5px;
-                background: green;
+                &::before{
+                    background: $color-black;
+                }
+                &::after{
+                    content: "";
+                    @include rem(height, 2px);
+                    @include rem(width, 9px);
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) rotate(90deg);
+                    background: $color-black;
+                }
             }
         }
         &__remove{
-            padding: 20px;
-            display: block;
-            background: black;
             cursor: pointer;
+            @include rem(margin-top, 22px);
+            @include rem(height, 23px);
+            @include rem(padding, 5px);
+            position: relative;
+            color: $color-white;
+            &::before{
+                content: "+";
+                color: $color-pink;
+                position: absolute;
+                @include rem(top, -20px);
+                @include rem(width, 20px);
+                @include rem(height, 15px);
+                @include rem(left, 11px);
+                @include rem(font-size, 32px);
+                transform: rotate(45deg);
+            }
         }
+    }
+    &-keeping-buying {
+        width: 100%;
     }
     &__bottom{
         border-top: 1px solid $color-grey-1;
