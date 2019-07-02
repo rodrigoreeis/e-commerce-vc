@@ -1,5 +1,5 @@
 import "whatwg-fetch";
-import 'promise-polyfill/src/polyfill';
+// import 'promise-polyfill/src/polyfill';
 import GlobalSelector from "./_global-selector";
 import Modals from "./Modal/_modal-index";
 import Order from "./Order/_order-index";

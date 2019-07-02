@@ -154,6 +154,7 @@ const Methods = {
     addItemToMinicart(){
         [...$shelf.btn].map((button) => {
             button.addEventListener('click', ({currentTarget}) => {
+                ajaxLoader();
                 Methods.__minicartIsOpen();
                 Methods.__minicartNotEmpy();
                 const elementId = currentTarget.firstChild.getAttribute('data-productId');
@@ -177,8 +178,9 @@ const Methods = {
                 const itemsId = response.items.map((el) =>  el.id)
                 const validateProduct = itemsId.indexOf(skuItem);
                 if(validateProduct === -1){
-                    ajaxLoader();
                     Methods.__addToItem(item);
+                }else{
+                    finishAjaxLoader();
                 }
             })
     },
@@ -193,10 +195,15 @@ const Methods = {
     __addToItem(item){
         addToCart(item)
             .done((response) => {
+<<<<<<< HEAD
                 finishAjaxLoader();
+=======
+                console.log('Item adicionado!');
+>>>>>>> 42070ead0fbf5944c5f08d3aa37340e2f5ffa1c9
                 Methods.__addNewItemMinicart();
                 Methods.priceAmountMinicart();
                 Methods.amountItemsMinicart();
+                finishAjaxLoader();
             });
     },
 
