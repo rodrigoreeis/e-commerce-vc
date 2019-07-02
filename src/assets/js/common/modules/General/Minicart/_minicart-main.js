@@ -68,7 +68,7 @@ const Methods = {
         priceDiscountProduct.classList.add('rr-minicart-product__old-price')
         removeItem.classList.add('rr-minicart-product__remove')
         containerQty.classList.add('rr-minicart-product__qty')
-        quantityLess.classList.add('js--minicart-qty', 'rr-minicart-product__qty--less',)
+        quantityLess.classList.add('js--minicart-qty', 'rr-minicart-product__qty--less')
         quantityValue.classList.add('rr-minicart-product__qty--val')
         quantityMore.classList.add('js--minicart-qty','rr-minicart-product__qty--more')
 
@@ -97,7 +97,6 @@ const Methods = {
         removeItem.addEventListener('click', ({currentTarget}) => {
             Methods.__removeToItem(currentTarget);
         });
-
         removeItem.textContent = "X";
         quantityValue.setAttribute('type', 'text')
         quantityValue.setAttribute('readonly', 'readonly')
@@ -110,6 +109,9 @@ const Methods = {
         nameProduct.textContent = items.name
         priceDiscountProduct.textContent = Methods.__priceItems(items, priceDiscountProduct, pricePercentage);
         priceProduct.textContent = (items.price / 100).toLocaleString('pt-BR',{style: 'currency', currency:'BRL'});
+        if(quantityValue.value == 1){
+            quantityLess.classList.add('is--disabled');
+        }
     },
     __priceItems(items, priceDiscountProduct, pricePercentage){
         if(items.listPrice == items.price){
@@ -184,6 +186,18 @@ const Methods = {
                 }
             })
     },
+    __addToItem(item){
+        addToCart(item)
+            .done((response) => {
+                finishAjaxLoader();
+                console.log('Item adicionado!');
+                Methods.__addNewItemMinicart();
+                Methods.priceAmountMinicart();
+                Methods.amountItemsMinicart();
+                finishAjaxLoader();
+            });
+    },
+
     __addNewItemMinicart(){
         getOrderForm()
             .then((result) => {
@@ -192,21 +206,6 @@ const Methods = {
                 Methods.__createItems(items, indexNewItem);
             })
     },
-    __addToItem(item){
-        addToCart(item)
-            .done((response) => {
-<<<<<<< HEAD
-                finishAjaxLoader();
-=======
-                console.log('Item adicionado!');
->>>>>>> 42070ead0fbf5944c5f08d3aa37340e2f5ffa1c9
-                Methods.__addNewItemMinicart();
-                Methods.priceAmountMinicart();
-                Methods.amountItemsMinicart();
-                finishAjaxLoader();
-            });
-    },
-
     __removeToItem(currentTarget){
         ajaxLoader()
         const indexProduct = currentTarget.getAttribute('data-index');
@@ -248,13 +247,14 @@ const Methods = {
                 let newQuantity = currentQuantity;
                 if(currentOperator == '+'){
                     newQuantity += 1
+                    if(currentTarget.parentNode.firstElementChild.classList.contains('is--disabled')){
+                        currentTarget.parentNode.firstElementChild.classList.remove('is--disabled')
+                    }
                 }
                 else{
                     newQuantity -= 1
-                    if(newQuantity == 0) {
-                        const _self = currentTarget.parentNode.parentNode.parentNode;
-                        Methods.priceAmountMinicart();
-                        _self.remove();
+                    if(newQuantity == 1){
+                        currentTarget.classList.add('is--disabled')
                     }
                 }
                 const updateQty = {
@@ -263,7 +263,6 @@ const Methods = {
                 }
                 return updateItem(updateQty)
                     .done((orderForm) => {
-                        Methods.__updatedIndexProduct();
                         Methods.priceAmountMinicart();
                         finishAjaxLoader();
                         if(!$minicart.products.childNodes.length == 0){
