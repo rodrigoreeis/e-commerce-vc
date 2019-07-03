@@ -4,7 +4,6 @@ const Methods = {
             Methods.actionFooterMobile()
         }
     },
-
     actionFooterMobile(){
         const elementAcordion = document.querySelectorAll('.rr-footer__wrapper--title');
         [...elementAcordion].map((el) => {

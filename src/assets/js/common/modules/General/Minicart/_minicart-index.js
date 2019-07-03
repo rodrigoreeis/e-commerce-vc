@@ -1,9 +1,9 @@
-import Minicart from "./_minicart-main";
+import Minicart from './_minicart-main';
 const Methods = {
-    init() {
-        Minicart.init();
-    }
-}
+	init() {
+		Minicart.init();
+	}
+};
 export default {
-    init: Methods.init
-}
+	init: Methods.init
+};

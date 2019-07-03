@@ -15,4 +15,4 @@ export const updateItem = (item) => {
 }
 export const removeItem = (item) => {
     return vtexjs.checkout.removeItems(item)
-}
+} 
