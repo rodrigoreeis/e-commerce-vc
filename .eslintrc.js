@@ -14,6 +14,10 @@ module.exports = {
             "error",
             "tab"
         ],
+        "prefer-const": ["error", {
+            "destructuring": "any",
+            "ignoreReadBeforeAssign": false
+        }],
         "no-console": "off",
         "space-before-function-paren":["error", {"anonymous": "always", "named": "never", "asyncArrow": "always"}],
         "keyword-spacing": ["error", { "before": false }],

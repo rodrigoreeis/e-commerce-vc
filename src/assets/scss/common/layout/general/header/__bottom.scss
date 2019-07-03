@@ -5,12 +5,12 @@
     @extend %flex-centered;
     @include rem(height, 32px);
     display: none;
-    &.is--active{
+    &.is--active{ 
         display: flex;
     }
     &--text{
         @include breakpoint('sm'){
-            font-size: 10px;
+            @include rem(font-size, 10px);
         }
         a{
             text-transform: uppercase;

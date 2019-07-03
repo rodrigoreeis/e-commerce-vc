@@ -1,10 +1,10 @@
 import GlobalSelector from '../_global-selector';
-import { getOrderForm, updateOrderForm} from '../utils/_VTEXHelpers';
+import { getOrderForm, updateOrderForm}from '../utils/_VTEXHelpers';
 
 const {$modalCity , $globals} = GlobalSelector;
 const Methods = {
 	init() {
-		if(!localStorage.cidade){ 
+		if (!localStorage.cidade){ 
 			Methods.modalPopUpCity();
 		}
 	},

@@ -1,5 +1,5 @@
 import cacheSelector from '../_global-selector';
-import {openOverlay, closeOverlay} from '../utils/methods';
+import {openOverlay, closeOverlay}from '../utils/methods';
 
 const {$header, $globals} = cacheSelector;
 
@@ -22,6 +22,6 @@ const Methods = {
 	},
 };
 
-export default{
+export default {
 	init: Methods.init
 };

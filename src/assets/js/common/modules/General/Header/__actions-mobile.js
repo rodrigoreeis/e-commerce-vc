@@ -4,7 +4,7 @@ const {$header} = cacheSelector;
 
 const Methods = {
 	init(){
-		if(window.innerWidth < 768) {
+		if (window.innerWidth < 768) {
 			// Methods.activeHeader();
 		}
 	},
@@ -13,6 +13,6 @@ const Methods = {
 	}
 };
 
-export default{
+export default {
 	init: Methods.init
 };

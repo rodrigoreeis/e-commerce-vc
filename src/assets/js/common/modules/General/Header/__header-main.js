@@ -1,5 +1,5 @@
 import cacheSelector from '../_global-selector';
-import {openOverlay, closeOverlay} from '../utils/methods';
+import {openOverlay, closeOverlay}from '../utils/methods';
 
 const {$header,$globals} = cacheSelector;
 
@@ -7,7 +7,7 @@ const Methods = {
 	init(){
 		Methods.openMenu();
 		Methods.closeMenu();
-		if(window.innerWidth > 768){
+		if (window.innerWidth > 768){
 			Methods.debouceEventScroll();
 		}
 	},
@@ -26,7 +26,7 @@ const Methods = {
 	debouceEventScroll(){
 		let debounce_timer;
 		window.onscroll = () => {
-			if(debounce_timer) {
+			if (debounce_timer) {
 				window.clearTimeout(debounce_timer);
 			}
 			debounce_timer = window.setTimeout(() => {
@@ -38,15 +38,15 @@ const Methods = {
     * @access private
     */
 	__actionScrollHeader(){
-		if($header.shelf.nextElementSibling.getBoundingClientRect().top < 0){
+		if ($header.shelf.nextElementSibling.getBoundingClientRect().top < 0){
 			$header.shelf.classList.add('is--active');
-		}else{
+		}else {
 			$header.shelf.classList.remove('is--active');
 		}
 	},
 
 };
 
-export default{
+export default {
 	init: Methods.init
 };

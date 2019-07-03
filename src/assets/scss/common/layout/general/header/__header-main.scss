@@ -20,7 +20,7 @@
 
     }
     &.is--active{
-        transform: translateY(-65px);
+        @include rem(transform, translateY(-65px));
         &:before{
             opacity: 0;
             visibility: hidden;
@@ -59,11 +59,11 @@
             }
             &--search{
                 position: fixed;
-                left: 0;
+                left: 0; 
                 @include rem(top, 145px);
                 width: 100%;
                 z-index: 5017;
-                background: $color-white;
+                background: red;
                 border-bottom: 1px solid $color-black;
                 @include rem(height, 61px);
                 display: flex;
@@ -74,7 +74,6 @@
                 &.is--active{
                     visibility: visible;
                     opacity: 1;
-                    visibility: visible;
                 }
                 fieldset{
                     width: 100%;
@@ -95,9 +94,9 @@
             @include rem(top, 65px);
         }
     }
-    &__top,
+    &__top, 
     &__nav {
-        max-width: 1250px;
+        max-width: 1250em;
         margin: 0 auto;
     }
   
