@@ -17,7 +17,6 @@
         opacity: 1;
         visibility: visible;
         transition: all .1s ease;
-
     }
     &.is--active{
         @include rem(transform, translateY(-65px));
@@ -26,13 +25,13 @@
             visibility: hidden;
         }
         .rr-header__top{
-            transform: translateY(63px);
+            @include rem(transform, translateY(63px));
             &__group{
                 opacity: 0;
             }
             &__user{
-                @media(min-width: 1024px){
-                    margin-top: 10px;
+                @include breakpoint('lg'){
+                    @include rem(margin-top, 10px);
                 }
                 &--search{
                     transform: scale(1);
@@ -45,8 +44,8 @@
                 &--item{
                     opacity: 0;
                     pointer-events: none;
-                    @media(min-width: 1024px){
-                        margin-top: -10px;
+                    @include breakpoint('lg'){
+                        @include rem(margin-top, -10px);
                     }
                     &:first-of-type{
                         opacity: 1;
@@ -58,14 +57,14 @@
                 }
             }
             &--search{
+                @include rem(border-bottom, 1px solid $color-black);
+                @include rem(top, 145px);
+                @include rem(height, 61px);
                 position: fixed;
                 left: 0; 
-                @include rem(top, 145px);
                 width: 100%;
                 z-index: 5017;
-                background: red;
-                border-bottom: 1px solid $color-black;
-                @include rem(height, 61px);
+                background: $color-white;
                 display: flex;
                 align-items: center;
                 opacity: 0;
@@ -81,9 +80,9 @@
                         display: none;
                     }
                     .fulltext-search-box{
-                        color: $color-black;
-                        max-width: 1250px;
+                        @include rem(max-width, 1250px);
                         @include rem(padding, 5px 0);
+                        color: $color-black;
                         display: block;
                         margin: 0 auto;
                     }
@@ -96,7 +95,7 @@
     }
     &__top, 
     &__nav {
-        max-width: 1250em;
+        @include rem(max-width, 1250px);
         margin: 0 auto;
     }
   

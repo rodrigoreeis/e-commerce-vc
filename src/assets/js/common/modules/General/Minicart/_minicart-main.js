@@ -163,7 +163,7 @@ const Methods = {
 				fetch(`/api/catalog_system/pub/products/search/?fq=productId:${elementId}`)
 					.then((response) => response.json())
 					.then((result) => {
-						let skuItem = result[0].items[0].itemId;
+						const skuItem = result[0].items[0].itemId;
 						const item = {
 							id: skuItem,
 							quantity: 1,

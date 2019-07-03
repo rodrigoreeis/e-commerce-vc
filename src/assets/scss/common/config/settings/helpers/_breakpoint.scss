@@ -13,7 +13,6 @@
     @else if $breakpoint == lg {
       @media (min-width: $breakpoint-large) { @content; }
     }
-   
     @else {
       @warn "The breakpoint mixin only supports 'spm', sm', 'md' and 'lg'";
     }
