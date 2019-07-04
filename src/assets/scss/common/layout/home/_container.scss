@@ -1,7 +1,6 @@
 .rr-container{
-    max-width: 1212px;
+    @include rem(max-width, 1212px);
     margin: 0 auto;
-   
     &__section{
         @include rem(margin,80px 0);
         @include breakpoint('sm'){
@@ -10,13 +9,12 @@
     }
     &__wrapper{
         @extend %flex-spaced;
-        // @include rem(margin-bottom, 90px);
     }
     @include breakpoint('sm'){
         .rr-banners{
-            margin-left: 47px;
+            @include rem(margin-left, 47px);
             img{
-                width: 224px
+                @include rem(width, 224px)
             }
         }
     }
@@ -30,7 +28,7 @@
         color: $color-black-2;
         text-align: center;
         @include breakpoint('sm'){
-            font-size: 40px;
+            @include rem(font-size, 40px);
         }
     }
     &__banner-shelf{
@@ -39,10 +37,10 @@
         flex-wrap: wrap;
         &--left,
         &--right{
-            flex: 1 1 300px;
+            @include rem(flex, 1 1 300px);
         }
         &--right{
-            width: 500px;
+            @include rem(width, 500px);
             @include breakpoint('sm'){
                 width: 100%;
             }

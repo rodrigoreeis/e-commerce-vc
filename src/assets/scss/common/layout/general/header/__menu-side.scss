@@ -1,179 +1,179 @@
-// .rr-menu-side{
-//     max-width: 370px;
-//     height: 100%;
-//     background:$color-black-2;
-//     &__list{
-//         height: 70%;
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: space-between;
-//         // @include rem(margin-top, 35px);
-//         position: relative;
-//         &--item{
-//             display: flex;
-//             align-items: center;
-//             flex: 1;
-//             background: $color-black;
-//             @include rem(font-size, 32px);
-//             font-weight: 500;
-//             @include rem(padding, 5px 0);
-//             &:hover{
-//                 background: $color-grey-1;
-//                 &::after{
-//                     transform: rotate(135deg);
-//                 }
-//                 &::before{
-//                     transform: rotate(135deg)
-//                 }
-//                 .rr-sub-category__list{
-//                     transform: translateX(100%);
-//                 }
-//             }
-//             &:nth-child(7){
-//                 background: $color-pink;
-//             }
-//             &::after,
-//             &::before{
-//                 content: "";
-//                 @include rem(width, 12px);
-//                 @include rem(height, 3px);
-//                 @include rem(right, 20px);
-//                 background: $color-white;
-//                 position: absolute; 
-//             }
-//             &::before,
-//             &::after{
-//                 transition: all .5s ease-in-out;
-//             }
-//             &::after{
-//                 transform: rotate(90deg);
-//             }
-//             .rr-category-name{
-//                 @include rem(padding-left, 35px);
-//                 font-family: $font-bebas;
-//             }
-//         }
-//     }
-//     &__users{
-//         height: 30%;
-//         background: $color-black-2;
-//         font-family: $font-sans;
-//         @include rem(font-size, 14px);
-//         font-weight: bold;
-//         display: flex; 
-//         align-items: center;
-//         &--item{
-//             display: flex;
-//             flex-direction: column;
-//             @include rem(padding-left, 35px);
-//             a{
-//                 padding: 12px 0;
-//             }
-//             &:nth-child(2){
-//                 @include rem(padding, 45px 0);
-//             }
-//         }
-//     }
-// }
-
-
 .rr-menu-side{
-    height: 100vh;
-    @extend %flex-column;
+    @include rem(width, 300px);
+    height: 100%;
+    background:$color-black-2;
+    @include breakpoint('sm'){
+        height: 102vh;
+    }
     &__list{
-        @extend %flex-column;
         height: 70%;
-        background: $color-black-3;
-        position: relative;
+        display: flex;
+        flex-direction: column;
         justify-content: space-between;
-        @include rem(padding-top, 18px);
+        position: relative;
         &--item{
-            flex: 1;
             display: flex;
             align-items: center;
-            &:first-of-type{
-                font-weight: bold;
-                color: $color-pink;
-                position: relative;
-                @include rem(margin-left, 55px);
-                @include rem(font-size, 18px);
-                i{
-                    position: absolute;
-                    @include rem(left, -31px);
-                    @include rem(width, 25px);
-                    @include rem(height, 3px);
-                    @include rem(border-radius, 2px);
-                    background: $color-pink;
-                    top: 46%;
-                    &::after,
-                    &::before{
-                        content: "";
-                        @include rem(border-radius, 2px);
-                        @include rem(width, 25px);
-                        @include rem(height, 3px);
-                        position: absolute;
-                        background: $color-pink;
-                    }
-                    &::after{
-                        @include rem(bottom, -6px)
-                    }
-                    &::before{
-                        @include rem(top, -6px);
-                    }
-                }
-            }
-            // &:nth-child(8),
-            // &:nth-child(9),
+            flex: 1;
+            background: $color-black;
+            @include rem(font-size, 32px);
+            font-weight: 500;
+            @include rem(padding, 5px 0);
             &:last-of-type{
                 background: $color-pink;
             }
-            &:not(:first-of-type){
-                &:hover{
-                    background: $color-white;
-                    color: $color-black;
-                    &::after,
-                    &::before{
-                        background: $color-black;
-                    }
-                    &::after{
-                        transform: rotate(0);
-                    }
-                    .rr-sub-category__list{
-                        transform: translateX(100%);
-                    }
-                }
-                &::after,
-                &::before{
-                    content: "";
-                    right: 10px;
-                    position: absolute;
-                    background: $color-white;
-                    @include rem(width, 9px);
-                    @include rem(height, 2px);
-                }  
+            &::after,
+            &::before{
+                content: "";
+                @include rem(width, 12px);
+                @include rem(height, 3px);
+                @include rem(right, 20px);
+                background: $color-white;
+                position: absolute; 
+            }
+            &::after{
+                transform: rotate(90deg);
+            }
+            &:hover{
+                background: $color-white;
+                color: $color-black;
                 &::after{
-                    transform: rotate(90deg);
+                    transform: rotate(180deg);
+                    background: $color-black;
+                }
+                .rr-sub-category__list{
+                    transform: translateX(100%);
                 }
             }
             .rr-category-name{
-                @include rem(padding-left, 22px);
-                font-weight: 600;
+                @include rem(padding-left, 35px);
+                font-family: $font-mont;
+                @include rem(font-size, 18px);
+                font-weight: bold;
+                text-transform: initial;
             }
         }
     }
     &__users{
-        background: $color-black-2;
         height: 30%;
-        display: flex;
+        background: $color-black-2;
+        font-family: $font-sans;
+        @include rem(font-size, 14px);
+        font-weight: bold;
+        display: flex; 
         align-items: center;
-        @include rem(padding-left, 18px);
         &--item{
-            @extend %flex-column;
+            display: flex;
+            flex-direction: column;
+            @include rem(padding-left, 35px);
             a{
-                &:nth-of-type(2){
-                    @include rem(margin, 15px 0);
-                }
+                @include rem(padding, 12px 0);
+            }
+            &:nth-child(2){
+                @include rem(padding, 45px 0);
             }
         }
     }
 }
+
+
+// .rr-menu-side{
+//     height: 100vh;
+//     @extend %flex-column;
+//     &__list{
+//         @extend %flex-column;
+//         height: 70%;
+//         background: $color-black-3;
+//         position: relative;
+//         justify-content: space-between;
+//         @include rem(padding-top, 18px);
+//         &--item{
+//             flex: 1;
+//             display: flex;
+//             align-items: center;
+//             &:first-of-type{
+//                 font-weight: bold;
+//                 color: $color-pink;
+//                 position: relative;
+//                 @include rem(margin-left, 55px);
+//                 @include rem(font-size, 18px);
+//                 i{
+//                     position: absolute;
+//                     @include rem(left, -31px);
+//                     @include rem(width, 25px);
+//                     @include rem(height, 3px);
+//                     @include rem(border-radius, 2px);
+//                     background: $color-pink;
+//                     top: 46%;
+//                     &::after,
+//                     &::before{
+//                         content: "";
+//                         @include rem(border-radius, 2px);
+//                         @include rem(width, 25px);
+//                         @include rem(height, 3px);
+//                         position: absolute;
+//                         background: $color-pink;
+//                     }
+//                     &::after{
+//                         @include rem(bottom, -6px)
+//                     }
+//                     &::before{
+//                         @include rem(top, -6px);
+//                     }
+//                 }
+//             }
+//             // &:nth-child(8),
+//             // &:nth-child(9),
+//             &:last-of-type{
+//                 background: $color-pink;
+//             }
+//             &:not(:first-of-type){
+//                 &:hover{
+//                     background: $color-white;
+//                     color: $color-black;
+//                     &::after,
+//                     &::before{
+//                         background: $color-black;
+//                     }
+//                     &::after{
+//                         transform: rotate(0);
+//                     }
+//                     .rr-sub-category__list{
+//                         transform: translateX(100%);
+//                     }
+//                 }
+//                 &::after,
+//                 &::before{
+//                     content: "";
+//                     right: 10px;
+//                     position: absolute;
+//                     background: $color-white;
+//                     @include rem(width, 9px);
+//                     @include rem(height, 2px);
+//                 }  
+//                 &::after{
+//                     transform: rotate(90deg);
+//                 }
+//             }
+//             .rr-category-name{
+//                 @include rem(padding-left, 22px);
+//                 font-weight: 600;
+//             }
+//         }
+//     }
+//     &__users{
+//         background: $color-black-2;
+//         height: 30%;
+//         display: flex;
+//         align-items: center;
+//         @include rem(padding-left, 18px);
+//         &--item{
+//             @extend %flex-column;
+//             a{
+//                 &:nth-of-type(2){
+//                     @include rem(margin, 15px 0);
+//                 }
+//             }
+//         }
+//     }
+// }

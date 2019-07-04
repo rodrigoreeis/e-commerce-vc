@@ -8,6 +8,10 @@
     transform: translateX(-200%);
     transition: all .3s ease-in-out;
     font-family: $font-mont;
+    @include breakpoint('sm'){
+        transform: translateX(-400%);
+        @include rem(width, 300px);
+    }
     &.is--active{
         transform: translateX(0);
     }
