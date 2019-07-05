@@ -1,5 +1,5 @@
-import orderInit from "./_order-init";
+import orderInit from './_order-init';
 
 export default {
-    init: orderInit.init
-}
+	init: orderInit.init
+};

@@ -5,6 +5,9 @@
     @include breakpoint('sm'){
         height: 102vh;
     }
+    .is--active{
+        overflow-y: scroll;
+    }
     &__list{
         height: 70%;
         display: flex;
@@ -19,6 +22,9 @@
             @include rem(font-size, 32px);
             font-weight: 500;
             @include rem(padding, 5px 0);
+            @include breakpoint('sm'){
+                position: relative;
+            }
             &:last-of-type{
                 background: $color-pink;
             }
@@ -34,15 +40,17 @@
             &::after{
                 transform: rotate(90deg);
             }
-            &:hover{
-                background: $color-white;
-                color: $color-black;
-                &::after{
-                    transform: rotate(180deg);
-                    background: $color-black;
-                }
-                .rr-sub-category__list{
-                    transform: translateX(100%);
+            @include breakpoint('lg'){
+                &:hover{
+                    background: $color-white;
+                    color: $color-black;
+                    &::after{
+                        transform: rotate(180deg);
+                        background: $color-black;
+                    }
+                    .rr-sub-category__list{
+                        transform: translateX(100%);
+                    }
                 }
             }
             .rr-category-name{

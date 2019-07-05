@@ -352,9 +352,6 @@
     @else if ( $position == 'left' ) {
         $pos: -135deg;
     }
-
-    @else { /* */ }
-
     content: '';
     display: inline-block;
     width: $arrow-width;

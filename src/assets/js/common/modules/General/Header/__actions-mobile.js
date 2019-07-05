@@ -5,11 +5,31 @@ const {$header} = cacheSelector;
 const Methods = {
 	init(){
 		if (window.innerWidth < 768) {
-			// Methods.activeHeader();
+			Methods.openCategoryMobile();
+			// Methods.closeCategoryMobile();
 		}
 	},
-	activeHeader(){
-		$header.shelf.classList.add('is--active');
+	openCategoryMobile(){
+		[...$header.category].map((items) => {
+			items.addEventListener('click', ({currentTarget}) => {
+				console.log('clicado');
+				if (!currentTarget.lastChild.classList.contains('is--active--mobile')){
+					currentTarget.lastChild.classList.add('is--active--mobile');
+					console.log('adicionando dnv');
+				}else {
+					console.log('tentando remover o vagabundo');
+					currentTarget.lastChild.classList.remove('is--active--mobile');
+				}
+			});
+		});
+	},
+	closeCategoryMobile(){
+		[...$header.categoryClose].map((close) => {
+			close.addEventListener('click', ({currentTarget}) => {
+				currentTarget.parentNode.classList.remove('is--active--mobile');
+				console.log('tentando remover esse vagabundo');
+			});
+		});
 	}
 };
 
