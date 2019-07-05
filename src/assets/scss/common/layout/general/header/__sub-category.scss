@@ -14,10 +14,10 @@
     font-family: $font-mont;
     will-change: transform;
     @include breakpoint('sm'){
+        @include rem(top, 6px);
         z-index: 2;
         width: 100%;
-        top: 1%;
-        height: 103vh;
+        height: 102vh;
         &.is--active--mobile{
             transform: translateX(0);
         }
@@ -43,9 +43,17 @@
             background: $color-grey-light-4;
         }
         @include breakpoint('sm'){
-            .rr-mobile{
-                &:first-of-type{
-                    background: $color-grey-3;
+            height: 52px;
+            &:nth-child(2){
+                position: relative;
+                font-weight: bold;
+                border-bottom: 1px solid $color-grey-light-5;
+                padding-left: 30px;
+                @include rem(font-size, 18px);
+                &::before{
+                    @include arrow-generate('left', 10px , 1.5px solid $color-black);
+                    @include rem(left, -3px);
+                    position: relative;
                 }
             }
         }

@@ -6,20 +6,14 @@ const Methods = {
 	init(){
 		if (window.innerWidth < 768) {
 			Methods.openCategoryMobile();
-			// Methods.closeCategoryMobile();
+			Methods.closeCategoryMobile();
 		}
 	},
 	openCategoryMobile(){
 		[...$header.category].map((items) => {
-			items.addEventListener('click', ({currentTarget}) => {
-				console.log('clicado');
-				if (!currentTarget.lastChild.classList.contains('is--active--mobile')){
-					currentTarget.lastChild.classList.add('is--active--mobile');
-					console.log('adicionando dnv');
-				}else {
-					console.log('tentando remover o vagabundo');
-					currentTarget.lastChild.classList.remove('is--active--mobile');
-				}
+			items.addEventListener('click', (event) => {
+				event.currentTarget.lastChild.classList.add('is--active--mobile');
+				event.stopPropagation();
 			});
 		});
 	},

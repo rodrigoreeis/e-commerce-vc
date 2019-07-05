@@ -130,11 +130,13 @@ const Methods = {
 		if ($minicart.products.classList.contains('is--active') || $minicart.bottom.classList.contains('is--active')){
 			$minicart.products.classList.remove('is--active');
 			$minicart.bottom.classList.remove('is--active');
+			$minicart.shipping.classList.remove('is--active');
 		}
 	},
 	__minicartNotEmpy(){
 		$minicart.products.classList.add('is--active');
 		$minicart.bottom.classList.add('is--active');
+		$minicart.shipping.classList.add('is--active');
 		if ($minicart.empy.classList.contains('is--active')){
 			$minicart.empy.classList.remove('is--active');
 		}

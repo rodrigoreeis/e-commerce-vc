@@ -35,6 +35,11 @@ export default{
 		amount: document.querySelector('.js--minicart--amount'),
 		bottom: document.querySelector('.rr-minicart__bottom'),
 		empy: document.querySelector('.rr-minicart__empy'),
+		shipping: document.querySelector('.rr-minicart__shipping'),
+		barProgress: document.querySelector('.js--minicart--progress'),
+		porcetage: document.querySelector('.js--minicart--progress'),
+		textProgress: document.querySelector('.js--text--shipping'),
+		pricePorcetage : document.querySelector('.js--text--shipping i')
 	},
 	$shelf: {
 		btn: document.querySelectorAll('.rr-shelf__buy--btn'),
