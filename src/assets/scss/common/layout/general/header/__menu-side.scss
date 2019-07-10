@@ -5,6 +5,9 @@
     @include breakpoint('sm'){
         height: 102vh;
     }
+    @include breakpoint('spm'){
+        height: 105vh;
+    }
     .is--active{
         overflow-y: scroll;
     }
@@ -22,23 +25,22 @@
             @include rem(font-size, 32px);
             font-weight: 500;
             @include rem(padding, 5px 0);
-            @include breakpoint('sm'){
-                position: relative;
-            }
             &:last-of-type{
                 background: $color-pink;
             }
-            &::after,
-            &::before{
-                content: "";
-                @include rem(width, 12px);
-                @include rem(height, 3px);
-                @include rem(right, 20px);
-                background: $color-white;
-                position: absolute; 
-            }
-            &::after{
-                transform: rotate(90deg);
+            &:not(:last-of-type){
+                &::after,
+                &::before{
+                    content: "";
+                    @include rem(width, 12px);
+                    @include rem(height, 3px);
+                    @include rem(right, 20px);
+                    background: $color-white;
+                    position: absolute; 
+                }
+                &::after{
+                    transform: rotate(90deg);
+                }
             }
             @include breakpoint('lg'){
                 &:hover{

@@ -12,9 +12,6 @@
     &__group{
         &--accessibility{
             @include rem(padding-right, 55px);
-        }
-        &--accessibility,
-        &--helper{
             position: relative;
             cursor: pointer;
             &::after{

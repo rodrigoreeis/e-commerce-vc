@@ -1,3 +1,10 @@
+/** 
+* @desc Minicart VTEX in VanillaJs
+* @author Rodrigo Reis br.rodrigoreis@gmail.com
+* @method ajaxLoader - Calls the charging modal  
+* @method finishAjaxLoader - Remove Modal 
+*/
+
 import GlobalSelector from '../_global-selector';
 import {getOrderForm, updateItem, addToCart, removeItem}from '../utils/_VTEXHelpers';
 import {openOverlay, closeOverlay, ajaxLoader, finishAjaxLoader}from '../utils/methods';
@@ -85,7 +92,7 @@ const Methods = {
 		containerProduct.appendChild(priceProduct);
 		containerProduct.appendChild(pricePercentage);
 		containerProduct.appendChild(containerQty);
-
+	
 		quantityMore.addEventListener('click', ({currentTarget}) => {
 			ajaxLoader();
 			Methods.__changeQuantityItem(currentTarget);
@@ -113,6 +120,11 @@ const Methods = {
 			quantityLess.classList.add('is--disabled');
 		}
 	},
+	/**
+		* @desc This method adds the percentage discount flag it is called in @method __createItems;
+		* @param {items} - Items is the creation parameter the flag is added in the creation of the element 
+		* @param {priceDiscountProduct - pricePercentage} - Returns the element 
+	*/
 	__priceItems(items, priceDiscountProduct, pricePercentage){
 		if (items.listPrice == items.price){
 			priceDiscountProduct.remove();
@@ -155,6 +167,10 @@ const Methods = {
 				}
 			});
 	},
+	/**
+		* @desc in VTEX I can not add items by the ID by the sku, so I have to consult the product id via api for it to return the sku
+		* @return Sku product 
+	*/	
 	addItemToMinicart(){
 		[...$shelf.btn].map((button) => {
 			button.addEventListener('click', ({currentTarget}) => {
@@ -176,6 +192,12 @@ const Methods = {
 			});
 		});
 	},
+	/**
+		* @desc Validates if the item you are trying to add to the cart already exists in it
+		* @param {skuItem} - Make a map to see if this sku already exists in the cart;
+		* @param {item} - if it does not exist it adds in minicart
+ 		* @method __addToItem - This method creates the elements on the screen
+ 	*/
 	__validateProductInMinicart(skuItem, item){
 		getOrderForm()
 			.then((response) => {
@@ -188,6 +210,12 @@ const Methods = {
 				}
 			});
 	},
+	/**
+		* @desc This method adds the item to the cart but needs the @method __addNewItemMinicart
+		* @param {item} - Product being added
+		* @method amountItemsMinicart - update number of items in the bag icon
+		* @method priceAmountMinicart - Change price in minicart
+	*/
 	__addToItem(item){
 		addToCart(item)
 			.done(() => {
@@ -207,6 +235,10 @@ const Methods = {
 				Methods.__createItems(items, indexNewItem);
 			});
 	},
+	/**
+	 	* @desc remove item if clicked on X
+		* @param {currentTarget} - E element being removed
+	*/
 	__removeToItem(currentTarget){
 		ajaxLoader();
 		const indexProduct = currentTarget.getAttribute('data-index');
@@ -221,6 +253,8 @@ const Methods = {
 			}).done((result) => {
 				if (!result.items.length){
 					Methods.__minicartEmpy();
+					$minicart.barProgress.style.width = '100%';
+					$minicart.textProgress.textContent = '';
 				}
 				Methods.__updatedIndexProduct();
 				Methods.priceAmountMinicart();
@@ -228,6 +262,10 @@ const Methods = {
 				finishAjaxLoader();
 			});
 	},
+	/**
+		* @desc Changes the idex of the product, to remove the product from the cart it has to be in the correct position of the Array
+		* @retur UpdateIndex in dataset this 
+	*/
 	__updatedIndexProduct(){
 		const itemIndex = document.querySelectorAll('.rr-minicart-product__remove');
 		getOrderForm()
@@ -238,6 +276,13 @@ const Methods = {
 				}
 			});
 	},
+	/**
+		* @desc Change quantity of products
+		* @param {currentTarget} - E element being clicked
+		* @method amountItemsMinicart - update number of items in the bag icon
+		* @method __minicartEmpy - if the cart is empty this method is activated
+		* @method priceAmountMinicart - Change price in minicart
+	*/
 	__changeQuantityItem(currentTarget){
 		const currentIndex = currentTarget.parentNode.parentNode.nextSibling.dataset.index;
 		const currentOperator = currentTarget.dataset.qty;

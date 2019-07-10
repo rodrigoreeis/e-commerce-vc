@@ -26,6 +26,10 @@ const Methods = {
 	__barToProgress(calcNotPayShipping, priceToNotShipping){
 		const calcProgress = ((calcNotPayShipping / priceToNotShipping) * 100).toFixed();
 		$minicart.barProgress.style.width = calcProgress < 1 ? '0%' : `${calcProgress}%`;
+	},
+	__progressBarEmpy(){
+		$minicart.barProgress.style.width = '100%';
+		$minicart.textProgress.textContent = '';
 	}
 };
 export default {
