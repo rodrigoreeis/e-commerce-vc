@@ -13,6 +13,7 @@ export default{
 	$globals: {
 		body: document.querySelector('body'),
 		overlay: document.querySelector('.rr-overlay'),
+		lazyLoad: document.querySelectorAll('.rr-lazy')
 	},
 	$header:{
 		shelf: document.querySelector('.rr-header'),

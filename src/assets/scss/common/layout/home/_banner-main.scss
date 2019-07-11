@@ -1,4 +1,9 @@
 .rr-home__banner {
+    img{
+        &.has--placeloader{
+            padding: 19.8% 35%;
+        }
+    }
     .slick-dots{
         position: absolute;
         @include rem(bottom, -34px);

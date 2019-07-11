@@ -6,11 +6,13 @@ import Order from './Order/_order-index';
 import Header from './Header/__header-index';
 import Footer from './Footer/__footer-index';
 import Minicart from './Minicart/_minicart-index';
+import LazyLoad from './LazyLoad';
 
 const {$loader} = GlobalSelector;
 
 const Methods = {
 	init() {
+		LazyLoad.init();
 		Methods.ajaxLoader();
 		Modals.init();
 		Order.init();

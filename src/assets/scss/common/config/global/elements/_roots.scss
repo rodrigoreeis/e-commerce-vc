@@ -87,6 +87,7 @@ textarea {
 
 .rr-desktop{
     @media(max-width: 768px){
+        transform: translateX(-1000%);
         display: none !important;
     }
 }
