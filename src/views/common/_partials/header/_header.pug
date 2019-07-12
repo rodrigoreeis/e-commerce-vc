@@ -1,0 +1,16 @@
+div(class="rr-header-container")
+    div(class="rr-header__menu js--menu")
+        img(src="/arquivos/menuhamburgue.png", alt="")
+        span Menu
+        include ./_menu.pug
+        a(href="/")
+            img(src="/arquivos/logovultcosmeticos.png", alt="Vult Cosméticos")  
+    div(class="rr-header__search")
+        <vtex.cmc:fullTextSearchBox />
+    div(class="rr-header__icons")
+        div(class="rr-header__icons--account")
+            a(href="/account")
+                img(src="/arquivos/accountheader.png", alt="Minha Conta")
+        div(class="rr-header__icons--minicart js--minicart")   
+                img(src="/arquivos/minicartheader.png", alt="Carrinho de compras")
+                span(class="js--minicart--amount")

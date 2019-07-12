@@ -1,0 +1,88 @@
+.rr-header{
+    @extend %flex-column;
+    background: $color-black;
+    color: $color-white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5017;
+    &-container{
+        @extend %flex-spaced;
+        @include rem(padding, 20px 40px);
+    }
+    &__menu,
+    &__icons{
+        display: flex;
+        align-items: center;
+        flex-basis: 280px;
+    }
+    &__search{
+        flex-basis: 600px;
+        text-transform: uppercase;
+        fieldset{
+            color: $color-black;
+            background: #efe8e7;
+            @include rem(border-radius, 5px);
+            @include rem(padding, 7px 20px);
+            position: relative;
+            legend,
+            label,
+            select{
+                display: none;
+            }
+            .fulltext-search-box{
+                width: 90%;
+                @include rem(font-size, 16px);
+                padding: 5px 0;
+                font-family: $font-sans;
+            }
+            .btn-buscar{
+                @include rem(right, -8px);
+                @include rem(padding, 15px);
+                width: 10%;
+                font-size: 0;
+                background: url(/arquivos/iconsearchheader.png?v=12435353) no-repeat;
+                background-position: center;
+                position: absolute;
+                top: 8px;
+            }
+        }
+        ul.ui-autocomplete.ui-menu.ui-widget.ui-widget-content.ui-corner-all{
+            display: none !important;
+        }
+    }
+    &__menu{
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        flex-basis: 280px;
+        justify-content: space-between;
+        @include rem(font-size, 14px);
+        span{
+            @include rem(margin, 0 25px 0 -10px);
+        }
+    }
+    &__icons{
+        justify-content: flex-end;
+        &--minicart{
+            @include rem(margin-left, 35px);
+            position: relative;
+            span{
+                position: absolute;
+                @include rem(top, 6px);
+                @include rem(right, 2.5px);
+                @include rem(font-size, 12px);
+                font-weight: bold;
+                @include breakpoint('sm'){
+                    top: 6px;
+                    right: 4px;
+                }
+            }
+        }
+        &--account,
+        &--minicart{
+            cursor: pointer;
+        }
+    }
+}

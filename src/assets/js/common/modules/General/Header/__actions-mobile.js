@@ -21,7 +21,6 @@ const Methods = {
 		[...$header.categoryClose].map((close) => {
 			close.addEventListener('click', ({currentTarget}) => {
 				currentTarget.parentNode.classList.remove('is--active--mobile');
-				console.log('tentando remover esse vagabundo');
 			});
 		});
 	}
