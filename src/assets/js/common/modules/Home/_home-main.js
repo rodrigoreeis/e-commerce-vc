@@ -1,19 +1,25 @@
+/* eslint-disable no-unused-vars */
 import cacheSelector from './_cache-selector';
 
 const selector = cacheSelector;
 
 const Methods = {
 	init(){
+		Methods.removeHelpersShelf();
 		Methods.initCarrouselBannerMain();
 		Methods.initShelfCarrousel();
 		Methods.initShelfCarrouselTwoProduct();
-		if (window.innerWidth < 768) {
-			Methods.initShelfCarrouselBannersMobile();
-		}
+		Methods.initCarrouselMiniBanners();
 	},
-    
+	removeHelpersShelf(){
+		const helpers = document.querySelectorAll('.helperComplement');
+		[...helpers].map((el) => {
+			el.remove();
+		});
+	},
 	initCarrouselBannerMain(){
 		selector.bannerMain.slick({
+			lazyLoad: 'progressive',
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			autoplay: false,
@@ -30,10 +36,15 @@ const Methods = {
 					}
 				}
 			]
+		}).on( 'lazyLoaded', ( event, slick, image, imageSource ) => {
+			// eslint-disable-next-line no-undef
+			$( image ).removeClass('has--placeloader');
+			// $( image ).parent('.vve-image__container').removeClass('has--placeloader');
 		});
 	},
 	initShelfCarrousel(){
 		selector.shelf.slick({
+			lazyLoad: 'progressive',
 			slidesToShow: 4,
 			slidesToScroll: 1,
 			infinite: false,
@@ -49,25 +60,45 @@ const Methods = {
 					}
 				}
 			]
+		}).on( 'lazyLoaded', ( event, slick, image, imageSource ) => {
+			// eslint-disable-next-line no-undef
+			$( image ).parent('.rr-shelf__placeloader').removeClass('has--placeloader');
 		});
 	},
 	initShelfCarrouselTwoProduct(){
 		selector.shelfReleases.slick({
+			lazyLoad: 'progressive',
 			slidesToShow: 2,
 			slidesToScroll: 2,
-			infinite: true,
-			dots: false,
-			arrows: true,
-		});
-	},
-	initShelfCarrouselBannersMobile(){
-		selector.shelfBannersMobile.slick({
-			slidesToShow: 1.5,
-			slidesToScroll: 1,
 			infinite: false,
 			dots: false,
+			arrows: true,
+		}).on( 'lazyLoaded', ( event, slick, image, imageSource ) => {
+			// eslint-disable-next-line no-undef
+			$( image ).parent('.rr-shelf__placeloader').removeClass('has--placeloader');
+		});
+	},
+	initCarrouselMiniBanners(){
+		selector.shelfBannersMobile.slick({
+			lazyLoad: 'progressive',
+			slidesToShow: 4,
+			dots: false,
 			arrows: false,
-			variableWidth: true
+			responsive: [
+				{	
+					breakpoint: 768,
+					settings: {
+						slidesToShow: 1.5,
+						slidesToScroll: 1,
+						infinite: false,
+						variableWidth: true
+					}
+				}
+			]
+		}).on( 'lazyLoaded', ( event, slick, image, imageSource ) => {
+			// eslint-disable-next-line no-undef
+			$( image ).removeClass('has--placeloader');
+			// $( image ).parent('.vve-image__container').removeClass('has--placeloader');
 		});
 	}
 

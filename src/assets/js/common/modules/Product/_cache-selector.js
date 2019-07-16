@@ -1,5 +1,5 @@
 export default{
-    pageProduct:{
-        thumb: document.querySelectorAll('.select label')
-    }
-}
+	pageProduct:{
+		thumb: document.querySelectorAll('.select label')
+	}
+};

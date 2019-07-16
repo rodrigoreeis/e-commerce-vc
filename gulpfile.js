@@ -61,12 +61,12 @@ const scripts = () => {
 		.pipe(gulp.dest(paths.scripts.dest));
 };
 
-const pluginsJs = () => {
-	return gulp.src(
-		['node_modules/vtex-lazyload/dist/*.js']
-	)
-		.pipe(gulp.dest(paths.scripts.dest));
-};
+// const pluginsJs = () => {
+// 	return gulp.src(
+// 		['node_modules/vtex-lazyload/dist/*.js']
+// 	)
+// 		.pipe(gulp.dest(paths.scripts.dest));
+// };
 
 const watch = () => {
 	gulp.watch(paths.styles.srcWatch, styles);
@@ -75,9 +75,9 @@ const watch = () => {
 };
 
 
-const build = gulp.series(clean, gulp.parallel(styles, scripts, htmls, pluginsJs));
+const build = gulp.series(clean, gulp.parallel(styles, scripts, htmls));
 
-exports.pluginsJs = pluginsJs;
+// exports.pluginsJs = pluginsJs;
 exports.clean = clean;
 exports.styles = styles;
 exports.scripts = scripts;

@@ -31,6 +31,15 @@
         @extend %flex-column;
         align-items: center;
     }
+    &__placeloader{
+        @include breakpoint('lg'){
+            min-height: 288px;
+        }
+        > .has--placeloader{
+            width: 288px;
+            height: 288px;
+        }
+    }
     &__content{
         @extend %flex-column;
         @include rem(height, 115px);

@@ -43,6 +43,7 @@ export default{
 		pricePorcetage : document.querySelector('.js--text--shipping i')
 	},
 	$shelf: {
+		image: document.querySelectorAll('.js--shelf-carousel'),
 		btn: document.querySelectorAll('.rr-shelf__buy--btn'),
 	},
 	$loader:{

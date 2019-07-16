@@ -8,6 +8,9 @@
     &.is--active{ 
         display: flex;
     }
+    @include breakpoint('sm'){
+        margin-top: 11%;
+    }
     &--text{
         @include breakpoint('sm'){
             @include rem(font-size, 10px);

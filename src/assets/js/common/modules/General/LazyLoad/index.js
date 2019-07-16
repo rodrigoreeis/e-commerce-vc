@@ -1,6 +1,5 @@
 
 import GlobalSelector from '../_global-selector';
-
 const {$globals} = GlobalSelector;
 
 const Methods = {
@@ -14,8 +13,8 @@ const Methods = {
 					if (entry.isIntersecting){
 						const img = entry.target;
 						const src = img.getAttribute('data-lazy');
-						img.classList.add('has--loaded');
 						img.classList.remove('has--placeloader');
+						img.classList.add('has--loaded');
 						img.setAttribute('src', src);
 						observer.disconnect();
 					}

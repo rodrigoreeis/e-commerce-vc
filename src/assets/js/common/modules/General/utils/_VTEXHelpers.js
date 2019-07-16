@@ -8,3 +8,4 @@ export const addToCart = (item) => (vtexjs.checkout.addToCart([item]));
 export const updateItem = (item) => (vtexjs.checkout.updateItems([item]));
 
 export const removeItem = (item) => (vtexjs.checkout.removeItems(item)); 
+

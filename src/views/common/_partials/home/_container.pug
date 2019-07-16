@@ -8,10 +8,10 @@ div(class="rr-container")
             div(class="rr-shelf")
                 <vtex:contentPlaceHolder id="Mais-Vendidos" />
     section(class="rr-container__section")
-        div(class="rr-container__wrapper js--lazyload has--lazyload rr-desktop" data-noscript="")
-            noscript <vtex:contentPlaceHolder id="Banner-Full" />
-        div(class="rr-container__wrapper js--lazyload has--lazyload rr-mobile" data-noscript="")
-            noscript <vtex:contentPlaceHolder id="Banner-Full-Mobile" />
+        div(class="rr-container__wrapper rr-desktop")
+            <vtex:contentPlaceHolder id="Banner-Full" />
+        div(class="rr-container__wrapper rr-mobile")
+            <vtex:contentPlaceHolder id="Banner-Full-Mobile" />
     section(class="rr-container__section")
         h2(class="rr-container__title") Quem ama, usa!
         div(class="rr-container__wrapper")
@@ -20,8 +20,8 @@ div(class="rr-container")
     section(class="rr-container__section")
         h2(class="rr-container__title") Lançamentos
         div(class="rr-container__banner-shelf")
-            div(class="rr-container__banner-shelf--left js--lazyload has--lazyload" data-noscript="")
-                noscript <vtex:contentPlaceHolder id="Banner-Lançamentos" />
+            div(class="rr-container__banner-shelf--left")
+                <vtex:contentPlaceHolder id="Banner-Lançamentos" />
             div(class="rr-container__banner-shelf--right rr-shelf-two")
                 <vtex:contentPlaceHolder id="Coleção-Lançamentos" />
     section(class="rr-container__section")

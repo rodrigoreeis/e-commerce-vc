@@ -6,10 +6,14 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 5017;
+    z-index: 5015;
     &-container{
         @extend %flex-spaced;
         @include rem(padding, 20px 40px);
+        @include breakpoint('sm'){
+            padding: 22px 20px;
+            position: relative;
+        }
     }
     &__menu,
     &__icons{
@@ -17,15 +21,46 @@
         align-items: center;
         flex-basis: 280px;
     }
+    &__menu{
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        justify-content: space-between;
+        @include rem(font-size, 14px);
+        @include breakpoint('sm'){
+            a > img{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        span{
+            @include rem(margin, 0 25px 0 -10px);
+            @include breakpoint('sm'){
+                display: none;
+            }
+        }
+    }
     &__search{
         flex-basis: 600px;
         text-transform: uppercase;
+        @include breakpoint('sm'){
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            left: 0;
+            flex-basis: unset;
+        }
         fieldset{
             color: $color-black;
             background: #efe8e7;
             @include rem(border-radius, 5px);
             @include rem(padding, 7px 20px);
             position: relative;
+            @include breakpoint('sm'){
+                border-radius: 0;
+            }
             legend,
             label,
             select{
@@ -48,20 +83,6 @@
                 top: 8px;
             }
         }
-        ul.ui-autocomplete.ui-menu.ui-widget.ui-widget-content.ui-corner-all{
-            display: none !important;
-        }
-    }
-    &__menu{
-        font-weight: bold;
-        text-transform: uppercase;
-        cursor: pointer;
-        flex-basis: 280px;
-        justify-content: space-between;
-        @include rem(font-size, 14px);
-        span{
-            @include rem(margin, 0 25px 0 -10px);
-        }
     }
     &__icons{
         justify-content: flex-end;
@@ -71,7 +92,7 @@
             span{
                 position: absolute;
                 @include rem(top, 6px);
-                @include rem(right, 2.5px);
+                @include rem(right, 3px);
                 @include rem(font-size, 12px);
                 font-weight: bold;
                 @include breakpoint('sm'){
@@ -85,4 +106,7 @@
             cursor: pointer;
         }
     }
+}
+ul.ui-autocomplete.ui-menu.ui-widget.ui-widget-content.ui-corner-all{
+    display: none !important;
 }
