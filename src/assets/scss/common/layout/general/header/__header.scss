@@ -27,18 +27,21 @@
         cursor: pointer;
         justify-content: space-between;
         @include rem(font-size, 14px);
+        &--content{
+            display: flex;
+            > span{
+                @include rem(margin, 0 25px 0 15px);
+                @include breakpoint('sm'){
+                    display: none;
+                }
+            }
+        }
         @include breakpoint('sm'){
             a > img{
                 position: absolute;
                 left: 50%;
                 top: 50%;
                 transform: translate(-50%, -50%);
-            }
-        }
-        span{
-            @include rem(margin, 0 25px 0 -10px);
-            @include breakpoint('sm'){
-                display: none;
             }
         }
     }
@@ -81,6 +84,9 @@
                 background-position: center;
                 position: absolute;
                 top: 8px;
+                @include breakpoint('sm'){
+                    right: 10px;
+                }
             }
         }
     }
@@ -89,6 +95,9 @@
         &--minicart{
             @include rem(margin-left, 35px);
             position: relative;
+            @include breakpoint('sm'){
+                margin-left: 13px;
+            }
             span{
                 position: absolute;
                 @include rem(top, 6px);

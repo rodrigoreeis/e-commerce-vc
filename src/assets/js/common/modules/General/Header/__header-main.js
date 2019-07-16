@@ -9,9 +9,10 @@ const Methods = {
 		Methods.closeMenu();
 	},
 	openMenu(){
-		$header.openMenu.addEventListener('click', () => {
+		$header.openMenu.addEventListener('click', (event) => {
 			openOverlay();
 			$header.menu.classList.add('is--active');
+			event.stopPropagation();
 		});
 	},
 	closeMenu(){

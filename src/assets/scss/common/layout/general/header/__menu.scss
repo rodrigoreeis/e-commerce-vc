@@ -60,6 +60,7 @@
                     }
                 }
                 @include breakpoint('lg'){
+                    cursor: pointer;
                     &:hover{
                         background: $color-white;
                         color: $color-black;

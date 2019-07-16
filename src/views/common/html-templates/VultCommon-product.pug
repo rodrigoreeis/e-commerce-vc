@@ -4,6 +4,8 @@ extends ../_layouts/VultCommon-base.pug
 block vars
     - var $templateName = 'Product';
     - var $storeName = 'VultCommon';
+    - var $templateClass = "product"
+
 //- Page styles
 block append styles
     link(rel='stylesheet', href=`/arquivos/${$storeName}-${$templateName}.css`, media='all')/

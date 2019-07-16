@@ -9,12 +9,28 @@
     }
     &__wrapper{
         @extend %flex-spaced;
+        &.rr-banners{
+            .vve-image__container{
+                img{
+                    &.has--placeloader{
+                        padding: 74% 0%;
+                    }
+                }
+            }
+        }
+        > .vve-image__container{
+            img{
+                &.has--placeloader{
+                    padding: 17%;
+                }
+            }
+        }
     }
     @include breakpoint('sm'){
         .rr-banners{
             @include rem(margin-left, 47px);
             img{
-                @include rem(width, 224px)
+                @include rem(width, 224px);
             }
         }
     }
@@ -38,6 +54,13 @@
         &--left,
         &--right{
             @include rem(flex, 1 1 300px);
+        }
+        &--left{
+            img{
+                &.has--placeloader{
+                    padding: 40% 0;
+                }
+            }
         }
         &--right{
             @include rem(width, 500px);

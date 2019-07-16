@@ -5,24 +5,17 @@ const selector = cacheSelector;
 
 const Methods = {
 	init(){
-		Methods.removeHelpersShelf();
 		Methods.initCarrouselBannerMain();
 		Methods.initShelfCarrousel();
 		Methods.initShelfCarrouselTwoProduct();
 		Methods.initCarrouselMiniBanners();
-	},
-	removeHelpersShelf(){
-		const helpers = document.querySelectorAll('.helperComplement');
-		[...helpers].map((el) => {
-			el.remove();
-		});
 	},
 	initCarrouselBannerMain(){
 		selector.bannerMain.slick({
 			lazyLoad: 'progressive',
 			slidesToShow: 1,
 			slidesToScroll: 1,
-			autoplay: false,
+			autoplay: true,
 			autoplaySpeed: 2000,
 			dots: true,
 			arrows: false,
@@ -43,6 +36,8 @@ const Methods = {
 		});
 	},
 	initShelfCarrousel(){
+		// eslint-disable-next-line no-undef
+		$('.helperComplement').remove();
 		selector.shelf.slick({
 			lazyLoad: 'progressive',
 			slidesToShow: 4,
@@ -66,6 +61,8 @@ const Methods = {
 		});
 	},
 	initShelfCarrouselTwoProduct(){
+		// eslint-disable-next-line no-undef
+		$('.helperComplement').remove();
 		selector.shelfReleases.slick({
 			lazyLoad: 'progressive',
 			slidesToShow: 2,
@@ -98,7 +95,6 @@ const Methods = {
 		}).on( 'lazyLoaded', ( event, slick, image, imageSource ) => {
 			// eslint-disable-next-line no-undef
 			$( image ).removeClass('has--placeloader');
-			// $( image ).parent('.vve-image__container').removeClass('has--placeloader');
 		});
 	}
 

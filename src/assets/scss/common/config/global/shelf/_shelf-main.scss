@@ -33,11 +33,8 @@
     }
     &__placeloader{
         @include breakpoint('lg'){
-            min-height: 288px;
-        }
-        > .has--placeloader{
-            width: 288px;
-            height: 288px;
+            @include rem(min-height, 288px);
+            @include rem(min-width, 288px);
         }
     }
     &__content{
