@@ -4,7 +4,7 @@
 
 ### Requirements
 
-* [node.js](https://nodejs.org/en/)
+* [node.js](https://nodejs.org/en/) >= 6.9.0
 
 ### Installing
 
@@ -24,7 +24,7 @@ npm start
 ```
 
 
-### Structure of the `app` folder
+### Structure 
 
 ```sh
 ├── src
@@ -87,19 +87,23 @@ npm start
 ## Developed with
 
 
--[gulp.js](https://gulpjs.com/)
+* [gulp.js](https://gulpjs.com/)
 
--[browserify.org](http://browserify.org/)
+* [browserify.org](http://browserify.org/)
 
--[Sass](https://sass-lang.com/)
+* [Sass](https://sass-lang.com/)
 
--[Pug.Hs](https://pugjs.org/api/getting-started.html)
+* [Pug.Hs](https://pugjs.org/api/getting-started.html)
 
--[ESlint](https://eslint.org/)
+* [ESlint](https://eslint.org/)
 
-[-StyleLint](https://stylelint.io/user-guide/cli)
+* [StyleLint](https://stylelint.io/user-guide/cli)
 
 
 ## Note
 
-    This repository was done all in Vanillajs and all standardized according to the standards of the eslint, it took a lot of work to organize and make all this complex and ideal structure would be that you continue to follow the same structure.
+    This repository was done all in Vanillajs and all standardized according to the standards of the 
+
+    eslint, it took a lot of work to organize and make all this complex and ideal structure would be
+
+    that you continue to follow the same structure.
