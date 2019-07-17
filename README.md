@@ -87,9 +87,11 @@ npm start
 ## Developed with
 
 
-* [gulp.js](https://gulpjs.com/)
+* [EditorConfig](https://editorconfig.org/)
 
-* [browserify.org](http://browserify.org/)
+* [Gulp.js](https://gulpjs.com/)
+
+* [Browserify.org](http://browserify.org/)
 
 * [Sass](https://sass-lang.com/)
 
