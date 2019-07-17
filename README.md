@@ -24,7 +24,9 @@ npm start
 ```
 
 
-### Structure 
+### Structure of the `src` folder
+
+Below the folder structure.
 
 ```sh
 ├── src
