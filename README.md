@@ -93,7 +93,7 @@ npm start
 
 * [Sass](https://sass-lang.com/)
 
-* [Pug.Hs](https://pugjs.org/api/getting-started.html)
+* [Pug.Js](https://pugjs.org/api/getting-started.html)
 
 * [ESlint](https://eslint.org/)
 
