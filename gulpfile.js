@@ -52,7 +52,7 @@ const styles = () => {
 const scripts = () => {
 	return gulp.src(paths.scripts.src)
 		.pipe(babel({
-			presets: ['@babel/polyfill']
+			presets: ['@babel/polyfill'],
 		}))
 		.pipe(browserify({
 			transform: ['babelify'],

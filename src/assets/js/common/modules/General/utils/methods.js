@@ -18,3 +18,4 @@ export const ajaxLoader = () => {
 export const finishAjaxLoader = () => {
 	$loader.shelf.classList.add('is--remove');
 };
+
