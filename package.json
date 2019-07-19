@@ -1,8 +1,8 @@
 {
-  "name": "d",
+  "name": "vult",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.config.js",
+  "main": "src",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development --watch",
