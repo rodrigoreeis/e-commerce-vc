@@ -1,8 +1,32 @@
 const { CleanWebpackPlugin }= require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssets = require('optimize-css-assets-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const fs = require('fs');
 const path = require('path');
 const entry = require('webpack-glob-entry');
+
+
+let templates = [];
+var folderPath = 'src/views/common/';
+var filterFolds = new RegExp (/[\[\].!'@,><|://\\;&*()_+=]/g, "")
+fs.readdirSync(folderPath).filter((fileName, filterFolds) => {
+	console.log(fileName)
+	let results = fs.readdirSync(`${folderPath}${fileName}/`)
+	results.map((file) => {
+		if(file.match(/\.pug$/)){
+			let filename = file.substring(0, file.length - 4);
+			// console.log(filename);
+			// templates.push(
+				//  new HtmlWebpackPlugin({
+					//  template: `${dir}/${filename}.pug`,
+					//  filename: `${filename}.html`
+				//  })
+			//  );
+		}
+	})
+})
 
 
 const config = {
@@ -16,6 +40,7 @@ const config = {
 		new MiniCssExtractPlugin({
 			filename: '[name].css'
 		}),
+		...templates
 	],
 	module: {
 		rules: [
@@ -33,7 +58,11 @@ const config = {
 					'css-loader',
 				  	'sass-loader'
 				]
-			}
+			},
+			{ 
+				test: /\.pug$/,
+				use: ['pug-loader']
+			},
 		],
 	},
 };
