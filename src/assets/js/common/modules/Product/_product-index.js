@@ -6,4 +6,4 @@ export default {
 		Product.init();
 		ProductImage.init();
 	},
-};
+};  

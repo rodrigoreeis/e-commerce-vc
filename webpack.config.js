@@ -8,39 +8,52 @@ const path = require('path');
 const entry = require('webpack-glob-entry');
 
 
-let templates = [];
-var folderPath = 'src/views/common/';
-var filterFolds = new RegExp (/[\[\].!'@,><|://\\;&*()_+=]/g, "")
-fs.readdirSync(folderPath).filter((fileName, filterFolds) => {
-	console.log(fileName)
-	let results = fs.readdirSync(`${folderPath}${fileName}/`)
-	results.map((file) => {
-		if(file.match(/\.pug$/)){
-			let filename = file.substring(0, file.length - 4);
-			// console.log(filename);
-			// templates.push(
-				//  new HtmlWebpackPlugin({
-					//  template: `${dir}/${filename}.pug`,
-					//  filename: `${filename}.html`
-				//  })
-			//  );
+const templates = [];
+const folderPath = 'src/views/common/';
+fs.readdirSync(folderPath).filter((folderName, index, arr) => {// eslint-disable-line no-unused-vars
+	const folderNameFilter = folderName.replace(/_partials|_layouts/gi, '');
+	const results = fs.readdirSync(`${folderPath}${folderNameFilter}/`);
+	results.map((file) =>{
+		if (file.match(/\.pug$/)){
+			const fileName = file.substring(0, file.length - 4);
+			templates.push(
+				new HtmlWebpackPlugin({
+					template: `${folderPath}/${folderName}/${fileName}.pug`, 
+					filename: `views/${fileName}.html`,
+					inject: false,
+				})
+			);
 		}
-	})
-})
-
+	});
+});
+const subTemplates = [];
+const folderSubTemplate = 'src/views/common/html-templates/sub-templates/';
+fs.readdirSync(folderSubTemplate).map((files) => {
+	if (files.match(/\.pug$/)){
+		const fileName = files.substring(0, files.length -4);
+		subTemplates.push(
+			new HtmlWebpackPlugin({
+				template: `${folderSubTemplate}/${fileName}.pug`,
+				filename: `views/sub-templates/${fileName}.html`,
+				inject: false,
+			})
+		);
+	}
+});
 
 const config = {
 	entry: entry('./src/assets/js/common/*.js', './src/assets/scss/common/*.scss'),
 	output: {/* eslint-disable no-undef */
 		path: path.resolve(__dirname, 'dist'),
-		filename: '[name].js',
+		filename: 'assets/js/[name].js',
 	},
 	plugins: [
 		new CleanWebpackPlugin(),
 		new MiniCssExtractPlugin({
-			filename: '[name].css'
+			filename: 'assets/css/[name].css'
 		}),
-		...templates
+		...templates,
+		...subTemplates
 	],
 	module: {
 		rules: [
@@ -53,23 +66,26 @@ const config = {
 			},
 			{
 				test: /\.(sa|sc|c)ss$/,
-				use: [
+				use:[
 					MiniCssExtractPlugin.loader,
 					'css-loader',
-				  	'sass-loader'
+					'sass-loader'
 				]
 			},
 			{ 
 				test: /\.pug$/,
-				use: ['pug-loader']
+				loader: 'pug-loader', query: { pretty: ''}
 			},
 		],
 	},
 };
 
 module.exports = (env, argv) => {
-	if (argv.mode === 'development') {}
+	if (argv.mode === 'development') {
+		config.module.rules.slice(-1)[0].query.pretty = true;
+	}
 	if (argv.mode === 'production') {
+		config.module.rules.slice(-1)[0].query.pretty = false;
 		config.plugins.push(
 			new OptimizeCSSAssets() // call the css optimizer (minification)
 		);
