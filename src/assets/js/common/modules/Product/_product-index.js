@@ -1,9 +1,9 @@
-import 'whatwg-fetch';
-import 'promise-polyfill/src/polyfill';
-import product from './_product-main';
+import Product from './_product-main';
+import ProductImage from './_product-image';
 
 export default {
 	init() {
-		product.init();
+		Product.init();
+		ProductImage.init();
 	},
 };

@@ -1,4 +1,4 @@
-import 'whatwg-fetch';
+// import 'whatwg-fetch';
 import GlobalSelector from './_global-selector';
 import Modals from './Modal/_modal-index';
 import Shelf from './Shelf/_shelf-index';

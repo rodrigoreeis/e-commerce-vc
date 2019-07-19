@@ -19,7 +19,7 @@ const Methods = {
 					const imageUrl = data[0].items[0].images[0].imageUrl;
 					image.firstElementChild.setAttribute('data-lazy', `${Methods.__getSizeImage(imageUrl, 288)}`);
 				});
-		});
+		}); 
 	},
 };
 

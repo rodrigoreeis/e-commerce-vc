@@ -60,7 +60,6 @@ const Methods = {
 		const quantityMore = document.createElement('a');
 		const quantityValue = document.createElement('input');
 		const quantityLess = document.createElement('a');
-
 		wrapperProduct.classList.add('rr-minicart-product__wrapper');
 		imgProduct.classList.add('rr-minicart-product__img');
 		containerProduct.classList.add('rr-minicart-product__container');
@@ -73,14 +72,13 @@ const Methods = {
 		quantityLess.classList.add('js--minicart-qty', 'rr-minicart-product__qty--less');
 		quantityValue.classList.add('rr-minicart-product__qty--val');
 		quantityMore.classList.add('js--minicart-qty','rr-minicart-product__qty--more');
-
 		$minicart.products.appendChild(wrapperProduct);
 		linkProduct.appendChild(imgProduct);
 		wrapperProduct.appendChild(linkProduct);
 		wrapperProduct.appendChild(containerProduct);
 		wrapperProduct.appendChild(removeItem);
 		containerQty.appendChild(quantityLess);
-		containerQty.appendChild(quantityValue);
+		containerQty.appendChild(quantityValue); 
 		containerQty.appendChild(quantityMore);
 		containerProduct.appendChild(nameProduct);
 		containerProduct.appendChild(priceDiscountProduct);

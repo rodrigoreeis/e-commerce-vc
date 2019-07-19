@@ -1,0 +1,10 @@
+.rr-product{
+    &__name{
+        font-family: $font-bebas;
+        font-weight: bold;
+        @include rem(font-size, 64px);
+        @include rem(line-height, 60px);
+        @include rem(letter-spacing, 4px);
+        @include rem(height, 180px);
+    }
+}

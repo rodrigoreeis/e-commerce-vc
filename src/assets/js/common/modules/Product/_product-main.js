@@ -1,52 +1,48 @@
-// const Methods = {
-// 	init() {
-// 		// Methods.checkProductStock();
-// 	},
-//   	checkProductStock() {
-// 		const _productId = skuJson_0.productId;
-// 		fetch(`/api/catalog_system/pub/products/search/?fq=productId:${_productId}`)
-// 			.then((response) => response.json())
-// 			.then((response) => {
-// 				Methods.__productThumbImageInside(response);
-// 				Methods.__productInStock(response);
-// 			}).catch((error) => {
-// 				console.log('bar eae', error.message);
-// 			});
-//    },
-//    /**
-// 	* @access private
-// 	*/
-//    	__productInStock(response){
-// 		const btnProduct = document.querySelector('.buy-button');
-// 		const avaliableProduct = response[0].items[0].sellers[0].commertialOffer.AvailableQuantity
-// 		if(avaliableProduct == 0 || avaliableProduct == undefined) {
-// 			btnProduct.style.pointerEvents = 'none';
-// 			btnProduct.style.background = 'grey'
-// 		}
-// 	   },
-// 	/**
-// 	* @access private
-// 	*/	
-//    	__productThumbImageInside(response){
-// 		const arrayThumb = [];
-// 		const thumbs = document.querySelectorAll('.select label')
-// 		console.log(thumbs)
-// 		response[0].items.map((thumbSku) => {
-// // 			arrayThumb.push(thumbSku.images)
-// // 		})
-// 		console.log(arrayThumb)
-// 		for(let i = 0; i < arrayThumb.length ; i++) {
-// 			for(let j = 0; j < arrayThumb[i].length ;j++){
-// 				if(arrayThumb[i].length - 1 == j){
-// 					const itemsArray =(arrayThumb[i][j].imageUrl)
-// 					console.log(itemsArray)
-// 					thumbs[i].style.setProperty('background', `url('${itemsArray}')`, 'important')
-// 				}
-// 			}
-// 		}
-// 	},
-// }; 
+import cacheSelector from './_cache-selector';
+import {productSearch}from './methods';
 
-// export default {
-// 	init: Methods.init,
-// };
+// const selector = cacheSelector;
+
+const Product = {
+	
+	init(){
+		Product.setProductInfo([0]);
+	},
+
+	setProductInfo([item]){
+		const productInfo = {
+			name: '',
+			color: '',
+			code: '',
+			shotDescription: '',
+			oldPrice: '',
+			bestPrice: '',
+			images: [],
+			specifications: [],
+			howToUse: '',
+			composition: '',
+			description: ''
+	
+		};
+		productSearch()
+			.then((result) => {
+				const _currentData = result[0];
+				const _currentItem = result[0].items[item];
+				const avalablePrice = _currentItem.sellers[0].commertialOffer;
+				productInfo.name = _currentItem.hasOwnProperty('name') ? _currentItem.name : '';
+				productInfo.code = _currentData.hasOwnProperty('productId') ? _currentData.productId : '';
+				productInfo.specifications = _currentData.hasOwnProperty('allSpecifications') ? _currentData.allSpecifications.map(espec => espec) : '';
+				productInfo.images = _currentItem.hasOwnProperty('images') ? _currentItem.images.map(image => image) : '';
+				productInfo.shotDescription = _currentData.hasOwnProperty('description') ? _currentData.description : '';
+				productInfo.howToUse = _currentData.hasOwnProperty('ComousarNOVO') ?_currentData.ComousarNOVO : '';
+				if (avalablePrice.AvailableQuantity) {
+					productInfo.oldPrice = avalablePrice.hasOwnProperty('ListPrice') ? avalablePrice.ListPrice : '';
+					productInfo.bestPrice = avalablePrice.hasOwnProperty('Price') ? avalablePrice.Price : '';
+				}
+				console.log(productInfo);
+			});
+		return productInfo;
+	},
+};
+
+export default Product;

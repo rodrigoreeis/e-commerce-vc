@@ -1,0 +1,9 @@
+.rr-product__main{
+    @include container;
+    padding-top: 6%;
+    > .rr-product{
+        @extend %flex-column;
+        border: 1px solid red;
+        height: calc(100vh - 75px);
+    }
+}
