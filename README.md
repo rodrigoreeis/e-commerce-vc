@@ -17,10 +17,11 @@ npm install
 ```
 
 
-## Starting with Gulp.js
-
+## Starting with Gulp.js and Webpack
+#### You'll need two terminals.
 ```
-npm start
+npm start 
+npm run dev  
 ```
 
 

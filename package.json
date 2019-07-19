@@ -5,9 +5,8 @@
   "main": "src",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --mode development --watch",
-    "build": "webpack --mode production",
-    "start": "gulp && gulp watch"
+    "build": "webpack --mode=production",
+    "dev": "webpack --mode=development --watch"
   },
   "author": {
     "name": "Rodrigo Reis",
@@ -34,7 +33,14 @@
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.1.0",
     "gulp": "^4.0.2",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.12.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
     "webpack": "^4.36.1",
     "webpack-cli": "^3.3.6"
   }
