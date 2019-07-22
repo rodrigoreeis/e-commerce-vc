@@ -42,7 +42,7 @@ fs.readdirSync(folderSubTemplate).map((files) => {
 });
 
 const config = {
-	entry: entry('./src/assets/js/common/*.js', './src/assets/scss/common/*.scss'),
+	entry: entry('./src/assets/js/common/*.js'),
 	output: {/* eslint-disable no-undef */
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'assets/js/[name].js',
@@ -50,7 +50,8 @@ const config = {
 	plugins: [
 		new CleanWebpackPlugin(),
 		new MiniCssExtractPlugin({
-			filename: 'assets/css/[name].css'
+			filename: 'assets/css/[name].css',
+
 		}),
 		...templates,
 		...subTemplates

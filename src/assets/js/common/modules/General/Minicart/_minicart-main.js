@@ -85,7 +85,7 @@ const Methods = {
 		containerProduct.appendChild(priceProduct);
 		containerProduct.appendChild(pricePercentage);
 		containerProduct.appendChild(containerQty);
-	
+		console.log('eae')
 		quantityMore.addEventListener('click', ({currentTarget}) => {
 			ajaxLoader();
 			Methods.__changeQuantityItem(currentTarget);
