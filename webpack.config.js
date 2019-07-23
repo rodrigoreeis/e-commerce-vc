@@ -86,6 +86,7 @@ module.exports = (env, argv) => {
 		config.module.rules.slice(-1)[0].query.pretty = true;
 	}
 	if (argv.mode === 'production') {
+		// config.module.rules[0].{use:loader:'babel-loader'}
 		config.module.rules.slice(-1)[0].query.pretty = false;
 		config.plugins.push(
 			new OptimizeCSSAssets() // call the css optimizer (minification)

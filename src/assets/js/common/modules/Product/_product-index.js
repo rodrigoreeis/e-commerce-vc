@@ -1,9 +1,7 @@
-import Product from './_product-main';
-import ProductImage from './_product-image';
+import ProductInfo from './_product-info';
 
 export default {
 	init() {
-		Product.init();
-		ProductImage.init();
+		ProductInfo.init();
 	},
 };  

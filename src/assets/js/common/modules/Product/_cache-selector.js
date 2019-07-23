@@ -1,5 +1,15 @@
 export default {
 	product:{
-		codeProduct: document.querySelector('.js--product--code')
+		code: document.querySelector('.js--product--code'),
+		shotDescription: document.querySelector('.js--product-description'),
+		image: document.querySelector('.js--product--image'),
+		imageZoom: document.querySelector('.js--zoom'),
+		oldPrice: document.querySelector('.js--old-price'),
+		price: document.querySelector('.js--best-price'),
+		name: document.querySelector('.rr-product__name div')
+	},
+	slick:{
+		image: $('.rr-product__image'),
+		imageZoom: $('.js--zoom')
 	}
 };
