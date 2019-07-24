@@ -1,114 +1,26 @@
 # Vult Cosméticos.
 
-## Getting Started
+## Leia-me
 
-### Requirements
+Repositório feito todo em webpack 4 + babel 7, usando somente Javascript Moderno ES6;
 
-* [node.js](https://nodejs.org/en/) >= 6.9.0
+# É EXTREMAMENTE PROÍBIDO USO DE JQUERY NESTE REPOSITÓRIO.
 
-### Installing
+### Requerimentos
 
-The first step you must follow to run the project is to install all its dependencies.
+* [node.js](https://nodejs.org/en/) a ultima versão
 
-The following commands should do this for you.
+### Instalação
+
 
 ```
 npm install
 ```
 
 
-## Starting with Gulp.js and Webpack
-#### You'll need two terminals.
+## Iniciando o Webpack
 ```
-npm start 
-npm run dev  
+npm run dev (Ambiente de Desenvolvimento) 
+npm run dev  (Ambiente de Produção)
+npm run test (Ambiente de QA)
 ```
-
-
-### Structure of the `src` folder
-
-Below the folder structure.
-
-```sh
-├── src
-│   ├── assets
-│   │       ├──js
-│   │       │  └──common
-│   │       │         └──modules
-│   │       │                ├── General
-│   │       │                │        ├──Footer
-│   │       │                │        ├──Header
-│   │       │                │        ├──LazyLoad
-│   │       │                │        ├──Minicart
-│   │       │                │        ├──Modal
-│   │       │                │        ├──Order
-│   │       │                │        ├──Shelf
-│   │       │                │        └──utils
-│   │       │                ├── Home
-│   │       │                └── Product
-│   │       └──scss
-│   │            └──common
-│   │                    ├──config
-│   │                    │    ├──Global
-│   │                    │    │        ├──ajaxLoad
-│   │                    │    │        ├──elements
-│   │                    │    │        ├──generic
-│   │                    │    │        ├──lazyload
-│   │                    │    │        ├──shelf
-│   │                    │    │        └──vendor
-│   │                    │    │                ├──form-reset
-│   │                    │    │                ├──slick-carousel
-│   │                    │    │                └──yourviews
-│   │                    │    └─settings
-│   │                    │            ├──helpers
-│   │                    │            ├──tools
-│   │                    │            └──utils
-│   │                    └──layout
-│   │                            ├──general
-│   │                            │        ├──footer
-│   │                            │        ├──header
-│   │                            │        └──modal
-│   │                            │
-│   │                            ├──home
-│   │                            └──product   
-│   └── views
-│           └──common
-│                ├──layouts
-│                ├──partials
-│                │        ├──footer
-│                │        ├──header
-│                │        ├──home
-│                │        ├──product
-│                │        └──svgs
-│                ├──custom-elements
-│                ├──html-templates
-│                │            └──sub-templates
-│                └──shelves-templates
-             
-```
-
-## Developed with
-
-
-* [EditorConfig](https://editorconfig.org/)
-
-* [Gulp.js](https://gulpjs.com/)
-
-* [Browserify.org](http://browserify.org/)
-
-* [Sass](https://sass-lang.com/)
-
-* [Pug.Js](https://pugjs.org/api/getting-started.html)
-
-* [ESlint](https://eslint.org/)
-
-* [StyleLint](https://stylelint.io/user-guide/cli)
-
-
-## Note
-
-    This repository was done all in Vanillajs and all standardized according to the standards of the 
-
-    eslint, it took a lot of work to organize and make all this complex and ideal structure would be
-
-    that you continue to follow the same structure.

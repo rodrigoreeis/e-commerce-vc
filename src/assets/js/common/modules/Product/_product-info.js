@@ -1,4 +1,4 @@
-import setProductInfo from './_product-main';
+import * as METHODS from './methods';
 import CacheSelector from './_cache-selector';
 
 const { product, slick} = CacheSelector;
@@ -7,17 +7,18 @@ const Methods = {
 		Methods.setInfo();
 	},
 	setInfo(){
-		setProductInfo([4], (result) => {
-			product.code.textContent = `Código do item: ${result.code}`;
-			product.shotDescription.textContent = `${result.shotDescription}...`;
-			product.price.textContent = result.bestPrice.toLocaleString('pt-BR',{style: 'currency', currency:'BRL'});
-			product.oldPrice.textContent = result.bestPrice == result.oldPrice ? '' : result.oldPrice.toLocaleString('pt-BR',{style: 'currency', currency:'BRL'});
-			product.name.textContent = result.name;
-			Methods.__setImage(result);
-		});
+		METHODS.productInfo([0])
+			.then(response => {
+				product.code.textContent = `Código do item: ${response.code}`;
+				product.shotDescription.textContent = `${response.shotDescription}...`;
+				product.price.textContent = response.bestPrice.toLocaleString('pt-BR',{style: 'currency', currency:'BRL'});
+				product.oldPrice.textContent = response.bestPrice == response.oldPrice ? '' : response.oldPrice.toLocaleString('pt-BR',{style: 'currency', currency:'BRL'});
+				product.name.textContent = response.name;
+				Methods.__setImage(response);
+			})
 	},
-	__setImage(result){
-		result.images.map(({imageUrl}) => {
+	__setImage(response){
+		response.images.map(({imageUrl}) => {
 			const image = document.createElement('img');
 			const list = document.createElement('li');
 			list.classList.add('rr-product__image--list');
