@@ -2,7 +2,7 @@
 
 ## Leia-me
 
-Repositório feito todo em webpack 4 + babel 7, usando somente Javascript Moderno ES6;
+Repositório feito todo VanillaJS + ES6, usando Webpack 4 + Babel 7;
 
 # É EXTREMAMENTE PROÍBIDO USO DE JQUERY NESTE REPOSITÓRIO.
 
