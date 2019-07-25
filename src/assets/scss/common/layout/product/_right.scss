@@ -1,0 +1,41 @@
+.rr-product{
+    &-right{
+        width: 353px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    &__price{
+        @extend %flex-column;
+        color: $color-black-2;
+        &--best-price{
+            @include rem(font-size, 30px);
+            font-weight: bold;
+        }
+    }
+    &__buy{
+        @extend %flex-column;
+        &--btn{
+            width: 100%;
+            @include rem(font-size, 18px);
+            @include rem(padding, 14px );
+            @include rem(letter-spacing, 2px);
+            @include rem(margin-bottom, 10px);
+            background-color: $color-pink; 
+            font-weight: bold;
+            color: $color-white;
+            text-transform: uppercase;
+        }
+        &--text{
+            font-weight: bold;
+            color: $color-pink;
+            @include rem(font-size, 14px);
+            text-transform: uppercase;
+        }
+        > a {
+            color: $color-black-2;
+            @include rem(font-size, 14px);
+            text-decoration: underline;
+        }
+    }
+}

@@ -5,16 +5,11 @@ const OptimizeCSSAssets = require('optimize-css-assets-webpack-plugin');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 
-const templates = require('../../utils/getTemplates');
-const subTemplates = require('../../utils/getSubTemplates');
-const shelvesTemplates = require('../../utils/getShelvesTemplates');
-const customElements = require('../../utils/getCustomElements');
+const QA = require('../../utils/getTemplatesQA');
+
 
 const plugins = [
-    ...templates,
-    ...subTemplates,
-    ...shelvesTemplates,
-    ...customElements,
+    ...QA,
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
         filename: 'assets/css/[name]QA.css'

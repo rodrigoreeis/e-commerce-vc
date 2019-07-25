@@ -1,0 +1,18 @@
+extends ../../common/_layouts/VultCommon-base.pug
+
+//- Template variables
+block vars
+    - var $templateName = 'Home';
+    - var $storeName = 'VultCommon';
+    - var $templateClass = "home"
+//- Page styles
+block append styles
+    link(rel='stylesheet', href=`/arquivos/${$storeName}-${$templateName}QA.css`, media='all')/
+//- Main Content
+block content
+    include ../../common/_partials/home/_main-banner.pug
+    include ../../common/_partials/home/_container.pug
+        
+block append scripts
+    script(type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js")
+    script(type='text/javascript', src=`/arquivos/${$storeName}-${$templateName}QA.js`) 

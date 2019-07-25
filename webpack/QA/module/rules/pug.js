@@ -2,7 +2,7 @@ const pug ={
     test: /\.pug$/,
     loader: 'pug-loader',
     query: { 
-        pretty: false 
+        pretty: true, 
     }
 }
 

@@ -21,6 +21,6 @@ npm install
 ## Iniciando o Webpack
 ```
 npm run dev (Ambiente de Desenvolvimento) 
-npm run dev  (Ambiente de Produção)
+npm run prod  (Ambiente de Produção)
 npm run test (Ambiente de QA)
 ```
