@@ -6,10 +6,13 @@ export default {
 		imageZoom: document.querySelector('.js--zoom'),
 		oldPrice: document.querySelector('.js--old-price'),
 		price: document.querySelector('.js--best-price'),
-		name: document.querySelector('.rr-product__name div')
+		name: document.querySelector('.rr-product__name div'),
+		thumb: document.querySelector('.rr-product__thumb'),
+		buy: document.querySelector('.js--buy')
 	},
 	slick:{
 		image: $('.rr-product__image'),
 		imageZoom: $('.js--zoom')
-	}
+	},
+
 };

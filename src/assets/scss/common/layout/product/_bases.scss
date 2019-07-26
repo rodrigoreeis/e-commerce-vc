@@ -5,3 +5,13 @@
 @import "./left";
 @import "./center";
 @import "./right";
+
+.rr-product__thumb{
+    display: flex;
+}
+.rr-product__thumb--box{
+    width: 30px;
+    margin: 10px;
+    height: 30px;
+    cursor: pointer;
+}

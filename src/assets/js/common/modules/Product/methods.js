@@ -4,11 +4,10 @@ export const mountObject = ({data}, items) => {
 	const _currentData = data[0];
 	const _currentItem = data[0].items[items];
 	const _avalablePrice = _currentItem.sellers[0].commertialOffer;
-	const color = new RegExp(/^#?([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})|([0-9a-fA-F]{3})$/g);
 	const _productInfo = {
 		name: _currentItem.hasOwnProperty('name') ? _currentItem.name : '',
-		color: _currentItem.Cor[0].match(color),
-		images:	_currentItem.hasOwnProperty('images') ? _currentItem.images.map(image => image) : '',
+		images:	_currentItem.hasOwnProperty('images') ? getImages(data) : '',
+		skuId: _currentItem.hasOwnProperty('itemId') ? _currentItem.itemId: '',
 		code: _currentData.hasOwnProperty('productId') ? _currentData.productId : '',
 		bestPrice: _avalablePrice.hasOwnProperty('Price') ? _avalablePrice.Price : '',
 		oldPrice: _avalablePrice.hasOwnProperty('ListPrice') ? _avalablePrice.ListPrice : '',
@@ -19,6 +18,18 @@ export const mountObject = ({data}, items) => {
 	};
 	return _productInfo;
 };
+
+const getImages = (data) => {
+	const obj = data[0].items;
+	const imagesArray = []; 
+	for(let i = 0; i < obj.length; i++){
+		const arrayImages = obj[i].images; 
+		const images = arrayImages.map(({imageUrl}) => imageUrl)
+		imagesArray.push(Object.assign({},images))
+	}
+	return imagesArray;
+}
+
 export const productInfo = async (items) => {
 	const { productId } = skuJson_0;
 	const endpoint = `/api/catalog_system/pub/products/search/?fq=productId:${productId}`

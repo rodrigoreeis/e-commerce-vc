@@ -157,32 +157,51 @@ const Methods = {
 	},
 
 	addItemToMinicart(){
-		[...$shelf.btn].map((button) => {
-			button.addEventListener('click', ({currentTarget}) => {
+		// [...$shelf.btn].map((button) => {
+		// 	button.addEventListener('click', ({currentTarget}) => {
+		// 		ajaxLoader();
+		// 		Methods.__minicartIsOpen();
+		// 		Methods.__minicartNotEmpy();
+		// 		const elementId = currentTarget.firstChild.getAttribute('data-productId');
+		// 		fetch(`/api/catalog_system/pub/products/search/?fq=productId:${elementId}`)
+		// 			.then((response) => response.json())
+		// 			.then((result) => {
+		// 				const skuItem = result[0].items[0].itemId;
+		// 				const item = {
+		// 					id: skuItem,
+		// 					quantity: 1,
+		// 					seller: '1'
+		// 				};
+		// 				Methods.__validateProductInMinicart(skuItem, item);
+		// 			});
+		// 	});
+		// });
+		if($globals.body.classList.contains('rr-body-product')){
+			const btnBuy = document.querySelector('.js--buy')
+			btnBuy.addEventListener('click', (ev) => {
 				ajaxLoader();
 				Methods.__minicartIsOpen();
 				Methods.__minicartNotEmpy();
-				const elementId = currentTarget.firstChild.getAttribute('data-productId');
-				fetch(`/api/catalog_system/pub/products/search/?fq=productId:${elementId}`)
-					.then((response) => response.json())
-					.then((result) => {
-						const skuItem = result[0].items[0].itemId;
-						const item = {
-							id: skuItem,
-							quantity: 1,
-							seller: '1'
-						};
-						Methods.__validateProductInMinicart(skuItem, item);
-					});
-			});
-		});
+				ev.preventDefault();
+				const skuItem = ev.target.dataset.sku;
+				const item = {
+					id: skuItem,
+					quantity: 1,
+					seller: '1'
+				};
+				Methods.__validateProductInMinicart(skuItem, item);
+			})
+		}
 	},
 	
 	__validateProductInMinicart(skuItem, item){
 		getOrderForm()
 			.then((response) => {
+				console.log(item);
+				console.log(response);
 				const itemsId = response.items.map((el) =>  el.id);
 				const validateProduct = itemsId.indexOf(skuItem);
+				console.log(response);
 				if (validateProduct === -1){
 					Methods.__addToItem(item);
 				}else {
@@ -193,7 +212,7 @@ const Methods = {
 
 	__addToItem(item){
 		addToCart(item)
-			.done(() => {
+			.done((res) => {
 				finishAjaxLoader();
 				Methods.__addNewItemMinicart();
 				Methods.priceAmountMinicart();

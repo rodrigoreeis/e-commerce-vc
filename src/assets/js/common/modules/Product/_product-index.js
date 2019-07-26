@@ -1,7 +1,8 @@
-import ProductInfo from './_product-info';
-
+// import ProductInfo from './_product-info';
+import ProductThumb from './_product-thumb';
 export default {
 	init() {
-		ProductInfo.init();
+		// ProductInfo.init();
+		ProductThumb.init();
 	},
 };  
