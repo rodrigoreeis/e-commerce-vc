@@ -1,9 +1,23 @@
 .rr-product{
     &-center{
         @include rem(width, 465px);
+        position: relative;
+    }
+    &__image-zoom{
+        display: none !important;
     }
     &__image{
         cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute !important;
+        left: 0;
+        top: 0;
+        @include rem(width, 465px);
+        &.is--active{ 
+            opacity: 1;
+            visibility: visible;
+        }
         > .slick-dots{
             @extend %flex-centered;
             @include rem(top, -35px);

@@ -37,19 +37,12 @@ const Methods = {
         box.setAttribute('data-sku', skuId);
         box.addEventListener('click', ({currentTarget}) => {
             const _currentIndex = currentTarget.dataset.index;
-            Methods.__removeImage();
             getInformationItem(_currentIndex);
+            const _currentImage = document.querySelector('.')
         })
     },
-    __removeImage(){
-        slick.image.slick('unslick');
-        slick.imageZoom.slick('unslick');
-        const elementsImage = document.querySelectorAll('.rr-product__image--list');
-        const elementsImageZoom = document.querySelectorAll('.rr-product__image-zoom--item');
-        for(let i = 0; i < elementsImage.length; i++){
-            elementsImage[i].remove();
-            elementsImageZoom[i].remove();
-        }
+    __changeImage(){
+        
     },
 }
 export default {

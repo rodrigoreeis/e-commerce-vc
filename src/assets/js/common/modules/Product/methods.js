@@ -21,13 +21,13 @@ export const mountObject = ({data}, items) => {
 
 const getImages = (data) => {
 	const obj = data[0].items;
-	const imagesArray = []; 
+	const mountArray = []; 
 	for(let i = 0; i < obj.length; i++){
 		const arrayImages = obj[i].images; 
 		const images = arrayImages.map(({imageUrl}) => imageUrl)
-		imagesArray.push(Object.assign({},images))
+		mountArray.push(Object.assign({},images))
 	}
-	return imagesArray;
+	return mountArray;
 }
 
 export const productInfo = async (items) => {
