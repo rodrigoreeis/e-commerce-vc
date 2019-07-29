@@ -30,6 +30,7 @@
     &__container{
         @extend %flex-column;
         align-items: center;
+        outline: none;
     }
     &__placeloader{
         @include breakpoint('lg'){

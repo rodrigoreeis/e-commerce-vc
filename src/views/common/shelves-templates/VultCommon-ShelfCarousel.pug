@@ -39,5 +39,5 @@ article(class=`rr-shelf__item`)
     != '\n#if ($product.IsInStock)\n'
     div(class="rr-shelf__buy")
         button(class="rr-shelf__buy--btn")
-            a(title='$productTitle' data-productId='$productId') Comprar
+            a(title='$productTitle' data-productId='$productId' href='$productLink') Comprar
     != '\n#end\n'

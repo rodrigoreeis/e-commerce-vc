@@ -100,7 +100,7 @@
             }
             span{
                 position: absolute;
-                @include rem(top, 6px);
+                top: 20%;
                 @include rem(right, 3px);
                 @include rem(font-size, 12px);
                 font-weight: bold;

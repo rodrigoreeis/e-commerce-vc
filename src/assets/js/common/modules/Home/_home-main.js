@@ -6,7 +6,7 @@ const selector = cacheSelector;
 const Methods = {
 	init(){
 		Methods.initCarrouselBannerMain();
-		Methods.initShelfCarrousel();
+		// Methods.initShelfCarrousel();
 		Methods.initShelfCarrouselTwoProduct();
 		Methods.initCarrouselMiniBanners();
 	},
@@ -36,7 +36,8 @@ const Methods = {
 		});
 	},
 	initShelfCarrousel(){
-		// eslint-disable-next-line no-undef
+		// $('.rr-shelf > div > a').remove();
+		// $('.rr-shelf ul > a').remove();
 		$('.helperComplement').remove();
 		selector.shelf.slick({
 			lazyLoad: 'progressive',
@@ -51,7 +52,6 @@ const Methods = {
 					settings: {
 						slidesToShow: 2,
 						slidesToScroll: 1,
-						infinite: true,
 					}
 				}
 			]
@@ -61,7 +61,8 @@ const Methods = {
 		});
 	},
 	initShelfCarrouselTwoProduct(){
-		// eslint-disable-next-line no-undef
+		$('.rr-shelf-two > div > a').remove();
+		$('.rr-shelf-two ul > a').remove();
 		$('.helperComplement').remove();
 		selector.shelfReleases.slick({
 			lazyLoad: 'progressive',
@@ -87,7 +88,7 @@ const Methods = {
 					settings: {
 						slidesToShow: 1.5,
 						slidesToScroll: 1,
-						infinite: false,
+						infinite: true,
 						variableWidth: true
 					}
 				}
