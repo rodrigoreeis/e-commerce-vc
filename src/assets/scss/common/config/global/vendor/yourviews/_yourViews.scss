@@ -1,6 +1,6 @@
   
   .yv-review-quickreview{
-    .yv-bootstrap{
+    > .yv-bootstrap{
         text-align: center;
         font-size: 11px;
         @include breakpoint('sm'){
@@ -11,6 +11,9 @@
         }
         i{
             color: $color-black !important;
+        }
+        &.is--inactive{
+            display:  none;
         }
     }
 }

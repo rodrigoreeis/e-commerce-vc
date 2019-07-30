@@ -45,6 +45,10 @@ export default{
 	$shelf: {
 		image: document.querySelectorAll('.js--shelf-carousel'),
 		btn: document.querySelectorAll('.rr-shelf__buy--btn'),
+		firstTrashShelf: document.querySelectorAll('.js--slick--shelf > div > a'),
+		secondTrashShelf: document.querySelectorAll('.js--slick--shelf ul > a'),
+		vtexHelper: document.querySelectorAll('.helperComplement'),
+		yourViews: document.querySelectorAll('.yv-review-quickreview'),
 	},
 	$loader:{
 		shelf: document.querySelector('.rr-ajax-loader')

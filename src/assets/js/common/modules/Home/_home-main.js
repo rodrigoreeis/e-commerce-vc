@@ -6,7 +6,7 @@ const selector = cacheSelector;
 const Methods = {
 	init(){
 		Methods.initCarrouselBannerMain();
-		// Methods.initShelfCarrousel();
+		Methods.initShelfCarrousel();
 		Methods.initShelfCarrouselTwoProduct();
 		Methods.initCarrouselMiniBanners();
 	},
@@ -32,17 +32,13 @@ const Methods = {
 		}).on( 'lazyLoaded', ( event, slick, image, imageSource ) => {
 			// eslint-disable-next-line no-undef
 			$( image ).removeClass('has--placeloader');
-			// $( image ).parent('.vve-image__container').removeClass('has--placeloader');
 		});
 	},
 	initShelfCarrousel(){
-		// $('.rr-shelf > div > a').remove();
-		// $('.rr-shelf ul > a').remove();
-		$('.helperComplement').remove();
 		selector.shelf.slick({
 			lazyLoad: 'progressive',
 			slidesToShow: 4,
-			slidesToScroll: 1,
+			slidesToScroll: 4,
 			infinite: false,
 			dots: false,
 			arrows: true,
@@ -51,7 +47,7 @@ const Methods = {
 					breakpoint: 768,
 					settings: {
 						slidesToShow: 2,
-						slidesToScroll: 1,
+						slidesToScroll: 2,
 					}
 				}
 			]
@@ -61,9 +57,6 @@ const Methods = {
 		});
 	},
 	initShelfCarrouselTwoProduct(){
-		$('.rr-shelf-two > div > a').remove();
-		$('.rr-shelf-two ul > a').remove();
-		$('.helperComplement').remove();
 		selector.shelfReleases.slick({
 			lazyLoad: 'progressive',
 			slidesToShow: 2,

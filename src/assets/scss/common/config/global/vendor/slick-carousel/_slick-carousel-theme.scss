@@ -1,39 +1,70 @@
-.slick-slide {
-    @include rem(margin-left, 20px);
-    @include breakpoint('sm'){
-        margin-left: 13px;
+.rr-shelf, .rr-shelf-two{
+    .slick-slide {
+        @include rem(margin-left, 20px);
+        @include breakpoint('sm'){
+            margin-left: 13px;
+        }
+    }
+    .slick-list {
+        @include rem(margin-left, -20px);
+        @include breakpoint('sm'){
+            margin-left: -13px;
+        }
+    }
+    .slick-next,
+    .slick-prev{
+        @include rem(padding, 13px);
+        position: absolute;
+        top: 45%;
+        transform: translateY(-50%);
+        font-size: 0;
+        z-index: 3;
+        transition: all .3s ease-in-out;
+        opacity: 1;
+        @include breakpoint('sm'){
+            top: 20%;
+        }
+       
+    }
+    .slick-prev{
+        @include rem(width, 30px);
+        @include rem(left, -30px);
+        @include arrow-generate('left', 30px , 7px solid $color-black);
+        @include breakpoint('sm'){
+            left: 5px;
+        }
+    }
+    .slick-next{
+        @include rem(right, -30px);
+        @include arrow-generate('right', 30px , 7px solid $color-black);
+        @include breakpoint('sm'){
+            right: 5px;
+        }
+    }
+    .slick-disabled{
+        opacity: .1;
+        cursor: none;
+        pointer-events: none;
     }
 }
-.slick-list {
-    @include rem(margin-left, -20px);
-    @include breakpoint('sm'){
-        margin-left: -13px;
-    }
-}
-.slick-next,
-.slick-prev{
-    @include rem(padding, 13px);
-    position: absolute;
-    top: 45%;
-    transform: translateY(-50%);
-    font-size: 0;
-    z-index: 3;
-    @include breakpoint('sm'){
-        top: 20%;
-    }
-}
-.slick-prev{
-    @include rem(width, 30px);
-    @include rem(left, -30px);
-    @include arrow-generate('left', 30px , 7px solid $color-black);
-    @include breakpoint('sm'){
-        display: none !important;
-    }
-}
-.slick-next{
-    @include rem(right, -30px);
-    @include arrow-generate('right', 30px , 7px solid $color-black);
-    @include breakpoint('sm'){
-        right: 5px;
+.rr-slick-banner{
+    .slick-dots{
+        @extend %flex-centered;
+        @include rem(top, -35px);
+        position: relative;
+        > li{ 
+            width: 25px;
+            height: 4px;
+            background-color: black;
+            margin: 0 6px;
+            transition: all .3s ease-in-out;
+            &.slick-active{
+                width: 45px;
+                background-color: $color-pink;
+            }
+            > button{
+                font-size: 0;
+            }
+        }
     }
 }

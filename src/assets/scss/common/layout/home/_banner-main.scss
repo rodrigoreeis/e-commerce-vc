@@ -4,40 +4,40 @@
             padding: 19.8% 35%;
         }
     }
-    .slick-dots{
-        position: absolute;
-        @include rem(bottom, -34px);
-        @include rem(font-size, 56px);
-        font-weight: bold;
-        font-family: $font-bebas;
-        display: flex !important;
-        color: $color-black-2;
-        @include rem(left, 65px);
-        @include breakpoint('sm'){
-            left: 38px; 
-        }
-        li{
-            position: relative;
-            @include rem(padding, 0 18px);
-            &::after{
-                content: '0';
-                position: absolute;
-                top: 0;
-                left: -3px;
-                color: $color-black-2;
+    // .slick-dots{
+    //     position: absolute;
+    //     @include rem(bottom, -34px);
+    //     @include rem(font-size, 56px);
+    //     font-weight: bold;
+    //     font-family: $font-bebas;
+    //     display: flex !important;
+    //     color: $color-black-2;
+    //     @include rem(left, 65px);
+    //     @include breakpoint('sm'){
+    //         left: 38px; 
+    //     }
+    //     li{
+    //         position: relative;
+    //         @include rem(padding, 0 18px);
+    //         &::after{
+    //             content: '0';
+    //             position: absolute;
+    //             top: 0;
+    //             left: -3px;
+    //             color: $color-black-2;
                 
-            }
-            &.slick-active{
-                &::before{
-                    content: "";
-                    width: 65%;
-                    background: $color-black-2;
-                    @include rem(height, 5px);
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                }
-            }
-        }
-    }
+    //         }
+    //         &.slick-active{
+    //             &::before{
+    //                 content: "";
+    //                 width: 65%;
+    //                 background: $color-black-2;
+    //                 @include rem(height, 5px);
+    //                 position: absolute;
+    //                 top: 0;
+    //                 left: 0;
+    //             }
+    //         }
+    //     }
+    // }
 }
