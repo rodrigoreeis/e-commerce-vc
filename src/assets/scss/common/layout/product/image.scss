@@ -4,7 +4,19 @@
         position: relative;
     }
     &__image-zoom{
-        display: none !important;
+        opacity: 0;
+        visibility: hidden;
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 5020;
+        background-color: $color-white;
+        &.is--active{
+            opacity: 1;
+            visibility: visible;
+            
+        }
     }
     &__image{
         cursor: pointer;

@@ -1,19 +1,30 @@
 .rr-copyright{
     background: $color-grey-black;
     @extend %flex-spaced;
-    @include breakpoint('sm'){
-        flex-direction: column-reverse;
-    }
+   
     &__text{
+        &:first-of-type{
+            margin-bottom: 20px;
+            text-transform: none;
+        }
         font-family: $font-lato;
         @include rem(font-size, 12px);
         text-transform: uppercase;
         font-weight: 500;
         color: $color-grey-3;
         letter-spacing: .1em;
-        max-width: 500px;
-        @include breakpoint('sm'){
-            margin-top: 35px;
+        max-width: 100%;
+    }
+    @include breakpoint('sm'){
+        > p  {
+            order: 2
+        }
+        > small {
+            order: 3
+        } 
+        > a {
+            order: 1;
+            @include rem(margin-bottom, 10px);
         }
     }
 }

@@ -14,10 +14,13 @@ const Methods = {
 	},
 	openModalNews(){
 		$header.news.classList.add('is--active');
+		$modalNews.shelf.classList.add('is--active');
+		openOverlay();
 		$header.news.firstElementChild.firstElementChild.addEventListener('click', (ev) =>{
 			ev.preventDefault();
 			$modalNews.shelf.classList.add('is--active');
 			openOverlay();
+			console.log('clicado', ev.currentTarget);
 		});
 	},
 	closeModal(){

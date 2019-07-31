@@ -25,7 +25,6 @@ const Methods = {
         yourViews.src = "//service.yourviews.com.br/script/44f7277f-9dfa-458d-b9d7-f2db830332fe/yvapi.js";
         const script = document.getElementsByTagName('script')[0];
 		script.parentNode.insertBefore(yourViews, script);
-
 	},
 	removeEmptyStars(){
 		const stars = document.querySelectorAll('.yv-bootstrap');

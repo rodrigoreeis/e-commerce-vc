@@ -2,7 +2,6 @@
 import ProductThumb from './_product-thumb';
 export default {
 	init() {
-		// ProductInfo.init();
 		ProductThumb.init();
 	},
 };  

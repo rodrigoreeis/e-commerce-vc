@@ -1,0 +1,48 @@
+.rr-product{
+    &__thumb{
+        @extend %flex-column;
+        @include rem(height, 230px);
+        align-items: center;
+        justify-content: center;
+        > p {
+            font-weight: bold;
+            @include rem(font-size, 14px);
+            > span{
+                font-weight: normal;
+                @include rem(font-size, 12px);
+            }
+        }
+        &-container{
+            display: flex;
+        }
+        &--box{
+            @include rem(width, 36.85px);
+            @include rem(height, 36.85px);
+            @include rem(margin-right, 12px);
+            @include rem(margin-top, 30px);
+            position: relative;
+            cursor: pointer;
+            &.out-of-stock{
+                &::before,
+                &::after{
+                    content: "";
+                    @include absolute-centered;
+                }
+                &::before{
+                    @include rem(width, 16.56px);
+                    @include rem(height, 16.56px);
+                    border: 2px solid $color-white;
+                    border-radius: 50%;
+                }
+                &::after{
+                    @include rem(width, 14px);
+                    @include rem(height, 2px);
+                    @include rem(top, 18px);
+                    @include rem(left, 11px);
+                    background-color: $color-white;
+                    transform: rotate(-230deg);
+                }
+            }
+        }
+    }
+}

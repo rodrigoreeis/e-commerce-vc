@@ -16,9 +16,11 @@ section(class="rr-product-main")
                 a(href="#") Saiba mais...
             div(class="rr-product__all-character")
                 span(class="rr-product__all-character--text") ver todas as características
-        div(class="rr-product-center js--product--image has--placeloader")
+        div(class="rr-product-center js--product--image has--placeloader rr-slick-banner")
         div(class="rr-product-right")
-            div(class="rr-product__thumb")
+            div(class="rr-product__thumb") 
+                p(class="rr-product__thumb--color") Cor: #[span(class="js--color")]
+                div(class="rr-product__thumb-container")
             div(class="rr-product__price")
                 del(class="rr-product__price--old-price js--old-price")
                 span(Class="rr-product__price--best-price js--best-price")
@@ -26,4 +28,10 @@ section(class="rr-product-main")
                 button(class="rr-product__buy--btn js--buy") Comprar agora
                 span(class="rr-product__buy--text") Frete grátis + brinde acima de R$ 100
                 a(href="") Saiba mais
+            div(class="rr-product__out-stock js--out--stock")
+                span(class="rr-product__out-stock--title") Ops! Esgotou!
+                p(class="rr-product__out-stock--text") Te avisaremos quando o seu produto chegar.
+                form(class="rr-product__out-stock--form js--form--stock")
+                    input(type="email" required="required" placeholder="digite seu email...")/
+                    button(type="submit")
         

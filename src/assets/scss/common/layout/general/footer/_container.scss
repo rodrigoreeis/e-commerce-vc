@@ -42,7 +42,8 @@
             width: 100%;
             padding-left: 30px;
         }
-        .rr-payment{
+        .rr-payment,
+        .rr-security{
             &::after,
             &::before{
                 display: none;
@@ -78,6 +79,15 @@
                     }
             }
             
+        }
+    }
+    &__security{
+        @extend %flex-centered;
+        @include breakpoint('lg'){
+            flex-direction: column;
+        }
+        @include breakpoint('sm'){
+            justify-content: flex-start;
         }
     }
 }

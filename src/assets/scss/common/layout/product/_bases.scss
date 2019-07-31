@@ -4,13 +4,5 @@
 @import "./info";
 @import "./price-thumb";
 @import "./image";
-@import "./left";
-.rr-product__thumb{
-    display: flex;
-}
-.rr-product__thumb--box{
-    width: 30px;
-    margin: 10px;
-    height: 30px;
-    cursor: pointer;
-}
+@import "./thumb";
+@import "./out-stock";

@@ -9,7 +9,7 @@ const config = {
 	entry: entry('./src/assets/js/common/*.js'),
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'assets/js/[name]QA.js'
+		filename: 'assets/js/[name]-qa.js'
 	},
 	plugins,
 	module: {

@@ -1,15 +1,17 @@
   
-  .yv-review-quickreview{
+  .yv-review-quickreview,
+  #yv-review-quickreview{
     > .yv-bootstrap{
         text-align: center;
-        font-size: 11px;
+        font-size: 11px !important;
         @include breakpoint('sm'){
             font-size: 9px !important;
         }
-        span{
-            display: none;
+        > span, 
+        > strong{
+            display: none !important;
         }
-        i{
+        > i{
             color: $color-black !important;
         }
         &.is--inactive{

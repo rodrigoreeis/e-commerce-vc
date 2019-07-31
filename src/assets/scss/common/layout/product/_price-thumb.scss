@@ -7,14 +7,20 @@
     }
     &__price{
         @extend %flex-column;
+        justify-content: center;
         color: $color-black-2;
+        @include rem(height, 80px);
         &--best-price{
             @include rem(font-size, 30px);
             font-weight: bold;
         }
+        &.is--remove{
+            display: none;
+        }
     }
     &__buy{
         @extend %flex-column;
+        @include rem(height, 100px);
         &--btn{
             width: 100%;
             @include rem(font-size, 18px);
@@ -36,6 +42,9 @@
             color: $color-black-2;
             @include rem(font-size, 14px);
             text-decoration: underline;
+        }
+        &.is--remove{
+            display: none;
         }
     }
 }

@@ -15,8 +15,11 @@ export const mountObject = ({data}, items) => {
 		specifications: _currentData.hasOwnProperty('allSpecifications') ? _currentData.allSpecifications.map(espec => espec) : '',
 		howToUse: _currentData.hasOwnProperty('ComousarNOVO') ? _currentData.ComousarNOVO : '',
 		composition: '',
+		colorName: _currentItem.hasOwnProperty('Cor') ? _currentItem.Cor[0].match(/,([A-zA-Z z0-9-_]*)/g, "") : '',
 	};
 	return _productInfo;
+
+
 };
 
 const getImages = (data) => {

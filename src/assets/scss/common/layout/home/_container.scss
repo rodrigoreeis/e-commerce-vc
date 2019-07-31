@@ -11,6 +11,9 @@
         @extend %flex-spaced;
         &.rr-banners{
             .vve-image__container{
+                @include breakpoint('sm'){
+                    padding: 0 10px;
+                }
                 img{
                     &.has--placeloader{
                         padding: 74% 0%;

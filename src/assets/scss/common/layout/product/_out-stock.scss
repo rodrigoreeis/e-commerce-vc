@@ -1,0 +1,45 @@
+.rr-product{
+    &__out-stock{
+        @include rem(height, 180px);
+        display: none;
+        background-color: $color-grey-light-7;
+        &--title{
+            @include rem(font-size, 28px);
+            @include rem(letter-spacing, 1px);
+            font-weight: bold;
+            font-family: $font-bebas;
+            text-transform: uppercase;
+        }
+        &--text{
+            @include rem(font-size, 14px);
+            @include rem(margin-top, 10px);
+        }
+        &--form{
+            @include rem(margin-top, 23px);
+            display: flex;
+            justify-content: space-around;
+            > input{
+                @include rem(font-size, 14px);
+                &::placeholder{
+                    font-style: italic;
+                }
+                border-bottom: 2px solid;
+                border-color: $color-black;
+                width: calc(80% - 15px);
+            }
+            > button {
+                @include rem(width, 38px);
+                @include rem(height, 38px);
+                background-color: $color-black;
+                position: relative;
+                &::after{
+                    @include arrow-generate('right', 10px , 3px solid $color-white);
+                }
+            }
+        }
+        &.is--active{
+            @extend %flex-column;
+            @include rem(padding, 25px);
+        }
+    }
+}

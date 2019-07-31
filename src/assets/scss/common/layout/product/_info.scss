@@ -1,4 +1,9 @@
 .rr-product{
+    &-left{
+        @include rem(font-size, 14px);
+        color: $color-black-2;
+        width: 353px;
+    }
     &__name{
         font-family: $font-bebas;
         font-weight: bold;
@@ -6,5 +11,60 @@
         @include rem(line-height, 60px);
         @include rem(letter-spacing, 4px);
         @include rem(height, 180px);
+    }
+    &__code{
+        color: $color-purple;
+        @include rem(margin-bottom, 20px);
+        display: inline-block;
+    }
+
+    &__rating{
+        @include rem(margin-bottom, 20px);
+        display: flex;
+        align-items: center;
+        .yv-bootstrap{
+            @include rem(margin-right, 15px);
+        }
+        > a{
+            text-decoration: underline;
+            text-align: right;
+        }
+    }
+    &-description{
+        border-top: 1px solid $color-grey-light-2;
+        border-bottom: 1px solid $color-grey-light-2;
+        @include rem(padding-top, 15px);
+        @include rem(margin-bottom, 20px);
+        @include rem(padding-bottom, 15px);
+        &__title{
+            font-weight: bold;
+            text-transform: uppercase;
+            display: inline-block;
+            @include rem(margin-bottom, 15px);
+        }
+        > a {
+            text-decoration: underline;
+        }
+    }
+    &__all-character{
+        font-weight: bold;
+        text-transform: uppercase;
+        border-bottom: 1px solid $color-grey-light-2;
+        @include rem(padding-bottom, 20px);
+        position: relative;
+        cursor: pointer;
+        &::after,
+        &::before{
+            content: "";
+            @include rem(width, 12px);
+            @include rem(height, 3px);
+            @include rem(right, 20px);
+            @include rem(top, 7px);
+            background: $color-black;
+            position: absolute; 
+        }
+        &::after{
+            transform: rotate(90deg);
+        }
     }
 }
