@@ -1,0 +1,26 @@
+section(class="rr-product-specification")
+    div(class="rr-product-specification__container")
+        div(class="rr-product-specification__container--right")
+            ul(class="rr-product-specification__names js--specification--names")
+                li(class="rr-product-specification__names--item js--tab--action is--active" data-tab="description") Descrição
+                li(class="rr-product-specification__names--item js--tab--action" data-tab="use") Modo de usar
+                li(class="rr-product-specification__names--item js--tab--action" data-tab="composition") Composição
+                li(class="rr-product-specification__names--item js--tab--action" data-tab="measures") Medidas
+            div(class="rr-product-specification__content js--tab--action is--active" data-tab="description")
+                span(class="rr-product-specification__content--title") Descrição
+                p(class="rr-product-specification__content--text js--description")
+            div(class="rr-product-specification__content js--tab--action" data-tab="use")
+                span(class="rr-product-specification__content--title") Modo de usar
+                p(class="rr-product-specification__content--text js--how--use")
+            div(class="rr-product-specification__content js--tab--action" data-tab="composition")
+                span(class="rr-product-specification__content--title") Composição
+                p(class="rr-product-specification__content--text js--composition")
+            div(class="rr-product-specification__content js--tab--action" data-tab="measures")
+                span(class="rr-product-specification__content--title") Medidas
+                p(class="rr-product-specification__content--text js--measures") 
+        div(class="rr-product-specification__container--left")
+
+section(class="rr-product-collections")
+    h2(class="rr-product-collections__title") Quem ama, usa!
+    div(class="rr-shelf rr-slick-style js--slick--shelf")
+        <vtex:contentPlaceHolder id="Quem-viu-também-gostou" />

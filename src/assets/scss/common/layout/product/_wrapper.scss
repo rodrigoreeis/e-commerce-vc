@@ -1,4 +1,9 @@
 .rr-product{
+    &-main{
+        max-width: 1270px;
+        margin-left: auto;
+        margin-right: auto;
+    }
     @extend %flex-spaced;
     &-left,
     &-center,

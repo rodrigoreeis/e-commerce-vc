@@ -1,0 +1,53 @@
+.rr-product-fix{
+    @include rem(height, 65px);
+    @include rem(top, 87px);
+    position: fixed;
+    z-index: 5010;
+    width: 100%;
+    left: 0;
+    background-color: $color-white;
+    @include rem(padding, 0 40px);
+    @extend %flex-spaced;
+    border-bottom: 1px solid $color-purple;
+    transform: translateY(-100%);
+    transition: all .3s ease-in-out;
+    &.is--active{
+        transform: translateY(0);
+    }
+    &__name{
+        @include rem(font-size, 18px);
+        text-transform: uppercase;
+        color: $color-purple;
+    }
+    &__container{
+        display: flex;
+    }
+    &__price{
+        @extend %flex-centered;
+        @include rem(margin-right, 15px);
+    }
+    &__buy{
+        > .btn-scroll {
+            @include rem(width, 325px);
+            margin-bottom: 0;
+            &.is--active{
+                 display: none;
+            }
+        }
+        &--out-stock{
+            width: 400px;
+            @include rem(font-size, 18px);
+            @include rem(padding, 14px );
+            @include rem(letter-spacing, 2px);
+            background-color: $color-grey-light-7;
+            font-weight: bold;
+            color: $color-black;
+            text-transform: uppercase;
+            display: none;
+            &.is--active{
+                display: block;
+            }
+        }
+        
+    }
+}

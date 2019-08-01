@@ -177,19 +177,20 @@ const Methods = {
 		// 	});
 		// });
 		if($globals.body.classList.contains('rr-body-product')){
-			const btnBuy = document.querySelector('.js--buy')
-			btnBuy.addEventListener('click', (ev) => {
-				ajaxLoader();
-				Methods.__minicartIsOpen();
-				Methods.__minicartNotEmpy();
-				ev.preventDefault();
-				const skuItem = ev.target.dataset.sku;
-				const item = {
-					id: skuItem,
-					quantity: 1,
-					seller: '1'
-				};
-				Methods.__validateProductInMinicart(skuItem, item);
+			const btnBuy = document.querySelectorAll('.js--buy');
+			[...btnBuy].map((btn) => {
+				btn.addEventListener('click', ({currentTarget}) => {
+					ajaxLoader();
+					Methods.__minicartIsOpen();
+					Methods.__minicartNotEmpy();
+					const skuItem = currentTarget.dataset.sku;
+					const item = {
+						id: skuItem,
+						quantity: 1,
+						seller: '1'
+					};
+					Methods.__validateProductInMinicart(skuItem, item);
+				})
 			})
 		}
 	},

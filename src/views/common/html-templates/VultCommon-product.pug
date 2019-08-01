@@ -8,11 +8,13 @@ block vars
 
 //- Page styles
 block append styles
-    link(rel='stylesheet', href=`/arquivos/${$storeName}-${$templateName}.css`, media='all')/
+    link(rel='stylesheet',  href=`/arquivos/${$storeName}-${$templateName}.css`, media='all')/
 
 //- Main Content
 block content
+    include ../_partials/product/_product-scroll.pug
     include ../_partials/product/_product-main.pug
+    include ../_partials/product/_product-description.pug
 
 block append scripts
     script(type='text/javascript', src=`/arquivos/${$storeName}-${$templateName}.js`) 

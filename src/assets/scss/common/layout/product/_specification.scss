@@ -1,0 +1,66 @@
+.rr-product-specification{
+    width: 100%;
+    background-color: $color-grey-light;
+    height: 100vh;
+    @include rem(margin-top, 10px);
+    @extend %flex-centered;
+    &__container{
+        width: 100%;
+        max-width: 1280px;
+        @include rem(height, 600px);
+        @include rem(margin-top, 50px);
+        &--right{
+            @include rem(max-width, 490px);
+            position: relative;
+        }
+    }
+    &__names{
+        display: flex;
+        justify-content: space-between;
+        &--item{
+            @include rem(font-size, 14px);
+            font-weight: bold;
+            text-transform: uppercase;
+            position: relative;
+            cursor: pointer;
+            &.is--active{
+                &::after{
+                    content: '';
+                    @include rem(height, 5px);
+                    @include rem(top, -8px);
+                    left: 0;
+                    width: 100%;
+                    background-color: $color-black;
+                    position: absolute;
+                }
+            }
+        }
+    }
+
+    &__content{
+        @include rem(margin-top, 180px);
+        @include rem(min-height, 240px);
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        transform: translateX(-100%);
+        transition: all .3s ease-in-out;
+        color: $color-black-2;
+        &.is--active{
+            transform: translateX(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        &--title{
+            @include rem(font-size, 14px);
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        &--text{
+            @include rem(margin-top, 22px);
+            @include rem(font-size, 25px);
+            font-family: $font-mont;
+            font-weight: lighter;
+        }
+    }
+}

@@ -3,7 +3,6 @@
         width: 353px;
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
     }
     &__price{
         @extend %flex-column;

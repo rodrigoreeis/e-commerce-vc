@@ -9,16 +9,14 @@ export const mountObject = ({data}, items) => {
 		images:	_currentItem.hasOwnProperty('images') ? getImages(data) : '',
 		skuId: _currentItem.hasOwnProperty('itemId') ? _currentItem.itemId: '',
 		code: _currentData.hasOwnProperty('productId') ? _currentData.productId : '',
+		colorName: _currentItem.hasOwnProperty('Cor') ? _currentItem.Cor[0].match(/,([A-zA-Z z0-9-_]*)/g, "") : '',
 		bestPrice: _avalablePrice.hasOwnProperty('Price') ? _avalablePrice.Price : '',
 		oldPrice: _avalablePrice.hasOwnProperty('ListPrice') ? _avalablePrice.ListPrice : '',
 		shotDescription: _currentData.hasOwnProperty('description') ? _currentData.description : '',
-		specifications: _currentData.hasOwnProperty('allSpecifications') ? _currentData.allSpecifications.map(espec => espec) : '',
-		howToUse: _currentData.hasOwnProperty('ComousarNOVO') ? _currentData.ComousarNOVO : '',
-		composition: '',
-		colorName: _currentItem.hasOwnProperty('Cor') ? _currentItem.Cor[0].match(/,([A-zA-Z z0-9-_]*)/g, "") : '',
+		composition: _currentData.hasOwnProperty('ComposicaoNOVO') ? _currentData.ComposicaoNOVO[0] : '',
+		howUse: _currentData.hasOwnProperty('ComousarNOVO') ? _currentData.ComousarNOVO[0] : '',
 	};
 	return _productInfo;
-
 
 };
 
