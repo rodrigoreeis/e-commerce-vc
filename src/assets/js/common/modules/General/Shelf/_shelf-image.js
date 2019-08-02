@@ -1,15 +1,11 @@
 import GlobalSelector from '../_global-selector';
 
-const {$shelf} = GlobalSelector;
+const {$shelf, $globals} = GlobalSelector;
 
 const Methods = {
 	init(){
 		Methods.setImageShelf();
 	},
-	__getSizeImage(ImgSrc,size) {
-		return ImgSrc.replace(/(.*?ids\/)(.*?)(\/.*)/g, `$1$2-${size}-${size}$3`).replace(/\?.*/,'');
-	},
-
 	setImageShelf(){
 		[...$shelf.image].map((image) => {
 			const productsId = image.dataset.productid;
@@ -17,9 +13,17 @@ const Methods = {
 				.then((response) => response.json())
 				.then((data) => {
 					const imageUrl = data[0].items[0].images[0].imageUrl;
-					image.firstElementChild.setAttribute('data-lazy', `${Methods.__getSizeImage(imageUrl, 288)}`);
+					image.firstElementChild.setAttribute('data-lazy', 
+					`${$globals.body.classList.contains('rr-body-product') 
+						? Methods.__getSizeImage(imageUrl, 180)
+						:Methods.__getSizeImage(imageUrl, 288)
+					}`
+					);
 				});
 		}); 
+	},
+	__getSizeImage(ImgSrc,size) {
+		return ImgSrc.replace(/(.*?ids\/)(.*?)(\/.*)/g, `$1$2-${size}-${size}$3`).replace(/\?.*/,'');
 	},
 };
 

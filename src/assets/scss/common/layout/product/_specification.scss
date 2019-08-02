@@ -1,14 +1,14 @@
 .rr-product-specification{
     width: 100%;
     background-color: $color-grey-light;
-    height: 100vh;
+    height: calc(100vh - 65px);
     @include rem(margin-top, 10px);
     @extend %flex-centered;
     &__container{
+        @extend %container-product;
         width: 100%;
         max-width: 1280px;
-        @include rem(height, 600px);
-        @include rem(margin-top, 50px);
+        @include rem(max-height, 515px);
         &--right{
             @include rem(max-width, 490px);
             position: relative;
@@ -58,7 +58,7 @@
         }
         &--text{
             @include rem(margin-top, 22px);
-            @include rem(font-size, 25px);
+            @include rem(font-size, 19px);
             font-family: $font-mont;
             font-weight: lighter;
         }

@@ -1,9 +1,9 @@
-import * as METHODS from './methods';
+import * as HELPERS from './methods';
 import CacheSelector from './_cache-selector';
 
 const { product } = CacheSelector;
 	const setInfo = (item) => {
-		METHODS.productInfo([item])
+		HELPERS.productInfo([item])
 			.then(response => {
 				for (let i = 0 ; i < product.name.length ; i ++){
 					product.name[i].textContent = response.name;

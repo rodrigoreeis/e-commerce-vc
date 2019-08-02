@@ -1,0 +1,41 @@
+
+block vars
+
+!= '#set($productId = $product.Id)\n'
+!= '#set($productTitle = $product.HtmlEscapedName)\n'
+!= '#set($productLink = $product.Uri)\n'
+!= '#set($productListPrice = $product.ListPrice)\n'
+!= '#set($productBestPrice = $product.BestPrice)\n'
+!= '#set($productInstallmentValue = $product.InstallmentValue)\n'
+
+
+article(class=`rr-shelf__item`)
+    a(href='$productLink', class='rr-shelf__container', title='$productTitle',)
+        div(class='rr-shelf__img-container')
+             div(class='rr-shelf__placeloader has--placeloader js--shelf-carousel' data-productId='$productId')
+                img(data-lazy="" class="js--shelf--image")
+        div(class='rr-shelf__content')
+            h3(class='rr-shelf__title') $productTitle
+            != '\n#if ($product.IsInStock)\n'
+            div(class='rr-shelf__price-container')
+                p(class='rr-shelf__price-terrt')
+                    != '\n#if ($product.HasBestPrice)\n'
+                    del(class='rr-shelf__old-price')  $productListPrice
+                    span(class='rr-shelf__best-price') $productBestPrice
+                    != '\n#else\n'
+                    span(class='rr-shelf__best-price') $productBestPrice
+                    != '\n#end\n'
+                != '\n#if ($product.NumbersOfInstallment > 1)\n'
+                div(class='rr-shelf__installments-container')
+                    div(class='rr-shelf__installments') ${product.NumbersOfInstallment}x de $productInstallmentValue s/ jurus
+                != '\n#end\n'
+                != '\n#if ($product.IsInStock)\n'
+            div(class="rr-shelf__buy")
+                button(class="rr-shelf__buy--btn")
+                    a(title='$productTitle' data-productId='$productId' href='$productLink') Comprar
+                != '\n#end\n'
+            != '\n#else\n'
+            div(class='rr-shelf__out-of-stock js--out-of-stock')
+                p(class='rr-shelf__out-of-stock-terrt') Produto Esgotado
+            != '\n#end\n'
+   

@@ -12,9 +12,10 @@ const Methods  = {
     fixBarProductBuy(){
         window.addEventListener('scroll', () => {
             if(specification.getBoundingClientRect().top < 190){
-                product.fix.classList.add('is--active');
+                !localStorage.novidades ? product.fix.classList.add('is--active--two') : product.fix.classList.add('is--active');
             } else {
                 product.fix.classList.remove('is--active');
+                product.fix.classList.contains('is--active--two') ? product.fix.classList.remove('is--active--two') : product.fix.classList.remove('is--active--two');
             }
         })
     },

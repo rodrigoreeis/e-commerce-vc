@@ -16,20 +16,20 @@ export const mountObject = ({data}, items) => {
 		composition: _currentData.hasOwnProperty('ComposicaoNOVO') ? _currentData.ComposicaoNOVO[0] : '',
 		howUse: _currentData.hasOwnProperty('ComousarNOVO') ? _currentData.ComousarNOVO[0] : '',
 	};
-	return _productInfo;
+	return Object.freeze(_productInfo);
 
 };
 
 const getImages = (data) => {
 	const obj = data[0].items;
-	const mountArray = []; 
+	const mountArray = new Array; 
 	for(let i = 0; i < obj.length; i++){
 		const arrayImages = obj[i].images; 
 		const images = arrayImages.map(({imageUrl}) => imageUrl)
 		mountArray.push(Object.assign({},images))
 	}
 	return mountArray;
-}
+};
 
 export const productInfo = async (items) => {
 	const { productId } = skuJson_0;
@@ -40,4 +40,11 @@ export const productInfo = async (items) => {
 	} catch (error){ 
 		console.log(error)
 	}
-}
+};
+
+export const removeAllActives = (selector) => {
+	const elements = document.querySelectorAll(selector);
+	[...elements].map((el) => {
+		el.classList.remove('is--active');
+	})
+};

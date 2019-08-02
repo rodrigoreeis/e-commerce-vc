@@ -22,8 +22,7 @@ export default {
 	},
 	descriptions:{
 		self: document.querySelectorAll('.js--specification--names > li'),
-		items: document.querySelectorAll('.js--tab--action')
 	},
 	specification: document.querySelector('.rr-product-specification'),
-	
+
 };

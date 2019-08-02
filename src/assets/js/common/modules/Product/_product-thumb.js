@@ -1,8 +1,9 @@
 import Axios from 'axios';
 import Selector from './_cache-selector';
 import getInformationItem from './_product-info';
+import * as HELPERS from './methods';
 
-const {product, slick} = Selector
+const { product } = Selector
 
 const Methods = {
 	init() {
@@ -12,7 +13,7 @@ const Methods = {
 	async getVariationsProducts(){
         const { productId } = skuJson_0;
         const endpoint = `/api/catalog_system/pub/products/search/?fq=productId:${productId}`
-        try{
+        try {
             const response = await Axios.get(endpoint)
             return Methods.__createThumb(response);
         } catch (error){ 
@@ -22,29 +23,33 @@ const Methods = {
     __createThumb({data}){
         const obj = data[0];
         obj.items.map((items, index) => {
-            const skuId = items.itemId;
             const qtyItem = items.sellers[0].commertialOffer.AvailableQuantity;
             const color = items.Cor[0].replace(/,([A-zA-Z z0-9-_]*)/g, "");
-            Methods.__createElements(color, index, skuId, qtyItem);
+            Methods.__createElements(color, index, qtyItem);
         })
     },
-    __createElements(color, index, skuId, qtyItem){
-        const box = document.createElement('div');
-        box.classList.add('rr-product__thumb--box')
-        !qtyItem != 0 ? box.classList.add('out-of-stock') : true;
-        box.style.background = `${color}`;
-        box.setAttribute('data-index', index);
-        box.setAttribute('data-sku', skuId);
-        product.thumb.appendChild(box);
-        box.addEventListener('click', ({currentTarget}) => {
-            const _currentIndex = currentTarget.dataset.index;
-            if (!currentTarget.classList.contains('is--active')){
-                Methods.__removeAllActives();
-                currentTarget.classList.add('is--active');
-                getInformationItem(_currentIndex);
-                Methods.__changeImage(_currentIndex);
-            }
-            Methods.__showFormProductOutStock(currentTarget)
+    __createElements(color, index, qtyItem){
+        const box = `
+            <span class='rr-product__thumb--box js--box--thumb ${!qtyItem != 0 ? "out-of-stock" : ''}'
+                data-index="${index}" 
+                style=background-color:${color};>
+            </span>`
+        product.thumb.innerHTML += box;
+        Methods.__bindEventClick();
+    },
+    __bindEventClick(){
+        const thumbBoxs = document.querySelectorAll('.rr-product__thumb--box');
+        [...thumbBoxs].map((el) => {
+            el.addEventListener('click', ({currentTarget}) => {
+                const _currentIndex = currentTarget.dataset.index;
+                if (!currentTarget.classList.contains('is--active')){
+                    HELPERS.removeAllActives('.js--box--thumb');
+                    currentTarget.classList.add('is--active');
+                    getInformationItem(_currentIndex);
+                    Methods.__changeImage(_currentIndex);
+                }
+                Methods.__showFormProductOutStock(currentTarget);
+            })
         })
     },
     __showFormProductOutStock(currentTarget){
@@ -58,23 +63,13 @@ const Methods = {
             product.outStock.classList.remove('is--active');
         }
     },
-    __removeAllActives(){
-        const boxThumbs = document.querySelectorAll('.rr-product__thumb--box');
-        [...boxThumbs].map((box) => {
-            box.classList.remove('is--active');
-        })
-    },
     __changeImage(_currentIndex){
-        Methods.__removeAllImagesActive();
+        HELPERS.removeAllActives('.rr-product__image');
         const _currentImage = document.querySelector(`.rr-product__image[data-index="${_currentIndex}"]`);
-         _currentImage.classList.add('is--active');
+        _currentImage.classList.add('is--active');
     },
-    __removeAllImagesActive(){
-        const images = document.querySelectorAll('.rr-product__image');
-        [...images].map((image) => {
-            image.classList.remove('is--active');
-        });
-    }
+
+  
 }
 export default {
 	init: Methods.init

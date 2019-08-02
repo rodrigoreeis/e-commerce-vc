@@ -21,11 +21,6 @@
         @include breakpoint('sm'){
             max-width: 162px;
         }
-        &:hover{
-            .rr-shelf__buy--btn{
-                background: $color-pink;
-            }
-        }
     }
     &__container{
         @extend %flex-column;
@@ -87,11 +82,14 @@
             @include rem(padding, 14px);
             @include rem(font-size, 16px);
             @include rem(letter-spacing, 2px);
-            background: $color-black;
+            background-color: $color-black;
             color: $color-white;
             text-transform: uppercase;
             font-weight: bold;
             transition: all .3s ease-in-out;
+            &:hover{
+                background-color: $color-pink;
+            }
         }
     }
 }

@@ -20,7 +20,6 @@ const Methods = {
 			ev.preventDefault();
 			$modalNews.shelf.classList.add('is--active');
 			openOverlay();
-			console.log('clicado', ev.currentTarget);
 		});
 	},
 	closeModal(){

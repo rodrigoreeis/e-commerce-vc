@@ -14,6 +14,9 @@
     &.is--active{
         transform: translateY(0);
     }
+    &.is--active--two{
+        transform: translateY(30px);
+    }
     &__name{
         @include rem(font-size, 18px);
         text-transform: uppercase;
@@ -39,9 +42,9 @@
             @include rem(font-size, 18px);
             @include rem(padding, 14px );
             @include rem(letter-spacing, 2px);
-            background-color: $color-grey-light-7;
+            background-color: $color-pink;
             font-weight: bold;
-            color: $color-black;
+            color: $color-white;
             text-transform: uppercase;
             display: none;
             &.is--active{

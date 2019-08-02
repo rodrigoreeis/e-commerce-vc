@@ -99,6 +99,13 @@
      */
     *zoom: 1;
 }
+%container-product{
+    width: 100%;
+    max-width: 1280px;  
+    @include rem(margin-top, 50px);
+    margin-right: auto;
+    margin-left: auto;
+}
 
 @mixin absolute-centered {
     position: absolute;

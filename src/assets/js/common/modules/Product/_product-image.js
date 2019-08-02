@@ -1,4 +1,4 @@
-import * as METHODS from './methods';
+import * as HELPERS from './methods';
 import CacheSelector from './_cache-selector';
 
 const { product } = CacheSelector;
@@ -8,36 +8,30 @@ const Methods  = {
         Methods.getImages();
     },
     getImages(){
-        METHODS.productInfo(0)
+        HELPERS.productInfo(0)
             .then((response) => {
-                Methods.__createElementsImage(response);
-                Methods.__showImage(0);
+				Methods.__createElementsImage(response);
             })
     },
     __createElementsImage(response) {
-		for(let i = 0; i < response.images.length; i++){
-			const currentUrl =  Object.values(response.images[i])
-			const listImage = document.createElement('ul');
-			listImage.classList.add('js--image--slick');
-			listImage.classList.add('rr-product__image');
-			listImage.classList.add('rr-product')
-			product.image.appendChild(listImage);
-			listImage.setAttribute('data-index', i);
-			currentUrl.map((currentImage) => {
-				const itemListImage = document.createElement('li');
-				const image = document.createElement('img');
-				itemListImage.classList.add('rr-product__image--item');
-				listImage.appendChild(itemListImage);
-				itemListImage.appendChild(image);
-				image.setAttribute('data-lazy', currentImage);
-			
-			});
-			Methods.__setSlick();
-		}
+		response.images.map((el, index) => {
+			const currentUrl = Object.values(el);
+			const images = `
+				<ul class="rr-product__image js--image--slick " data-index="${index}"> 	
+					${currentUrl.map(image => `
+						<li class="rr-product__image--item">
+							<img data-lazy="${image}">
+						</li>
+					`).join('')}
+				</ul>`;
+			product.image.innerHTML += images;
+		})
+		Methods.__setSlick();
+		Methods.__showImage(0);
 	},
-    __showImage(image) {
-        const getImage = document.querySelector(`.rr-product__image[data-index="${image}"`)
-        getImage.classList.add('is--active');
+    __showImage(currentImage) {
+		const getImage = document.querySelector(`.rr-product__image[data-index="${currentImage}"`);
+		getImage.classList.add('is--active');
     },
 	__setSlick() {
 		$('.js--image--slick').not('.slick-initialized').slick({
@@ -46,7 +40,7 @@ const Methods  = {
 				dots: true,
 				infinite: true,
 				slidesToShow: 1,
-		}).on( 'lazyLoaded', ( event, slick, image, imageSource ) => {
+		}).on( 'lazyLoaded', () => {
 			$('.rr-product-center').removeClass('has--placeloader');
 		});
 	}

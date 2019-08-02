@@ -1,0 +1,7 @@
+.rr-product-title{
+    @include rem(font-size, 64px);
+    @include rem(letter-spacing, 1px);
+    font-weight: bold;
+    font-family: $font-bebas;
+    text-transform: uppercase;
+}

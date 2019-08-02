@@ -1,0 +1,36 @@
+.rr-product{
+    &-collection{
+        @extend %flex-column;
+        @include rem(padding-top, 60px);
+        @include rem(padding-bottom, 100px);
+        &:last-of-type{
+            @include rem(padding-top, calc(180px - 100px));
+            border-top: 2px solid $color-grey-1;
+        }
+        > .rr-product-title{
+            text-align: center;
+        }
+        .rr-shelf{
+            @include rem(margin-top, 60px);
+            max-width: 1210px;
+            margin-left: auto;
+            margin-right: auto;
+            &__item{
+                display: flex;
+                justify-content: center;
+                @include rem(max-width, 385px);
+            }
+            &__placeloader{
+                @include breakpoint('lg'){
+                    min-height: 180px;
+                    min-width: 180px;
+                }
+            }
+            &__content{
+                height: initial;
+                justify-content: flex-end;
+            }
+        }
+    }
+  
+}
