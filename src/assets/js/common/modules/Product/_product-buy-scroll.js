@@ -6,8 +6,8 @@ const Methods  = {
     init() {
         if(window.matchMedia('(min-width: 1024px)').matches){
             Methods.fixBarProductBuy();
-            Methods.scrollToForm();
         }
+        Methods.scrollToForm();
     },
     fixBarProductBuy(){
         window.addEventListener('scroll', () => {
@@ -21,7 +21,7 @@ const Methods  = {
     },
     scrollToForm(){
         product.fixOutStock.addEventListener('click', () => {
-            product.outStock.scrollIntoView({block: "end", behavior: "smooth"});
+            product.outStock.scrollIntoView({block: "center", behavior: "smooth"});
         })
     },
 }

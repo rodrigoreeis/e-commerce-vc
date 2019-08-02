@@ -1,14 +1,38 @@
 .rr-product{
+    flex-wrap: wrap;
+    @extend %flex-spaced;
+    @include breakpoint('sm'){
+        justify-content: center;
+        &-center{
+            order: 1;
+        }
+        &-right{
+            order: 2;
+        }
+        &-left{
+            order: 3;
+        }
+    }
     &-main{
         max-width: 1270px;
         margin-left: auto;
         margin-right: auto;
     }
-    @extend %flex-spaced;
     &-left,
     &-center,
     &-right{
         height: 480px;
         flex-wrap: wrap;
+        @include breakpoint('sm'){
+            height: auto;
+        }
     }
+    &-left,
+    &-right{
+        @include rem(width, 353px);
+        @include breakpoint('sm'){
+            width: 285px;
+        }
+    }
+
 }

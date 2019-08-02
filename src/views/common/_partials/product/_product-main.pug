@@ -13,10 +13,17 @@ section(class="rr-product-main")
             div(class="rr-product-description")
                 span(class="rr-product-description__title") Descrição
                 p(class="rr-product-description__text js--product-description")
-                a(href="#") Saiba mais...
+                a(href="#" class="js--see--more") Saiba mais...
             div(class="rr-product__all-character")
-                span(class="rr-product__all-character--text") ver todas as características
+                span(class="rr-product__all-character--text js--see--more") ver todas as características
         div(class="rr-product-center js--product--image has--placeloader rr-slick-banner")
+        div(class="rr-mobile rr-thumb-wrapper js--thumb--mobile")
+            div(class="rr-thumb-wrapper__first") 
+                p(class="rr-thumb-wrapper__first--text") Ver mais
+                    br/ 
+                    span(class="js--text--colors")
+                include ../svgs/_arrow-thumb.pug
+            div(class="rr-thumb-wrapper__colors js--thumb--colors")
         div(class="rr-product-right")
             div(class="rr-product__thumb") 
                 p(class="rr-product__thumb--color") Cor: #[span(class="js--color")]

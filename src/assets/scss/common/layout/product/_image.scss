@@ -2,6 +2,10 @@
     &-center{
         @include rem(width, 465px);
         position: relative;
+        @include breakpoint('sm'){
+            width: 375px;
+            height: 340px;
+        }
     }
     &__image-zoom{
         opacity: 0;
@@ -26,6 +30,9 @@
         left: 0;
         top: 0;
         @include rem(width, 465px);
+        @include breakpoint('sm'){
+            width: 100%;
+        }
         &.is--active{ 
             opacity: 1;
             visibility: visible;

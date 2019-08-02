@@ -3,6 +3,8 @@ import ProductDescription from './_product-description';
 import ProductImage from './_product-image';
 import ProductScroll from './_product-buy-scroll';
 import ProductShelfs from './_product-shelfs';
+import ProductThumbMobile from './_product-thumb-mobile';
+
 export default {
 	init() {
 		ProductImage.init();
@@ -10,5 +12,6 @@ export default {
 		ProductDescription.init();
 		ProductScroll.init();
 		ProductShelfs.init();
+		ProductThumbMobile.init();
 	},
 };  

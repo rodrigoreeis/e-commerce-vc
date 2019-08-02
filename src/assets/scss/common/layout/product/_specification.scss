@@ -2,8 +2,8 @@
     width: 100%;
     background-color: $color-grey-light;
     height: calc(100vh - 65px);
+    display: flex;
     @include rem(margin-top, 10px);
-    @extend %flex-centered;
     &__container{
         @extend %container-product;
         width: 100%;

@@ -1,14 +1,20 @@
 .rr-product{
     &-right{
-        width: 353px;
         display: flex;
         flex-direction: column;
+        @include breakpoint('sm'){
+            position: absolute;
+            bottom: -90px;
+        }
     }
     &__price{
         @extend %flex-column;
         justify-content: center;
         color: $color-black-2;
         @include rem(height, 80px);
+        // @include breakpoint('sm'){
+        //     height: 50px;
+        // }
         &--best-price{
             @include rem(font-size, 30px);
             font-weight: bold;
@@ -30,6 +36,9 @@
             font-weight: bold;
             color: $color-white;
             text-transform: uppercase;
+            @include breakpoint('sm'){
+                display: none;
+            }
         }
         &--text{
             font-weight: bold;

@@ -17,7 +17,6 @@ export const mountObject = ({data}, items) => {
 		howUse: _currentData.hasOwnProperty('ComousarNOVO') ? _currentData.ComousarNOVO[0] : '',
 	};
 	return Object.freeze(_productInfo);
-
 };
 
 const getImages = (data) => {

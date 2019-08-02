@@ -1,4 +1,6 @@
 .rr-product__main{
     padding-top: 8%;
-
+    @include breakpoint('sm'){
+        padding-top: 30%;
+    }
 }

@@ -11,6 +11,13 @@
     border-bottom: 1px solid $color-purple;
     transform: translateY(-100%);
     transition: all .3s ease-in-out;
+    @include breakpoint('sm'){
+        transform: translateY(0);
+        bottom: 0;
+        top: initial;
+        padding: 0;
+        height: 50px;
+    }
     &.is--active{
         transform: translateY(0);
     }
@@ -21,21 +28,40 @@
         @include rem(font-size, 18px);
         text-transform: uppercase;
         color: $color-purple;
+        @include breakpoint('sm'){
+            display: none;
+        }
     }
     &__container{
         display: flex;
+        @include breakpoint('sm'){
+            width: 100%;
+            height: 100%;
+        }
     }
     &__price{
         @extend %flex-centered;
         @include rem(margin-right, 15px);
+        @include breakpoint('sm'){
+            display: none;
+        }
     }
     &__buy{
+        @include breakpoint('sm'){
+            width: 100%;
+        }
         > .btn-scroll {
             @include rem(width, 325px);
             margin-bottom: 0;
+            @include breakpoint('sm'){
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
             &.is--active{
                  display: none;
             }
+           
         }
         &--out-stock{
             width: 400px;
@@ -47,6 +73,10 @@
             color: $color-white;
             text-transform: uppercase;
             display: none;
+            @include breakpoint('sm'){
+                width: 100%;
+                height: 100%;
+            }
             &.is--active{
                 display: block;
             }

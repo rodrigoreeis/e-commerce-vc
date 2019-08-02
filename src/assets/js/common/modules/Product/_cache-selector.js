@@ -20,6 +20,12 @@ export default {
 		fixBuy: document.querySelector('.btn-scroll'),
 		fixOutStock: document.querySelector('.rr-product-fix__buy--out-stock'),
 	},
+	thumbMobile: {
+		container: document.querySelector('.js--thumb--mobile'),
+		colors: document.querySelector('.js--thumb--colors'),
+		thumb: document.querySelector('.rr-product__thumb'),
+		moreColors: document.querySelector('.js--text--colors'),
+	},
 	descriptions:{
 		self: document.querySelectorAll('.js--specification--names > li'),
 	},

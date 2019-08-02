@@ -3,10 +3,24 @@
         @extend %flex-column;
         @include rem(height, 230px);
         justify-content: center;
+        @include breakpoint('sm'){
+            position: fixed;
+            left: 0;
+            top: 50%;
+            z-index: 5020;
+            transform: translate(-150%, -50%);
+            transition: all .3s ease-in-out;
+            &.is--active{
+                transform: translate(0, -50%);
+            }
+        }
         > p {
             font-weight: bold;
             @include rem(font-size, 14px);
             @include rem(margin-bottom, 25px);
+            @include breakpoint('sm'){
+                display: none;
+            }
             > span{
                 font-weight: normal;
                 @include rem(font-size, 12px);
@@ -15,6 +29,9 @@
         &-container{
             display: flex;
             flex-wrap: wrap;
+            @include breakpoint('sm'){
+                flex-direction: column;
+            }
         }
         &--box{
             @include rem(width, 36.85px);
@@ -23,6 +40,22 @@
             @include rem(margin-top, 10px);
             position: relative;
             cursor: pointer;
+            font-size: 0;
+            @include breakpoint('sm'){
+                width: 300px;
+                height: 60px;
+                margin-right: 0;
+                margin-top: 0;
+                font-size: 11px;
+                color: $color-white;
+                align-items: flex-end;
+                justify-content: flex-end;
+                display: flex;
+                > i {
+                    margin-bottom: 10px;
+                    margin-right: 10px;
+                }
+            }
             &.out-of-stock{
                 &::before,
                 &::after{
@@ -42,6 +75,10 @@
                     @include rem(left, 11px);
                     background-color: $color-white;
                     transform: rotate(-230deg);
+                    @include breakpoint('sm'){
+                        top: 29px;
+                        left: 48%;
+                    }
                 }
             }
         }
