@@ -19,6 +19,9 @@ export default {
 		fix: document.querySelector('.rr-product-fix'),
 		fixBuy: document.querySelector('.btn-scroll'),
 		fixOutStock: document.querySelector('.rr-product-fix__buy--out-stock'),
+		left: document.querySelector('.rr-product-left'),
+		firstChildLeft: document.querySelector('.rr-product-left__content'),
+		right: document.querySelector('.rr-product-right')
 	},
 	thumbMobile: {
 		container: document.querySelector('.js--thumb--mobile'),
@@ -28,7 +31,9 @@ export default {
 	},
 	descriptions:{
 		self: document.querySelectorAll('.js--specification--names > li'),
+		scroll: document.querySelectorAll('.js--see--more')
 	},
 	specification: document.querySelector('.rr-product-specification'),
+	formStok: document.querySelector('.js--form--stock'),
 
 };

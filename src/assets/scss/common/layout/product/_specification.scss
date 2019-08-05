@@ -4,6 +4,9 @@
     height: calc(100vh - 65px);
     display: flex;
     @include rem(margin-top, 10px);
+    @include breakpoint('sm'){
+        height: 365px;
+    }
     &__container{
         @extend %container-product;
         width: 100%;
@@ -13,16 +16,30 @@
             @include rem(max-width, 490px);
             position: relative;
         }
+        @include breakpoint('sm'){
+            max-width: 285px;
+        }
     }
     &__names{
         display: flex;
         justify-content: space-between;
+        @include breakpoint('sm'){
+            overflow-x: scroll;
+            white-space: nowrap;
+            padding-bottom: 15px;
+            padding-top: 15px;
+        }
         &--item{
             @include rem(font-size, 14px);
             font-weight: bold;
             text-transform: uppercase;
             position: relative;
             cursor: pointer;
+            @include breakpoint('sm'){
+                &:not(:first-of-type){
+                    margin-left: 20px;
+                }
+            }
             &.is--active{
                 &::after{
                     content: '';
@@ -46,6 +63,9 @@
         transform: translateX(-100%);
         transition: all .3s ease-in-out;
         color: $color-black-2;
+        @include breakpoint('sm'){
+            margin-top: 50px;
+        }
         &.is--active{
             transform: translateX(0);
             opacity: 1;

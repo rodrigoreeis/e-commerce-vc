@@ -1,5 +1,7 @@
 import CacheSelector from './_cache-selector';
+import GlobalSelector from '../General/_global-selector';
 
+const { $footer } = GlobalSelector;
 const { specification , product } = CacheSelector;
 
 const Methods  = {
@@ -14,8 +16,8 @@ const Methods  = {
             if(specification.getBoundingClientRect().top < 190){
                 !localStorage.novidades ? product.fix.classList.add('is--active--two') : product.fix.classList.add('is--active');
             } else {
-                product.fix.classList.remove('is--active');
-                product.fix.classList.contains('is--active--two') ? product.fix.classList.remove('is--active--two') : product.fix.classList.remove('is--active--two');
+                    product.fix.classList.remove('is--active');
+                    product.fix.classList.contains('is--active--two') ? product.fix.classList.remove('is--active--two') : product.fix.classList.remove('is--active--two');
             }
         })
     },

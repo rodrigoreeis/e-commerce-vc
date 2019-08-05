@@ -64,7 +64,7 @@
         @include rem(padding-bottom, 15px);
         @include breakpoint('sm'){
             border-top: none;
-            padding-top: 110px;
+            padding-bottom: 45px;
         }
         &__title{
             font-weight: bold;
@@ -83,6 +83,9 @@
         @include rem(padding-bottom, 20px);
         position: relative;
         cursor: pointer;
+        @include breakpoint('sm'){
+            border-bottom: none;
+        }
         &::after,
         &::before{
             content: "";

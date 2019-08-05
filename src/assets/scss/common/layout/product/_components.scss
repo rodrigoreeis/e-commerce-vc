@@ -4,4 +4,7 @@
     font-weight: bold;
     font-family: $font-bebas;
     text-transform: uppercase;
+    @include breakpoint('sm'){
+        font-size: 38px;
+    }
 }

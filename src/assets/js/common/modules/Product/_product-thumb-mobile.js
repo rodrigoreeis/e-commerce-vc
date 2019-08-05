@@ -13,6 +13,7 @@ const Methods = {
             Methods.getVariationsProducts();
             Methods.openTabColors();
             Methods.closeTabColors();
+            Methods.insertElementRight();
         }
     },
 	async getVariationsProducts(){
@@ -37,10 +38,7 @@ const Methods = {
             thumbMobile.colors.innerHTML += miniColors;
         })
     },
-    
-
     openTabColors() {
-        console.log(thumbMobile.container);
         thumbMobile.container.addEventListener('click', () => {
             openOverlay();
             thumbMobile.thumb.classList.add('is--active');
@@ -50,7 +48,11 @@ const Methods = {
         $globals.overlay.addEventListener('click', () => {
 			closeOverlay(thumbMobile.thumb);
         });    
-    }
+    },
+    insertElementRight(){
+        const firstChild = product.left.firstElementChild.nextElementSibling;
+        product.left.insertBefore(product.right,firstChild);
+    },
 }
 export default {
 	init: Methods.init

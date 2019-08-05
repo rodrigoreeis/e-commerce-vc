@@ -15,6 +15,23 @@
             max-width: 1210px;
             margin-left: auto;
             margin-right: auto;
+            &__container{
+                @include breakpoint('sm'){
+                    align-items: flex-start;
+               }
+            }
+            &__title{
+                @include breakpoint('sm'){
+                    max-width: 125px;
+                    text-align: left;
+                    margin-bottom: 10px;
+                }
+            }
+            &__img-container{
+                @include breakpoint('sm'){
+                    width: 160px;
+                }
+            }
             &__item{
                 display: flex;
                 justify-content: center;

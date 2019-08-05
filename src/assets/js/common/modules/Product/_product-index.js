@@ -4,6 +4,7 @@ import ProductImage from './_product-image';
 import ProductScroll from './_product-buy-scroll';
 import ProductShelfs from './_product-shelfs';
 import ProductThumbMobile from './_product-thumb-mobile';
+import ProductWarnMe from './_product-warn-me';
 
 export default {
 	init() {
@@ -13,5 +14,6 @@ export default {
 		ProductScroll.init();
 		ProductShelfs.init();
 		ProductThumbMobile.init();
+		ProductWarnMe.init();
 	},
 };  

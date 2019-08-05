@@ -1,12 +1,13 @@
 import * as HELPERS from './methods';
 import CacheSelector from './_cache-selector';
 
-const { product, descriptions } = CacheSelector;
+const { product, descriptions , specification} = CacheSelector;
 
 const Methods  = {
     init() {
         Methods.getFixDescriptions();
         Methods.tabChange();
+        Methods.scrollToDescription();
     },
     getFixDescriptions(){
         HELPERS.productInfo(0)
@@ -31,6 +32,15 @@ const Methods  = {
                     currentTarget.classList.add('is--active');
                     document.querySelector(`.rr-product-specification__content[data-tab="${currentTarget.dataset.tab}"]`).classList.add('is--active');
                 }
+            })
+        })
+    },
+
+    scrollToDescription(){
+        [...descriptions.scroll].map((el) =>{
+            el.addEventListener('click', (ev) => {
+                ev.preventDefault();
+                specification.scrollIntoView({block: "center", behavior: "smooth"});
             })
         })
     },

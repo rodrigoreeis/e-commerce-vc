@@ -3,6 +3,9 @@
         @include rem(height, 180px);
         display: none;
         background-color: $color-grey-light-7;
+        @include breakpoint('sm'){
+            height: 140px;
+        }
         &--title{
             @include rem(font-size, 28px);
             @include rem(letter-spacing, 1px);
@@ -26,6 +29,12 @@
                 border-bottom: 2px solid;
                 border-color: $color-black;
                 width: calc(80% - 15px);
+                @include breakpoint('sm'){
+                    width: 80%;
+                }
+                &.is--remove{
+                    display: none;
+                }
             }
             > button {
                 @include rem(width, 38px);
@@ -35,11 +44,27 @@
                 &::after{
                     @include arrow-generate('right', 10px , 3px solid $color-white);
                 }
+                &.is--active{
+                    pointer-events: none;
+                    cursor: none;
+                    width: 100%;
+                    background-color: initial;
+                    &::after{
+                        display: none;
+                    }
+                }
             }
         }
         &.is--active{
             @extend %flex-column;
             @include rem(padding, 25px);
+            @include breakpoint('sm'){
+                position: absolute;
+                left: 0;
+                right: 0;
+                justify-content: center;
+                padding: 0 50px;   
+            }
         }
     }
 }

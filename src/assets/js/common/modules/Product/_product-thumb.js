@@ -5,7 +5,7 @@ import getInformationItem from './_product-info';
 
 import * as HELPERS from './methods';
 
-const { product, thumbMobile } = Selector;
+const { product, thumbMobile, formStok } = Selector;
 
 const Methods = {
 	init() {
@@ -68,10 +68,18 @@ const Methods = {
             product.containerBuy.classList.add('is--remove');
             product.containerPrice.classList.add('is--remove');
             product.outStock.classList.add('is--active');
+            Methods.__clearFormToSend();
         } else{
             product.containerBuy.classList.remove('is--remove');
             product.containerPrice.classList.remove('is--remove');
             product.outStock.classList.remove('is--active');
+        }
+    },
+    __clearFormToSend(){
+        if(formStok.firstChild.classList.contains('is--remove')){
+            formStok.firstChild.classList.remove('is--remove');
+            formStok.lastElementChild.classList.remove('is--active');
+            formStok.lastElementChild.textContent = '';
         }
     },
     __changeImage(_currentIndex){
@@ -79,6 +87,7 @@ const Methods = {
         const _currentImage = document.querySelector(`.rr-product__image[data-index="${_currentIndex}"]`);
         _currentImage.classList.add('is--active');
     },
+
 }
 export default {
 	init: Methods.init
