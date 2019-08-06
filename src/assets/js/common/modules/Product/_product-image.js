@@ -5,7 +5,8 @@ const { product } = CacheSelector;
 
 const Methods  = {
     init() {
-        Methods.getImages();
+		Methods.getImages();
+		Methods.closeZoom();
     },
     getImages(){
         HELPERS.productInfo(0)
@@ -24,15 +25,47 @@ const Methods  = {
 						</li>
 					`).join('')}
 				</ul>`;
+			const imageZoom = `
+					<ul class="rr-product__image-zoom___list js--image--slick" data-index="${index}">
+						${currentUrl.map(image => `
+							<li class="rr-product__image-zoom___list--item">
+								<img data-lazy="${image}">
+							</li>
+							`
+						).join('')}
+					</ul>`;
+			product.imageZoom.innerHTML += imageZoom;
 			product.image.innerHTML += images;
 		})
-		Methods.__setSlick();
 		Methods.__showImage(0);
+		Methods.__setSlick();
+		Methods.__openZoom();
 	},
+	__openZoom() {
+		const image = document.querySelectorAll('.rr-product__image');
+		[...image].map((el) => {
+			el.addEventListener('click', ({currentTarget}) =>{
+				HELPERS.removeAllActives('.rr-product__image-zoom___list')
+				product.imageZoom.classList.add('is--active');
+				const _currentZoom = document.querySelector(`.rr-product__image-zoom___list[data-index="${currentTarget.dataset.index}"]`);
+				_currentZoom.classList.add('is--active');
+			})
+		})
+	},
+	closeZoom(){
+		product.imageZoom.addEventListener('click', (ev) => {
+			console.log(ev.target.classList.contains('rr-product__image-zoom--close'))
+			if(ev.target.classList.contains('rr-product__image-zoom--close')){
+				product.imageZoom.classList.remove('is--active');
+				HELPERS.removeAllActives('.rr-product__image-zoom___list');
+			}
+		})
+	},
+
     __showImage(currentImage) {
 		const getImage = document.querySelector(`.rr-product__image[data-index="${currentImage}"`);
 		getImage.classList.add('is--active');
-    },
+	},
 	__setSlick() {
 		$('.js--image--slick').not('.slick-initialized').slick({
 				lazyLoad: 'ondemand',

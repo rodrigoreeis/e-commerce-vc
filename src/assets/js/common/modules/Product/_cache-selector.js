@@ -3,6 +3,8 @@ export default {
 		code: document.querySelector('.js--product--code'),
 		shotDescription: document.querySelector('.js--product-description'),
 		image: document.querySelector('.js--product--image'),
+		imageZoom: document.querySelector('.js--product--image-zoom'),
+		zoomClose: document.querySelector('.rr-product__image-zoom--close'),
 		oldPrice: document.querySelectorAll('.js--old-price'),
 		price: document.querySelectorAll('.js--best-price'),
 		name: document.querySelectorAll('.js--product--name'),

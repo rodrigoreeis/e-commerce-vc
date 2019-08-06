@@ -8,18 +8,62 @@
         }
     }
     &__image-zoom{
-        opacity: 0;
-        visibility: hidden;
-        position: fixed !important;
+        position: fixed;
         top: 0;
         left: 0;
+        width: 100%;
+        background: $color-white;
         height: 100vh;
         z-index: 5020;
-        background-color: $color-white;
+        transition: all .3s ease-in-out;
+        opacity: 0;
+        visibility: hidden;
+       
         &.is--active{
-            opacity: 1;
             visibility: visible;
-            
+            opacity: 1;
+        }
+        &--close{
+            @include rem(padding, 30px);
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            color: $color-black;
+            cursor: pointer;
+            transform: rotate(45deg);
+            &::before,
+            &::after{
+                content: "";
+                @include rem(width, 50px);
+                @include rem(height, 4px);
+                background: $color-black;
+                position: absolute;
+                left: 0;
+                top: 25px;
+            }
+            &::after{
+                transform: rotate(90deg);
+            }
+        }
+        &___list{
+            max-width: 685px;
+            height: 100%;
+            position: absolute !important;
+            top: 50%;
+            left: 50%;
+            opacity: 0;
+            visibility: hidden;
+            transform: translate(-50%, -50%);
+            &.is--active{
+                opacity: 1;
+                visibility: visible;
+            }
+            .slick-dots{
+                top: -100px !important;
+            }
+            @include breakpoint('sm'){
+                max-width: 285px;
+            }
         }
     }
     &__image{
