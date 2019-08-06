@@ -1,0 +1,15 @@
+.rr-empty-search__main{
+    padding-top: 10%;
+    @include breakpoint('sm'){
+        padding-top: 40%;
+    }
+    .rr-empty-search-text{
+        font-weight: bold;
+        font-family: $font-bebas;
+        font-size: 38px;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 50px 0;
+        letter-spacing: 2px;
+    }
+}

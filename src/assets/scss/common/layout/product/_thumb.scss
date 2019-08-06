@@ -3,6 +3,7 @@
         @extend %flex-column;
         @include rem(height, 230px);
         justify-content: center;
+        display: none !important;
         @include breakpoint('sm'){
             position: fixed;
             left: 0;

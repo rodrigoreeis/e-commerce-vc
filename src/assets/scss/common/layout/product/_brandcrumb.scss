@@ -1,6 +1,7 @@
 .rr-product-bradcrumb{
     @include rem(margin-bottom, 35px);
     @include rem(margin-top, 15px);
+    display: none;
     @include breakpoint('sm'){
         display: none;
     }

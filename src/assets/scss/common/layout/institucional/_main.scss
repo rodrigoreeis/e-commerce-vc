@@ -1,0 +1,30 @@
+.rr-institucional__main{
+    max-width: 1270px;
+    margin: 0 auto;
+    padding-top: 15%;
+    @include breakpoint('sm'){
+        padding-top: 45%;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .rr-institucional__title{
+        font-size: 38px;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-family: $font-bebas;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+    .rr-institucional__content{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 50px 0;
+    }
+    table{
+        @include breakpoint('sm'){
+            width: 100% !important;
+        }
+    }
+}
+

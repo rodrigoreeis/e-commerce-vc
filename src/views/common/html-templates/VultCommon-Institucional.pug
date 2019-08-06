@@ -1,0 +1,22 @@
+extends ../_layouts/VultCommon-base.pug
+
+//- Template variables
+block vars
+    - var $templateName = 'Institucional';
+    - var $storeName = 'VultCommon';
+    - var $templateClass = "institucional"
+
+//- Page styles
+block append styles
+    link(rel='stylesheet',  href=`/arquivos/${$storeName}-${$templateName}.css`, media='all')/
+
+//- Main Content
+block content
+    section(class="rr-institucional")
+        h1(class="rr-institucional__title")
+            <vtex:contentPlaceHolder id="Titulo" />
+        div(class="rr-institucional__content")
+            <vtex:contentPlaceHolder id="Texto" />
+block append scripts
+    script(type='text/javascript', src=`/arquivos/${$storeName}-${$templateName}.js`) 
+

@@ -1,0 +1,9 @@
+.rr-account__main{
+    padding-top: 10%;
+    max-width: 1250px;
+    margin: 0 auto;
+    @include breakpoint('sm'){
+        padding-top: 35%;
+    }
+}
+

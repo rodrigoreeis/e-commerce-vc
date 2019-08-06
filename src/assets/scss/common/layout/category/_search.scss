@@ -1,0 +1,38 @@
+.rr-category__search{
+    width: 30%;
+    @include breakpoint('sm'){
+        display: none;
+    }
+    .menu-navegue{
+        display: none;
+    }
+    .search-single-navigator{
+        > h3{
+            font-size: 30px;
+            font-weight: bold;
+            color: $color-black-2;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            margin-top: 10px;
+        }
+        h5{
+            display: none;
+        }
+        h4{
+            font-size: 15px;
+            font-weight: 700;
+            color: #1b1b1b;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        > ul {
+            > li {
+                font-size: 11px;
+                text-transform: uppercase;
+                color: $color-black-2;
+                padding: 5px 0;
+            }
+        }
+    }
+}

@@ -44,24 +44,23 @@ const Methods  = {
 	__openZoom() {
 		const image = document.querySelectorAll('.rr-product__image');
 		[...image].map((el) => {
-			el.addEventListener('click', ({currentTarget}) =>{
+			el.addEventListener('click', (ev) => {
+				ev.stopImmediatePropagation();
 				HELPERS.removeAllActives('.rr-product__image-zoom___list')
 				product.imageZoom.classList.add('is--active');
-				const _currentZoom = document.querySelector(`.rr-product__image-zoom___list[data-index="${currentTarget.dataset.index}"]`);
+				const _currentZoom = document.querySelector(`.rr-product__image-zoom___list[data-index="${ev.currentTarget.dataset.index}"]`);
 				_currentZoom.classList.add('is--active');
 			})
 		})
 	},
 	closeZoom(){
 		product.imageZoom.addEventListener('click', (ev) => {
-			console.log(ev.target.classList.contains('rr-product__image-zoom--close'))
 			if(ev.target.classList.contains('rr-product__image-zoom--close')){
 				product.imageZoom.classList.remove('is--active');
 				HELPERS.removeAllActives('.rr-product__image-zoom___list');
 			}
 		})
 	},
-
     __showImage(currentImage) {
 		const getImage = document.querySelector(`.rr-product__image[data-index="${currentImage}"`);
 		getImage.classList.add('is--active');

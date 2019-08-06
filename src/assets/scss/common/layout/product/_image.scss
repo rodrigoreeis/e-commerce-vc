@@ -18,11 +18,11 @@
         transition: all .3s ease-in-out;
         opacity: 0;
         visibility: hidden;
-       
         &.is--active{
             visibility: visible;
             opacity: 1;
         }
+      
         &--close{
             @include rem(padding, 30px);
             position: absolute;
@@ -54,20 +54,28 @@
             opacity: 0;
             visibility: hidden;
             transform: translate(-50%, -50%);
+            @include breakpoint('sm'){
+                max-width: 100%;
+                height: 57%;
+            }
             &.is--active{
                 opacity: 1;
                 visibility: visible;
             }
+            &--item{
+                cursor: pointer;
+            }
             .slick-dots{
                 top: -100px !important;
-            }
-            @include breakpoint('sm'){
-                max-width: 285px;
+                cursor: pointer;
+                @include breakpoint('sm'){
+                    top: 15px !important;
+                }
             }
         }
     }
     &__image{
-        cursor: pointer;
+        cursor: zoom-in;
         opacity: 0;
         visibility: hidden;
         position: absolute !important;
@@ -75,7 +83,7 @@
         top: 0;
         @include rem(width, 465px);
         @include breakpoint('sm'){
-            width: 100%;
+            width: 285px;
         }
         &.is--active{ 
             opacity: 1;

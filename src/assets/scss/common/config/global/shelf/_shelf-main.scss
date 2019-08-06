@@ -75,6 +75,10 @@
             font-size: 12px;
         }
     }
+    &__out-of-stock-terrt{
+        font-weight: bold;
+        text-align: center;
+    }
     &__buy{
         @include rem(margin-top, 10px);
         &--btn{

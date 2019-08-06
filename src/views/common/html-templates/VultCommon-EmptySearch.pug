@@ -1,0 +1,19 @@
+extends ../_layouts/VultCommon-base.pug
+
+//- Template variables
+block vars
+    - var $templateName = 'Empty-search';
+    - var $storeName = 'VultCommon';
+    - var $templateClass = "empty-search"
+
+//- Page styles
+block append styles
+    link(rel='stylesheet',  href=`/arquivos/${$storeName}-${$templateName}.css`, media='all')/
+
+//- Main Content
+block content
+    p(class="rr-empty-search-text") Nenhum resultado encontrado 
+
+block append scripts
+    script(type='text/javascript', src=`/arquivos/${$storeName}-${$templateName}.js`) 
+
