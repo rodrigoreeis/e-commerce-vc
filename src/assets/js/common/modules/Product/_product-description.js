@@ -12,16 +12,17 @@ const Methods  = {
     getFixDescriptions(){
         HELPERS.productInfo(0)
             .then((response) => {
-                product.shotDescription.innerText = response.shotDescription;
+                product.shotDescription.innerHTML = response.shotDescription;
                 product.code.textContent = `Código do item: ${response.code}`;
                 Methods.__setDescriptions(response);
                
             })
     },
     __setDescriptions(response){
-        product.description.innerText = response.shotDescription;
-        product.howToUse.innerText = response.howUse;
-        product.composition.innerText = response.composition;
+        product.description.innerHTML = response.shotDescription;
+        product.howToUse.innerHTML = response.howUse;
+        product.composition.innerHTML = response.composition;
+        descriptions.video.innerHTML = response.video;
     },
 
     tabChange(){
@@ -40,7 +41,7 @@ const Methods  = {
         [...descriptions.scroll].map((el) =>{
             el.addEventListener('click', (ev) => {
                 ev.preventDefault();
-                specification.scrollIntoView({block: "center", behavior: "smooth"});
+                specification.scrollIntoView({block: "end", behavior: "smooth"});
             })
         })
     },

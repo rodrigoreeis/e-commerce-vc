@@ -2,9 +2,7 @@
     &-right{
         display: flex;
         flex-direction: column;
-        @include breakpoint('sm'){
-            width: 100%;
-        }
+        justify-content: flex-end;
     }
     &__price{
         @extend %flex-column;
@@ -24,15 +22,17 @@
     }
     &__buy{
         @extend %flex-column;
-        @include rem(height, 100px);
+        @include breakpoint('sm'){
+            display: none;
+        }
         &.is--remove{
             @include breakpoint('lg'){
                 display: none;
             }
             @include breakpoint('sm'){
-                height: 155px;
                 opacity: 0;
                 visibility: hidden;
+                height: 40px;
             }
         }
         &--btn{
@@ -64,11 +64,13 @@
             color: $color-pink;
             @include rem(font-size, 14px);
             text-transform: uppercase;
+            display: none;
         }
         > a {
             color: $color-black-2;
             @include rem(font-size, 14px);
             text-decoration: underline;
+            display: none;
         }
     }
 }

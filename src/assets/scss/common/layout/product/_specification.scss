@@ -1,86 +1,108 @@
 .rr-product-specification{
+    @include rem(height, 555px);
     width: 100%;
     background-color: $color-grey-light;
-    height: calc(100vh - 65px);
-    display: flex;
-    @include rem(margin-top, 10px);
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px calc((100% - 1270px) / 2);
     @include breakpoint('sm'){
-        height: 365px;
-    }
-    &__container{
-        @extend %container-product;
-        width: 100%;
-        max-width: 1280px;
-        @include rem(max-height, 515px);
-        &--right{
-            @include rem(max-width, 490px);
-            position: relative;
-        }
-        @include breakpoint('sm'){
-            max-width: 285px;
-        }
+        padding: 0px calc((100% - 80%) / 2);
+
     }
     &__names{
+        @include rem(margin-top, 40px);
+        @include rem(font-size, 14px);
+        @include rem(height, 20px);
         display: flex;
-        justify-content: space-between;
+        font-weight: bold;
+        text-transform: uppercase;
+        width: 100%;
         @include breakpoint('sm'){
             overflow-x: scroll;
-            white-space: nowrap;
-            padding-bottom: 15px;
-            padding-top: 15px;
+            padding: 6% 0;
+            order: 1;
+            margin-top: 0;
         }
         &--item{
-            @include rem(font-size, 14px);
-            font-weight: bold;
-            text-transform: uppercase;
-            position: relative;
             cursor: pointer;
-            @include breakpoint('sm'){
-                &:not(:first-of-type){
-                    margin-left: 20px;
-                }
+            position: relative;
+            white-space: nowrap;
+            &::after{
+                content: '';
+                @include rem(height, 5px);
+                @include rem(top, -8px);
+                left: 0;
+                background-color: $color-black;
+                position: absolute;
+                transition: all .3s ease-in-out;
             }
             &.is--active{
                 &::after{
-                    content: '';
-                    @include rem(height, 5px);
-                    @include rem(top, -8px);
-                    left: 0;
                     width: 100%;
-                    background-color: $color-black;
-                    position: absolute;
                 }
+            }
+            &:not(:first-of-type){
+                @include rem(margin-left, 40px);
             }
         }
     }
-
+    &__wrapper{
+        @include rem(max-height, 205px);
+        @include rem(min-height, 200px);
+        @include rem(max-width, 482px);
+        overflow-y: scroll;
+        @include breakpoint('sm'){
+            order: 3;
+        }
+        &::-webkit-scrollbar{
+            width: 5px;
+            background-color: $color-grey-light;
+        }
+        &::-webkit-scrollbar-thumb{
+            background-color: $color-grey-light-7;
+            border-radius: 5px;
+        }
+    }
     &__content{
-        @include rem(margin-top, 180px);
-        @include rem(min-height, 240px);
-        opacity: 0;
-        visibility: hidden;
-        position: absolute;
+        max-height: 0;
         transform: translateX(-100%);
         transition: all .3s ease-in-out;
         color: $color-black-2;
-        @include breakpoint('sm'){
-            margin-top: 50px;
-        }
+        opacity: 0;
+        visibility: hidden;
+        @include rem(min-width, 200px);
         &.is--active{
-            transform: translateX(0);
-            opacity: 1;
+            transform: translateX(0%);
+            max-height: auto;
             visibility: visible;
-        }
-        &--title{
-            @include rem(font-size, 14px);
-            text-transform: uppercase;
-            font-weight: bold;
+            opacity: 1;
         }
         &--text{
-            @include rem(margin-top, 22px);
-            @include rem(font-size, 19px);
+            @include rem(font-size, 15px);
             font-family: $font-mont;
             font-weight: lighter;
+            strong{
+                @include rem(font-size, 14px);
+                text-transform: uppercase;
+                font-family: $font-sans;
+            }
+        }
+    }
+    &__video{
+        @include rem(height, 565px);
+        @include rem(max-width, 625px);
+        display: flex;
+        align-items: center;
+        @include breakpoint('sm'){
+            order: 2;
+            height: 34%;
+            width: 100%;
+            iframe {
+                width: 100% !important;
+                height: 100% !important;
+            }
         }
     }
 }

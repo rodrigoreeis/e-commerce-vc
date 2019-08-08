@@ -33,7 +33,8 @@ export default {
 	},
 	descriptions:{
 		self: document.querySelectorAll('.js--specification--names > li'),
-		scroll: document.querySelectorAll('.js--see--more')
+		scroll: document.querySelectorAll('.js--see--more'),
+		video: document.querySelector('.rr-product-specification__video'),
 	},
 	specification: document.querySelector('.rr-product-specification'),
 	formStok: document.querySelector('.js--form--stock'),

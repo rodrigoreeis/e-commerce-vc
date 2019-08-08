@@ -67,6 +67,7 @@
         @extend %flex-centered;
         flex-direction: column;
         width: 95%;
+        display: none !important;
         &--porcetage{
             @include rem(border, 2px solid $color-black-2);
             @include rem(height, 10px);

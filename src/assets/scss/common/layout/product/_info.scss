@@ -2,9 +2,6 @@
     &-left{
         @include rem(font-size, 14px);
         color: $color-black-2;
-        @include breakpoint('sm'){
-            margin-top: 60px;
-        }
       
     }
     &__content{
@@ -17,8 +14,7 @@
     &__name{
         font-family: $font-bebas;
         font-weight: bold;
-        @include rem(font-size, 64px);
-        @include rem(line-height, 60px);
+        @include rem(font-size, 49px);
         @include rem(letter-spacing, 4px);
         @include rem(height, 180px);
         @include breakpoint('sm'){
@@ -26,6 +22,7 @@
             font-size: 30px;
             letter-spacing: 0;
             line-height: normal;
+            margin-top: 15px;
         }
     }
     &__code{
@@ -51,6 +48,7 @@
         > a{
             text-decoration: underline;
             text-align: right;
+            display: none;
             @include breakpoint('sm'){
                 display: none;
             }
@@ -58,13 +56,14 @@
     }
     &-description{
         border-top: 1px solid $color-grey-light-2;
-        border-bottom: 1px solid $color-grey-light-2;
         @include rem(padding-top, 15px);
         @include rem(margin-bottom, 20px);
         @include rem(padding-bottom, 15px);
+        height: 130px;
+        overflow-y: hidden;
         @include breakpoint('sm'){
             border-top: none;
-            padding-bottom: 45px;
+            margin-bottom: 35px;
         }
         &__title{
             font-weight: bold;
@@ -79,8 +78,10 @@
     &__all-character{
         font-weight: bold;
         text-transform: uppercase;
+        border-top: 1px solid $color-grey-light-2;
         border-bottom: 1px solid $color-grey-light-2;
         @include rem(padding-bottom, 20px);
+        @include rem(padding-top, 20px);
         position: relative;
         cursor: pointer;
         @include breakpoint('sm'){
@@ -92,12 +93,13 @@
             @include rem(width, 12px);
             @include rem(height, 3px);
             @include rem(right, 20px);
-            @include rem(top, 7px);
+            top: 50%;
             background: $color-black;
             position: absolute; 
+            transform: translateY(-50%);
         }
         &::after{
-            transform: rotate(90deg);
+            transform: translateY(-50%) rotate(90deg) ;
         }
     }
 }

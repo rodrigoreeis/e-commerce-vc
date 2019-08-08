@@ -24,9 +24,11 @@
     &__menu{
         font-weight: bold;
         text-transform: uppercase;
-        cursor: pointer;
         justify-content: space-between;
         @include rem(font-size, 14px);
+        @include breakpoint('lg'){
+            cursor: pointer;
+        }
         &--content{
             display: flex;
             > span{

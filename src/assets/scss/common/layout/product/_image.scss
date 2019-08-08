@@ -6,76 +6,88 @@
             width: 375px;
             height: 340px;
         }
+        .slick-dots {
+            @include breakpoint('sm'){
+                top: 10px !important;  // remover gambeta 
+            }
+        }
     }
     &__image-zoom{
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: $color-white;
-        height: 100vh;
-        z-index: 5020;
-        transition: all .3s ease-in-out;
-        opacity: 0;
-        visibility: hidden;
-        &.is--active{
-            visibility: visible;
-            opacity: 1;
-        }
-      
-        &--close{
-            @include rem(padding, 30px);
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            color: $color-black;
-            cursor: pointer;
-            transform: rotate(45deg);
-            &::before,
-            &::after{
-                content: "";
-                @include rem(width, 50px);
-                @include rem(height, 4px);
-                background: $color-black;
-                position: absolute;
-                left: 0;
-                top: 25px;
-            }
-            &::after{
-                transform: rotate(90deg);
-            }
-        }
-        &___list{
-            max-width: 685px;
-            height: 100%;
-            position: absolute !important;
-            top: 50%;
-            left: 50%;
-            opacity: 0;
-            visibility: hidden;
-            transform: translate(-50%, -50%);
-            @include breakpoint('sm'){
-                max-width: 100%;
-                height: 57%;
-            }
-            &.is--active{
-                opacity: 1;
-                visibility: visible;
-            }
-            &--item{
-                cursor: pointer;
-            }
-            .slick-dots{
-                top: -100px !important;
-                cursor: pointer;
-                @include breakpoint('sm'){
-                    top: 15px !important;
-                }
-            }
-        }
+        display: none;
     }
+    // &__image-zoom{
+    //     position: fixed;
+    //     top: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     background: $color-white;
+    //     height: 100vh;
+    //     z-index: 5020;
+    //     transition: all .3s ease-in-out;
+    //     opacity: 0;
+    //     visibility: hidden;
+    //     &.is--active{
+    //         visibility: visible;
+    //         opacity: 1;
+    //     }
+      
+    //     &--close{
+    //         @include rem(padding, 30px);
+    //         position: absolute;
+    //         right: 10px;
+    //         top: 10px;
+    //         color: $color-black;
+    //         cursor: pointer;
+    //         transform: rotate(45deg);
+    //         &::before,
+    //         &::after{
+    //             content: "";
+    //             @include rem(width, 50px);
+    //             @include rem(height, 4px);
+    //             background: $color-black;
+    //             position: absolute;
+    //             left: 0;
+    //             top: 25px;
+    //         }
+    //         &::after{
+    //             transform: rotate(90deg);
+    //         }
+    //     }
+    //     &___list{
+    //         max-width: 685px;
+    //         height: 100%;
+    //         position: absolute !important;
+    //         top: 50%;
+    //         left: 50%;
+    //         opacity: 0;
+    //         visibility: hidden;
+    //         transform: translate(-50%, -50%);
+    //         @include breakpoint('sm'){
+    //             max-width: 100%;
+    //             height: 57%;
+    //         }
+    //         &.is--active{
+    //             opacity: 1;
+    //             visibility: visible;
+    //         }
+    //         &--item{
+    //             cursor: pointer;
+    //             > img{
+    //                 max-width: 475px;
+    //                 height: 475px;
+    //             }
+    //         }
+    //         .slick-dots{
+    //             top: -100px !important;
+    //             cursor: pointer;
+    //             @include breakpoint('sm'){
+    //                 top: 15px !important;
+    //             }
+    //         }
+    //     }
+    // }
     &__image{
-        cursor: zoom-in;
+        cursor: pointer;
         opacity: 0;
         visibility: hidden;
         position: absolute !important;
@@ -83,7 +95,16 @@
         top: 0;
         @include rem(width, 465px);
         @include breakpoint('sm'){
-            width: 285px;
+            width: 100%;
+            transform: translateX(-50%);
+            left: 50%;
+        }
+        img{ 
+            margin: 0 auto;
+            max-height: 466px;
+            @include breakpoint('sm'){
+                max-height: 330px;
+            }
         }
         &.is--active{ 
             opacity: 1;

@@ -5,17 +5,19 @@ const {$modalNews, $header, $globals} = GlobalSelector;
 
 const Methods = {
 	init(){
-		if (!localStorage.novidades){
-			Methods.openModalNews();
-		}    
+		Methods.openModalNews();
 		Methods.closeModal();
 		Methods.__BtnsModalNews();
 		Methods.sendEmailMasterData();
 	},
 	openModalNews(){
-		$header.news.classList.add('is--active');
-		$modalNews.shelf.classList.add('is--active');
-		openOverlay();
+		if (!localStorage.novidades){
+			if (!localStorage.news){
+				$modalNews.shelf.classList.add('is--active');
+				openOverlay();
+			}
+			$header.news.classList.add('is--active');
+		}
 		$header.news.firstElementChild.firstElementChild.addEventListener('click', (ev) =>{
 			ev.preventDefault();
 			$modalNews.shelf.classList.add('is--active');
@@ -25,13 +27,15 @@ const Methods = {
 	closeModal(){
 		$globals.overlay.addEventListener('click', () => {
 			Methods.__BtnsModalNews();
-			closeOverlay($modalNews.shelf);
 		});
 	},
 	__BtnsModalNews(){
 		const btnClose = document.querySelectorAll('.js--close');
 		[...btnClose].map((el) => {
-			el.addEventListener('click', () => {
+			el.addEventListener('click', (ev) => {
+				if(ev.target.classList.contains('rr-news__not')){
+					localStorage.news = true;
+				}
 				closeOverlay($modalNews.shelf);
 			});
 		});

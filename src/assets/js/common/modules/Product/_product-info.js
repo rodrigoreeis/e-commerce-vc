@@ -5,9 +5,14 @@ const { product } = CacheSelector;
 	const setInfo = (item) => {
 		HELPERS.productInfo([item])
 			.then(response => {
+				console.log(response);
+				if(response.bestPrice == 0) {
+					$('.rr-product__buy').addClass('is--remove'); // remover gambeta veia
+					$('.js--out--stock').addClass('is--active');
+				}
 				for (let i = 0 ; i < product.name.length ; i ++){
-					product.name[i].textContent = response.name;
-					product.oldPrice[i].textContent = response.bestPrice == response.oldPrice ? '' : response.oldPrice.toLocaleString('pt-BR',{style: 'currency', currency:'BRL'});
+					product.name[i].innerHTML = response.name;
+					product.oldPrice[i].innerHTML = response.bestPrice == response.oldPrice ? '' : response.oldPrice.toLocaleString('pt-BR',{style: 'currency', currency:'BRL'});
 					product.buy[i].dataset.sku = response.skuId;
 					if (response.bestPrice != 0){
 						product.price[i].textContent = response.bestPrice.toLocaleString('pt-BR',{style: 'currency', currency:'BRL'});
@@ -21,7 +26,7 @@ const { product } = CacheSelector;
 						product.fixOutStock.classList.add('is--active');
 					}
 				}
-				product.colorName.textContent = response.colorName[0].replace(',', '');
+				// product.colorName.textContent = response.colorName[0].replace(',', '');
 			})
 	};
 

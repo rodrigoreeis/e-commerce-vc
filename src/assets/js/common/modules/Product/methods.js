@@ -6,6 +6,7 @@ export const mountObject = ({data}, items) => {
 	const _avalablePrice = _currentItem.sellers[0].commertialOffer;
 	const _productInfo = {
 		name: _currentItem.hasOwnProperty('name') ? _currentItem.name : '',
+		video: _currentItem.hasOwnProperty('Videos') ? _currentItem.Videos[0] : '',
 		images:	_currentItem.hasOwnProperty('images') ? getImages(data) : '',
 		skuId: _currentItem.hasOwnProperty('itemId') ? _currentItem.itemId: '',
 		code: _currentData.hasOwnProperty('productId') ? _currentData.productId : '',
@@ -13,8 +14,8 @@ export const mountObject = ({data}, items) => {
 		bestPrice: _avalablePrice.hasOwnProperty('Price') ? _avalablePrice.Price : '',
 		oldPrice: _avalablePrice.hasOwnProperty('ListPrice') ? _avalablePrice.ListPrice : '',
 		shotDescription: _currentData.hasOwnProperty('description') ? _currentData.description : '',
-		composition: _currentData.hasOwnProperty('ComposicaoNOVO') ? _currentData.ComposicaoNOVO[0] : '',
-		howUse: _currentData.hasOwnProperty('ComousarNOVO') ? _currentData.ComousarNOVO[0] : '',
+		composition: _currentData.hasOwnProperty('composicaonovo') ? _currentData.composicaonovo[0] : '',
+		howUse: _currentData.hasOwnProperty('comousarnovo') ? _currentData.comousarnovo[0] : '',
 	};
 	return Object.freeze(_productInfo);
 };

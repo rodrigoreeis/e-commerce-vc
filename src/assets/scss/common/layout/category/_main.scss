@@ -32,8 +32,8 @@
                     flex-direction: column;
                 }
                 >li {
-                     flex: 1;
-                    padding: 15px 20px;
+                    max-width: 330px;
+                     padding: 15px 20px;
                     @include breakpoint('sm'){
                         .rr-shelf__item{
                             max-width: 100%;
