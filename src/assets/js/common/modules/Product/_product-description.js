@@ -45,6 +45,8 @@ const Methods  = {
             })
         })
     },
+
+   
 }
 
 export default {

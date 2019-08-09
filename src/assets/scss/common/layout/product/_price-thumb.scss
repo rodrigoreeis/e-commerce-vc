@@ -6,12 +6,11 @@
     }
     &__price{
         @extend %flex-column;
+        @include breakpoint('lg'){
+            height: 118px;
+        }
         justify-content: center;
         color: $color-black-2;
-        @include rem(height, 80px);
-        // @include breakpoint('sm'){
-        //     height: 50px;
-        // }
         &--best-price{
             @include rem(font-size, 30px);
             font-weight: bold;
@@ -47,7 +46,6 @@
             text-transform: uppercase;
             @include breakpoint('sm'){
                 display: none;
-                
             }
             &.is--remove{
                 display: none;

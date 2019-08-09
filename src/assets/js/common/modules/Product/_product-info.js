@@ -5,7 +5,6 @@ const { product } = CacheSelector;
 	const setInfo = (item) => {
 		HELPERS.productInfo([item])
 			.then(response => {
-				console.log(response);
 				if(response.bestPrice == 0) {
 					$('.rr-product__buy').addClass('is--remove'); // remover gambeta veia
 					$('.js--out--stock').addClass('is--active');

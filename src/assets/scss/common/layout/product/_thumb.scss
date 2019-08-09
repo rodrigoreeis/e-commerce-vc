@@ -1,9 +1,8 @@
 .rr-product{
     &__thumb{
         @extend %flex-column;
-        @include rem(height, 230px);
+        @include rem(margin-bottom, 40px);
         justify-content: center;
-        display: none;
         @include breakpoint('sm'){
             position: fixed;
             left: 0;
@@ -19,6 +18,7 @@
             font-weight: bold;
             @include rem(font-size, 14px);
             @include rem(margin-bottom, 25px);
+            display: none;
             @include breakpoint('sm'){
                 display: none;
             }
@@ -28,10 +28,23 @@
             }
         }
         &-container{
-            display: flex;
-            flex-wrap: wrap;
+            overflow-y: scroll;
+            @include breakpoint('lg'){
+                display: flex;
+                flex-wrap: wrap;
+                @include rem(max-height, 180px);
+                &::-webkit-scrollbar{
+                    width: 5px;
+                    background-color: $color-grey-light;
+                }
+                &::-webkit-scrollbar-thumb{
+                    background-color: $color-grey-light-7;
+                    border-radius: 5px;
+                }
+            }
             @include breakpoint('sm'){
                 flex-direction: column;
+                max-height: 500px;
             }
         }
         &--box{

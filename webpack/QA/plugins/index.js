@@ -4,7 +4,6 @@ const OptimizeCSSAssets = require('optimize-css-assets-webpack-plugin');
 
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
-
 const TemplatesQA = require('../../utils/getTemplatesQA');
 const SubTemplatesQA = require('../../utils/getSubTemplatesQA');
 

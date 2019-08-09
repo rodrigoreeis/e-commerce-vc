@@ -12,7 +12,6 @@ const Methods  = {
         HELPERS.productInfo(0)
             .then((response) => {
 				Methods.__createElementsImage(response);
-				console.log(response);
             })
     },
     __createElementsImage(response) {
