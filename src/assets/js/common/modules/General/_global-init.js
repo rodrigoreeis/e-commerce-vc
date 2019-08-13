@@ -8,10 +8,11 @@ import Footer from './Footer/__footer-index';
 import Minicart from './Minicart/_minicart-index';
 import LazyLoad from './LazyLoad';
 
-const {$loader} = GlobalSelector;
+const { $loader } = GlobalSelector;
 
 const Methods = {
 	init() {
+		Methods.redirectTbb();	
 		Shelf.init();
 		LazyLoad.init();
 		Methods.ajaxLoader();
@@ -21,8 +22,8 @@ const Methods = {
 		Footer.init();
 		Minicart.init();
 	},
-	ajaxLoader(){
-		$loader.shelf.classList.add('is--remove');
+	redirectTbb(){
+		window.location.href = "https://thebeautybox.com.br"
 	}
 };
 export default {

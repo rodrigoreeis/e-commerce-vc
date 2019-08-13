@@ -1,7 +1,7 @@
 .rr-ajax-loader{
     display: flex;
     align-items: center;
-    background: hsla(0,0%,100%,.75);
+    background: $color-black;
     position: fixed;
     top: 0;
     left: 0;
@@ -23,7 +23,7 @@
         g{
             rect,
             path{
-                fill: $color-black;
+                fill: $color-white;
             }
         }        
     }
@@ -32,7 +32,7 @@
         position: relative;
         z-index: 5881;
         border: 3px solid transparent;
-        border-top-color: $color-black;
+        border-top-color: $color-white;
         border-radius: 50%;
         animation: spin 3s linear infinite;
         width: 200px;
@@ -42,7 +42,7 @@
             content: "";
             position: absolute;
             border: 3px solid transparent;
-            border-top-color: $color-black;
+            border-top-color: $color-pink;
             border-radius: 50%;
             animation: spin 1.5s linear infinite;
             @include rem(top, 15px);
@@ -55,7 +55,6 @@
             position: absolute;
             border: 3px solid transparent;
             border-radius: 50%;
-            border-top-color: $color-black;
             animation: spin 2s linear infinite;
             @include rem(top, 5px);
             @include rem(left, 5px);
