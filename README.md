@@ -4,8 +4,6 @@
 
 Repositório feito todo VanillaJS + ES6, usando Webpack 4 + Babel 7;
 
-# É EXTREMAMENTE PROÍBIDO USO DE JQUERY NESTE REPOSITÓRIO.
-
 ### Requerimentos
 
 * [node.js](https://nodejs.org/en/) a ultima versão
