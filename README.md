@@ -1,4 +1,3 @@
-# Vult Cosméticos.
 
 ## Leia-me
 
